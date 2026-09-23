@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es-CL">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Marca que hay JavaScript, antes del primer pintado. Los revelados al
+         scroll se ocultan solo bajo `html.js`: así el HTML prerenderizado se
+         sirve visible para quien no ejecute scripts, y no hay parpadeo para
+         quien sí. -->
+    <script>
+      document.documentElement.classList.add('js')
+      // ?movimiento=1 fuerza las animaciones aunque el sistema pida quietud.
+      // Es para revisar el diseño; vive solo en la URL, nunca se guarda.
+      if (new URLSearchParams(location.search).get('movimiento') === '1') {
+        document.documentElement.classList.add('movimiento')
+      }
+    </script>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>ARS Invest — Estructuramos inversiones para desarrollo inmobiliario en Chile</title>
+    <meta
+      name="description"
+      content="Estructuramos inversiones para desarrollar proyectos inmobiliarios en Chile. Participamos desde la evaluación del terreno hasta la distribución de resultados."
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

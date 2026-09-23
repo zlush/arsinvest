@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+  }
+
+  /* Con Lenis activo el scroll nativo suave sobra y además pelea con él: los
+     dos intentan animar la misma posición y el resultado tironea. */
+  html.scroll-suave {
+    scroll-behavior: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html:not(.movimiento) {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-white font-texto text-[17px] leading-[1.65] text-tinta antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-titulo font-semibold text-azul-700;
+    text-wrap: balance;
+  }
+
+  /* Escala editorial: el salto entre niveles es grande a propósito. Una
+     jerarquía tímida es lo que hace que una página se lea como plantilla. */
+  h1 {
+    @apply text-[2.25rem] leading-[1.05] tracking-[-0.03em] sm:text-[2.875rem] lg:text-[3.5rem];
+  }
+
+  h2 {
+    @apply text-[1.875rem] leading-[1.1] tracking-[-0.02em] sm:text-[2.5rem];
+  }
+
+  h3 {
+    @apply text-[1.25rem] leading-[1.3] tracking-[-0.01em];
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-azul-400 ring-offset-2;
+  }
+
+  ::selection {
+    @apply bg-azul-100 text-azul-700;
+  }
+}
+
+@layer components {
+  /* Toda cifra del sitio se compara con la de al lado: tabulares siempre.
+     Brand kit §4. */
+  .cifra {
+    font-variant-numeric: tabular-nums;
+    @apply font-titulo font-semibold tracking-[-0.02em] text-azul-700;
+  }
+
+  .etiqueta {
+    @apply font-texto text-[11px] font-semibold uppercase tracking-etiqueta text-gris-500 sm:text-xs;
+  }
+
+  .seccion {
+    @apply mx-auto w-full max-w-contenido px-5 py-20 sm:px-8 lg:py-32;
+  }
+
+  /* --- Botones -----------------------------------------------------------
+     El `active:scale` da la sensación de que el botón se hunde. Es medio
+     píxel de movimiento y es la diferencia entre un control y un rectángulo
+     de color. */
+  .boton-primario {
+    @apply inline-flex items-center gap-3 whitespace-nowrap rounded-full bg-azul-700 py-2 pl-6 pr-2
+           font-texto text-[15px] font-semibold text-white
+           transition-[background-color,transform] duration-500 ease-suave
+           hover:bg-azul-600 active:scale-[0.98] motion-reduce:transition-none;
+  }
+
+  .boton-secundario {
+    @apply inline-flex items-center gap-3 whitespace-nowrap rounded-full border border-gris-200 py-2 pl-6 pr-2
+           font-texto text-[15px] font-semibold text-azul-700
+           transition-[border-color,background-color,transform] duration-500 ease-suave
+           hover:border-azul-400 hover:bg-azul-100/60 active:scale-[0.98] motion-reduce:transition-none;
+  }
+
+  .boton-claro {
+    @apply inline-flex items-center gap-3 whitespace-nowrap rounded-full bg-white py-2 pl-6 pr-2
+           font-texto text-[15px] font-semibold text-azul-700
+           transition-transform duration-500 ease-suave active:scale-[0.98]
+           motion-reduce:transition-none;
+  }
+
+  /* Secundario sobre fondo oscuro: el borde gris claro desaparece contra el
+     azul-900, así que va en blanco translúcido. */
+  .boton-borde-claro {
+    @apply inline-flex items-center gap-3 whitespace-nowrap rounded-full border border-white/25 py-2 pl-6 pr-2
+           font-texto text-[15px] font-semibold text-white
+           transition-[border-color,background-color,transform] duration-500 ease-suave
+           hover:border-white/50 hover:bg-white/5 active:scale-[0.98] motion-reduce:transition-none;
+  }
+
+  /* El disco que envuelve la flecha. Se mueve en diagonal en el hover del
+     grupo: tensión interna sin que el botón entero salte. */
+  .boton-disco {
+    @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-full
+           transition-transform duration-500 ease-resorte
+           group-hover:translate-x-0.5 group-hover:-translate-y-0.5
+           motion-reduce:transition-none motion-reduce:group-hover:translate-x-0
+           motion-reduce:group-hover:translate-y-0;
+  }
+
+  /* --- Enlaces -----------------------------------------------------------
+     El subrayado se dibuja de izquierda a derecha en vez de aparecer. */
+  .enlace {
+    @apply relative text-azul-600 transition-colors duration-300 hover:text-azul-500;
+  }
+
+  .enlace::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-0 h-px w-full origin-right scale-x-0 bg-azul-400
+           transition-transform duration-500 ease-suave;
+  }
+
+  .enlace:hover::after {
+    @apply origin-left scale-x-100;
+  }
+
+  .enlace-flecha {
+    @apply inline-flex items-center gap-2 font-texto text-[15px] font-semibold
+           text-azul-600 transition-colors duration-300 hover:text-azul-500;
+  }
+
+  /* --- Superficies ------------------------------------------------------- */
+  .tarjeta {
+    @apply relative overflow-hidden rounded-2xl border border-gris-200 bg-white
+           transition-[border-color,transform,box-shadow] duration-700 ease-suave
+           hover:-translate-y-1 hover:border-azul-400/60
+           hover:shadow-[0_18px_40px_-28px_rgba(0,48,87,0.45)]
+           motion-reduce:transition-none motion-reduce:hover:translate-y-0;
+  }
+
+  /* Velo sobre las fotos: las de los proyectos vienen con cielos muy claros y
+     el texto blanco encima se perdía. Va en la imagen, no en el layout. */
+  .velo-foto {
+    @apply pointer-events-none absolute inset-0
+           bg-[linear-gradient(to_top,rgba(0,48,87,0.55),rgba(0,48,87,0)_55%)];
+  }
+}
+
+@layer components {
+  /* Revelado al scroll. El estado oculto está detrás de `html.js` a propósito:
+     sin JavaScript —un rastreador, o si el script falla— el contenido se sirve
+     visible en vez de quedar en opacity:0. */
+  [data-revelar] {
+    transition:
+      opacity 900ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html.js [data-revelar][data-visible='false'] {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html:not(.movimiento) [data-revelar],
+    html.js:not(.movimiento) [data-revelar][data-visible='false'] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+}
+
+@layer utilities {
+  /* Grano de película. Fijo y sin eventos de puntero: si viaja con el scroll,
+     el navegador repinta la textura en cada frame. Es lo que evita que las
+     superficies planas se lean como plástico. */
+  .grano::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='r'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23r)'/%3E%3C/svg%3E");
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/vision", "destination": "/quienes-somos", "permanent": true },
+    { "source": "/proyectos-en-ejecucion", "destination": "/proyectos?estado=ejecucion", "permanent": true },
+    { "source": "/proyectos-finalizados", "destination": "/proyectos?estado=finalizado", "permanent": true },
+    { "source": "/como-invertir", "destination": "/quienes-somos", "permanent": true }
+  ],
+  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }]
+}
