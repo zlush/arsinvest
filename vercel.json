@@ -1,5 +1,11 @@
 {
   "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    }
+  ],
   "redirects": [
     { "source": "/vision", "destination": "/quienes-somos", "permanent": true },
     { "source": "/proyectos-en-ejecucion", "destination": "/proyectos?estado=ejecucion", "permanent": true },

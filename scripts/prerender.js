@@ -135,7 +135,14 @@ async function main() {
 
   await writeFile(
     join(DIST, 'robots.txt'),
-    ['User-agent: *', 'Allow: /', '', `Sitemap: ${SITIO}/sitemap.xml`, ''].join('\n'),
+    // Sin VITE_SITIO definido el sitio está en la URL de revisión, no en su
+    // dominio: ahí no se rastrea. El contenido todavía tiene datos en
+    // validación y una copia indexada competiría con el sitio del cliente.
+    // Al publicar en arsinvest.cl se define VITE_SITIO y vuelve a Allow.
+    (process.env.VITE_SITIO
+      ? ['User-agent: *', 'Allow: /', '', `Sitemap: ${SITIO}/sitemap.xml`, '']
+      : ['User-agent: *', 'Disallow: /', '']
+    ).join('\n'),
     'utf8',
   )
 
