@@ -31,3 +31,7 @@ dist-ssr
 .env.local
 
 .vercel
+
+# salida de scripts/previa-correo.mjs
+previa-*.html
+_previa_tmp.mjs

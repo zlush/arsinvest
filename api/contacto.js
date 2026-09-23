@@ -52,42 +52,171 @@ export default async function handler(req, res) {
   })
 
   const motivoTexto = MOTIVOS[motivo] || motivo
+  const telefonoLimpio = (telefono || '').replace(/[^\d+]/g, '')
+
+  // Hora de Chile, no la del servidor: quien lee esto necesita saber cuándo
+  // entró la consulta en su propio huso, no en UTC.
+  const cuando = new Date().toLocaleString('es-CL', {
+    timeZone: 'America/Santiago',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    // 24 horas: con hour12 el locale chileno agrega "a. m." y al lado de la
+    // "h" del formato queda "10:41 a. m. h".
+    hour12: false,
+  })
+
+  // La tabla del HTML lleva solo lo que no está ya a la vista: el motivo vive
+  // en la etiqueta de arriba y la fecha debajo del nombre. Repetirlos hacía
+  // que el bloque de datos se leyera como relleno.
   const filas = [
-    ['Nombre', nombre],
     ['Correo', correo],
     ['Teléfono', telefono || 'No indicado'],
-    ['Motivo', motivoTexto],
   ]
 
+  // En texto plano no hay jerarquía visual, así que ahí sí van todos.
   const avisoTexto = [
-    'Nueva consulta desde arsinvest.cl',
+    `Nueva consulta · ${motivoTexto}`,
     '',
+    `De: ${nombre}`,
     ...filas.map(([k, v]) => `${k}: ${v}`),
+    `Motivo: ${motivoTexto}`,
+    `Recibida: ${cuando} h`,
     '',
     'Mensaje:',
     mensaje,
+    '',
+    '---',
+    `Responde directamente a este correo y la respuesta le llega a ${nombre}.`,
   ].join('\n')
 
-  const avisoHtml = `
-    <div style="font-family:Arial,Helvetica,sans-serif;color:#1B1F24;line-height:1.6">
-      <p style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#6B7075;margin:0 0 8px">
-        Nueva consulta desde arsinvest.cl
+  /**
+   * Aviso interno.
+   *
+   * Maquetado con tablas y estilos en línea porque Outlook ignora flexbox,
+   * grid y las hojas de estilo externas. Ancho 600px, que es el estándar que
+   * no se corta en ningún cliente.
+   *
+   * La decisión de fondo: este correo se lee en el teléfono, entre otras
+   * cosas, y la única acción que importa es responder. Por eso el nombre y los
+   * dos botones van arriba de todo, antes que la tabla de datos.
+   */
+  const avisoHtml = `<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>Nueva consulta</title>
+</head>
+<body style="margin:0;padding:0;background:#F5F7F9;">
+<!-- Preencabezado: es la línea que Gmail muestra junto al asunto en la
+     bandeja. Sin esto, ahí aparece el primer texto que encuentre. -->
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">
+  ${escapar(motivoTexto)} · ${escapar(nombre)} · ${escapar(mensaje.slice(0, 90))}
+</div>
+
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#F5F7F9;">
+<tr><td align="center" style="padding:24px 12px;">
+
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:100%;max-width:600px;background:#FFFFFF;border-radius:12px;overflow:hidden;font-family:Arial,Helvetica,sans-serif;">
+
+  <tr>
+    <td style="background:#003057;padding:20px 28px;">
+      <span style="color:#FFFFFF;font-size:15px;font-weight:bold;letter-spacing:.04em;">ARS INVEST</span>
+      <span style="color:#7FC4E0;font-size:11px;letter-spacing:.12em;text-transform:uppercase;float:right;padding-top:4px;">Nueva consulta</span>
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding:28px 28px 0 28px;">
+      <span style="display:inline-block;background:#E3F1F8;color:#00618F;font-size:11px;font-weight:bold;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:999px;">
+        ${escapar(motivoTexto)}
+      </span>
+      <p style="margin:16px 0 4px;font-size:26px;line-height:1.2;color:#004582;font-weight:bold;">
+        ${escapar(nombre)}
       </p>
-      <h2 style="color:#004582;margin:0 0 20px;font-size:20px">${escapar(motivoTexto)}</h2>
-      <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;width:100%;max-width:520px">
+      <p style="margin:0;font-size:13px;color:#6B7075;">${escapar(cuando)} h</p>
+    </td>
+  </tr>
+
+  <!-- Botones con tabla: Outlook ignora el padding de un <a> suelto y el
+       botón quedaría del tamaño del texto. -->
+  <tr>
+    <td style="padding:22px 28px 0 28px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="background:#004582;border-radius:999px;">
+            <a href="mailto:${escapar(correo)}?subject=${encodeURIComponent('Re: su consulta a ARS Invest')}"
+               style="display:inline-block;padding:13px 26px;font-size:14px;font-weight:bold;color:#FFFFFF;text-decoration:none;">
+              Responder
+            </a>
+          </td>
+          ${
+            telefonoLimpio
+              ? `<td width="10"></td>
+          <td style="border:1px solid #DDE3E8;border-radius:999px;">
+            <a href="tel:${escapar(telefonoLimpio)}"
+               style="display:inline-block;padding:12px 26px;font-size:14px;font-weight:bold;color:#004582;text-decoration:none;">
+              Llamar
+            </a>
+          </td>`
+              : ''
+          }
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding:26px 28px 0 28px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
         ${filas
           .map(
-            ([k, v]) => `<tr>
-              <td style="padding:8px 16px 8px 0;color:#6B7075;font-size:13px;white-space:nowrap">${escapar(k)}</td>
-              <td style="padding:8px 0;font-size:15px">${escapar(v)}</td>
-            </tr>`,
+            ([k, v], i) => `<tr>
+          <td style="padding:11px 16px 11px 0;font-size:12px;color:#6B7075;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;vertical-align:top;${i ? 'border-top:1px solid #EDF1F4;' : ''}">${escapar(k)}</td>
+          <td style="padding:11px 0;font-size:15px;color:#1B1F24;vertical-align:top;${i ? 'border-top:1px solid #EDF1F4;' : ''}">${escapar(v)}</td>
+        </tr>`,
           )
           .join('')}
       </table>
-      <p style="margin:24px 0 8px;color:#6B7075;font-size:13px">Mensaje</p>
-      <p style="margin:0;white-space:pre-wrap;font-size:15px">${escapar(mensaje)}</p>
-    </div>
-  `
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding:24px 28px 0 28px;">
+      <p style="margin:0 0 10px;font-size:12px;color:#6B7075;text-transform:uppercase;letter-spacing:.06em;">Mensaje</p>
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#F5F7F9;border-radius:8px;">
+        <tr><td style="padding:16px 18px;border-left:3px solid #0094C5;border-radius:8px;">
+          <p style="margin:0;font-size:15px;line-height:1.65;color:#1B1F24;white-space:pre-wrap;">${escapar(mensaje)}</p>
+        </td></tr>
+      </table>
+    </td>
+  </tr>
+
+  <!-- El replyTo del mensaje apunta al visitante, así que Responder ya le
+       llega. Decirlo evita que alguien abra otro cliente para contestar. -->
+  <tr>
+    <td style="padding:24px 28px 28px 28px;">
+      <p style="margin:0;padding-top:18px;border-top:1px solid #EDF1F4;font-size:13px;line-height:1.6;color:#6B7075;">
+        Responde directamente a este correo: la respuesta le llega a ${escapar(nombre)}.
+      </p>
+    </td>
+  </tr>
+
+</table>
+
+<p style="margin:16px 0 0;font-size:11px;color:#98A1A8;font-family:Arial,Helvetica,sans-serif;">
+  Enviado por el formulario de arsinvest.cl
+</p>
+
+</td></tr>
+</table>
+</body>
+</html>`
 
   const acuseTexto = [
     `Estimado/a ${nombre},`,
