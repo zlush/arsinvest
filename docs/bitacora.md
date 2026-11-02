@@ -1,5 +1,10 @@
 # Bitácora — ARS Invest (arsinvest.cl)
 
+## 2026-11-02 — Verity publicada en Vercel
+- Hecho: commit `5a830df` en `main` (sección Verity, arreglos de accesibilidad y acuse rediseñado del formulario) y deploy a producción de Vercel: https://ars-invest-site.vercel.app/verity
+- Verificado: /verity, /verity/macrolotes, /verity/power-center y /verity/agentizacion responden 200 con su `<h1>`; el menú enlaza a /verity y el formulario ofrece "Quiero conversar sobre Verity". Tests 6/6 y build de 25 rutas antes del deploy.
+- Pendiente (Alfredo): `git push` a GitHub (no se hizo). arsinvest.cl sigue en cPanel con el sitio antiguo; el sitio nuevo sigue con `noindex`.
+
 ## 2026-10-29 — Sección Verity (4 páginas) y auditoría del sitio
 - Hecho: `/verity` con las tres líneas y una página por línea: `/verity/macrolotes`, `/verity/power-center`, `/verity/agentizacion` ([src/pages/Verity.jsx](../src/pages/Verity.jsx), [src/pages/VerityLinea.jsx](../src/pages/VerityLinea.jsx), contenido en [src/content/verity.js](../src/content/verity.js)). "Verity" en el menú y el pie; motivo "Quiero conversar sobre Verity" en el formulario y en `api/contacto.js`.
 - Hecho: identidad de Verity dentro del sitio de ARS (enfoque A): tinta, profundo, bronce y piedra; títulos en Marcellus; logo reconstruido en SVG; diez ilustraciones de la propuesta de Arturo recoloreadas ([src/assets/verity/](../src/assets/verity/)). Tokens y contrastes en [docs/brand-kit.md §12](brand-kit.md).
