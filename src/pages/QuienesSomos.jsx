@@ -60,7 +60,7 @@ export default function QuienesSomos() {
         <ol className="mt-12 space-y-px overflow-hidden rounded border border-gris-200 bg-gris-200">
           {comoTrabajamos.map((paso) => (
             <li key={paso.paso} className="grid gap-2 bg-white p-6 sm:grid-cols-[4rem_14rem_1fr] sm:items-baseline sm:gap-6">
-              <span className="cifra text-[15px] text-azul-400">{paso.paso}</span>
+              <span className="cifra text-[15px] text-azul-500">{paso.paso}</span>
               <h3 className="text-[1.05rem]">{paso.titulo}</h3>
               <p className="text-[15px] leading-relaxed text-gris-500">{paso.texto}</p>
             </li>

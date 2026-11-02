@@ -35,3 +35,4 @@ dist-ssr
 # salida de scripts/previa-correo.mjs
 previa-*.html
 _previa_tmp.mjs
+api/_previa_tmp.mjs

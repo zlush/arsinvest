@@ -112,7 +112,7 @@
      grupo: tensión interna sin que el botón entero salte. */
   .boton-disco {
     @apply flex h-9 w-9 shrink-0 items-center justify-center rounded-full
-           transition-transform duration-500 ease-resorte
+           transition-transform duration-500 ease-suave
            group-hover:translate-x-0.5 group-hover:-translate-y-0.5
            motion-reduce:transition-none motion-reduce:group-hover:translate-x-0
            motion-reduce:group-hover:translate-y-0;

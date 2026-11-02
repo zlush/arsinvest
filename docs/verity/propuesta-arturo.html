@@ -1,0 +1,2093 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Verity · ARS Invest</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Lato:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: "plano técnico" — un sitio sobrio sobre una retícula de 12 columnas con líneas finas de levantamiento; cada línea de negocio se reconoce por su propio color de acento. */
+:root{
+  --paper:#F2F5F5; --surface:#FFFFFF; --ink:#12212B; --muted:#55646D; --rule:#D3DCE0; --rule-2:#E6ECEE;
+  --band:#0F2B3D; --band-2:#163A50; --band-ink:#F2F5F5; --band-muted:#A9BEC9;
+  --cyan:#0094C5; --cyan-ink:#007AA3;
+  --ml:#55752A; --ml-soft:#E5ECD8; --ml-fill:#9BB46A;
+  --pc:#985A00; --pc-soft:#F5E7D0; --pc-fill:#DD9C3A;
+  --ag:#083B4E; --ag-soft:#DCE7EB; --ag-fill:#3B7F98; --ag-band:#062A38; --gold:#BD8C3D;
+  --glass:#CFE3EA;
+  --accent:var(--band); --accent-soft:var(--rule-2); --accent-fill:var(--cyan);
+  --f-display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --f-body:"Lato","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --maxw:1180px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0C151A; --surface:#121F26; --ink:#E4EBEE; --muted:#9AABB3; --rule:#2A3B44; --rule-2:#1B2A32;
+    --band:#0A1E2A; --band-2:#12303F; --band-ink:#EAF1F3; --band-muted:#9DB4C0;
+    --cyan:#3DB8E3; --cyan-ink:#5CC6EA;
+    --ml:#AECB7E; --ml-soft:#1E2914; --ml-fill:#6F8F3B;
+    --pc:#EDB565; --pc-soft:#2F2311; --pc-fill:#9C6619;
+    --ag:#86BED2; --ag-soft:#0F2731; --ag-fill:#3E8AA5; --ag-band:#05202B; --gold:#D8A95C;
+    --glass:#1E3A46;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0C151A; --surface:#121F26; --ink:#E4EBEE; --muted:#9AABB3; --rule:#2A3B44; --rule-2:#1B2A32;
+  --band:#0A1E2A; --band-2:#12303F; --band-ink:#EAF1F3; --band-muted:#9DB4C0;
+  --cyan:#3DB8E3; --cyan-ink:#5CC6EA;
+  --ml:#AECB7E; --ml-soft:#1E2914; --ml-fill:#6F8F3B;
+  --pc:#EDB565; --pc-soft:#2F2311; --pc-fill:#9C6619;
+  --ag:#86BED2; --ag-soft:#0F2731; --ag-fill:#3E8AA5; --ag-band:#05202B; --gold:#D8A95C;
+  --glass:#1E3A46;
+  color-scheme:dark;
+}
+.page[data-line="ml"]{--accent:var(--ml); --accent-soft:var(--ml-soft); --accent-fill:var(--ml-fill)}
+.page[data-line="pc"]{--accent:var(--pc); --accent-soft:var(--pc-soft); --accent-fill:var(--pc-fill)}
+.page[data-line="ag"]{--accent:var(--ag); --accent-soft:var(--ag-soft); --accent-fill:var(--ag-fill)}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{transition:none!important; animation:none!important}}
+body{background:var(--paper); color:var(--ink); font-family:var(--f-body); font-size:1.0625rem; line-height:1.62; -webkit-font-smoothing:antialiased}
+body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:60; background:var(--surface)}
+a{color:var(--cyan-ink)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--cyan); outline-offset:3px; border-radius:2px}
+h1,h2,h3,h4{font-family:var(--f-display); font-stretch:112%; text-wrap:balance; margin:0; color:var(--ink); letter-spacing:-0.01em}
+h1{font-size:clamp(2rem,4.4vw,3.35rem); line-height:1.06; font-weight:650}
+h2{font-size:clamp(1.45rem,2.6vw,2.05rem); line-height:1.15; font-weight:620}
+h3{font-size:1.14rem; line-height:1.3; font-weight:640}
+h4{font-size:0.98rem; line-height:1.3; font-weight:650}
+p{margin:0}
+.wrap{max-width:var(--maxw); margin:0 auto; padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:720px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px)); padding-right:max(32px,env(safe-area-inset-right,0px))}}
+.mono{font-family:var(--f-mono)}
+.eyebrow{font-family:var(--f-mono); font-size:.74rem; letter-spacing:.09em; text-transform:uppercase; color:var(--accent); display:flex; align-items:center; gap:.7em; font-weight:500}
+.eyebrow::before{content:""; width:28px; height:1px; background:currentColor; flex:none}
+.lead{font-size:clamp(1.08rem,1.5vw,1.24rem); line-height:1.55; color:var(--muted); max-width:62ch}
+.muted{color:var(--muted)}
+.small{font-size:.9rem}
+.tag{font-family:var(--f-mono); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+
+/* ---------- Top strip + header ---------- */
+.strip{background:var(--band); color:var(--band-muted); font-family:var(--f-mono); font-size:.72rem; letter-spacing:.05em}
+.strip .wrap{display:flex; justify-content:space-between; gap:1rem; padding-block:.45rem; flex-wrap:wrap}
+.strip a{color:var(--band-ink); text-decoration:none; border-bottom:1px solid var(--band-muted)}
+header.site{position:sticky; top:env(safe-area-inset-top,0px); z-index:50; background:var(--surface); border-bottom:1px solid var(--rule)}
+header.site .wrap{display:flex; align-items:center; justify-content:space-between; gap:1rem; min-height:68px}
+.brand{display:flex; align-items:center; gap:.65rem; text-decoration:none; color:var(--ink)}
+.brand svg{width:30px; height:30px; flex:none}
+.brand b{font-family:var(--f-display); font-stretch:125%; font-weight:720; letter-spacing:.16em; font-size:1.08rem}
+.brand span{display:block; font-family:var(--f-mono); font-size:.62rem; letter-spacing:.08em; color:var(--muted); text-transform:uppercase; line-height:1.2}
+nav.main{display:flex; align-items:center; gap:.25rem}
+nav.main > .item{position:relative}
+nav.main .top{appearance:none; background:none; border:0; font:inherit; font-family:var(--f-body); font-weight:700; font-size:.93rem; color:var(--ink); padding:.6rem .8rem; cursor:pointer; display:flex; align-items:center; gap:.4rem; border-radius:3px; text-decoration:none}
+nav.main .top:hover{background:var(--rule-2)}
+nav.main .top .dot{width:8px; height:8px; border-radius:50%; flex:none}
+nav.main .top[aria-current="true"]{box-shadow:inset 0 -2px 0 var(--ink)}
+nav.main .top svg{width:10px; height:10px; transition:transform .2s}
+nav.main .top[aria-expanded="true"] svg{transform:rotate(180deg)}
+.dd{position:absolute; top:calc(100% + 6px); left:0; min-width:270px; background:var(--surface); border:1px solid var(--rule); padding:.4rem; display:grid; gap:2px; box-shadow:0 18px 40px -18px rgba(10,30,40,.35)}
+.dd a{display:flex; gap:.7rem; align-items:baseline; padding:.55rem .7rem; color:var(--ink); text-decoration:none; font-size:.93rem; border-radius:3px}
+.dd a:hover,.dd a[aria-current="page"]{background:var(--rule-2)}
+.dd a .n{font-family:var(--f-mono); font-size:.7rem; color:var(--muted); width:1.6em; flex:none}
+.menu-btn{display:none; appearance:none; background:none; border:1px solid var(--rule); color:var(--ink); padding:.5rem .7rem; font:inherit; font-size:.85rem; font-weight:700; cursor:pointer; border-radius:3px}
+@media (max-width:900px){
+  .menu-btn{display:block}
+  nav.main{display:none; position:absolute; left:0; right:0; top:100%; background:var(--surface); border-bottom:1px solid var(--rule); flex-direction:column; align-items:stretch; padding:.5rem max(16px,env(safe-area-inset-right,0px)) 1rem max(16px,env(safe-area-inset-left,0px)); max-height:calc(100vh - 110px); overflow:auto}
+  nav.main.open{display:flex}
+  nav.main .top{width:100%; justify-content:space-between; padding:.85rem .4rem; border-bottom:1px solid var(--rule-2)}
+  .dd{position:static; box-shadow:none; border:0; min-width:0; padding:.2rem 0 .6rem .8rem}
+}
+
+/* ---------- Page scaffolding ---------- */
+.page{display:block}
+.hero{background:var(--surface); border-bottom:1px solid var(--rule)}
+.hero .wrap{display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:clamp(1.5rem,4vw,3.5rem); padding-block:clamp(2.2rem,5vw,4rem); align-items:center}
+.hero .copy{display:grid; gap:1.1rem; min-width:0}
+.hero .pos{font-family:var(--f-mono); font-size:.72rem; color:var(--muted); letter-spacing:.06em}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+.plate{position:relative; background:var(--paper); border:1px solid var(--rule); padding:clamp(.75rem,2vw,1.25rem); min-width:0}
+.plate::before,.plate::after{content:""; position:absolute; width:14px; height:14px; border-color:var(--accent); border-style:solid}
+.plate::before{top:-1px; left:-1px; border-width:2px 0 0 2px}
+.plate::after{bottom:-1px; right:-1px; border-width:0 2px 2px 0}
+.plate svg{display:block; width:100%; height:auto}
+.plate figcaption{font-family:var(--f-mono); font-size:.7rem; color:var(--muted); margin-top:.6rem; display:flex; flex-wrap:wrap; gap:.4rem 1rem; letter-spacing:.03em}
+.plate.dark{background:var(--ag-band); border-color:var(--ag-band)}
+.plate.dark figcaption{color:var(--band-muted)}
+.key{display:inline-flex; align-items:center; gap:.4rem}
+.key i{width:12px; height:12px; display:inline-block; border:1px solid var(--ink)}
+
+.subnav{background:var(--paper); border-bottom:1px solid var(--rule)}
+.subnav .wrap{display:flex; gap:0; overflow-x:auto; scrollbar-width:thin}
+.subnav a{flex:none; display:flex; align-items:center; gap:.55rem; padding:.85rem 1rem; text-decoration:none; color:var(--muted); font-size:.9rem; font-weight:700; border-bottom:3px solid transparent; white-space:nowrap}
+.subnav a .n{font-family:var(--f-mono); font-weight:500; font-size:.7rem}
+.subnav a:hover{color:var(--ink)}
+.subnav a[aria-current="page"]{color:var(--ink); border-bottom-color:var(--accent)}
+.subnav a[aria-current="page"] .n{color:var(--accent)}
+
+section.blk{padding-block:clamp(2.4rem,5vw,4.2rem)}
+section.blk + section.blk{border-top:1px solid var(--rule)}
+section.blk.alt{background:var(--surface)}
+.blk-head{display:grid; gap:.8rem; margin-bottom:clamp(1.4rem,3vw,2.2rem); max-width:760px}
+
+/* Statements (visión / misión / propósito) */
+.statements{display:grid; gap:0; border-top:1px solid var(--ink)}
+.stmt{display:grid; grid-template-columns:minmax(0,200px) minmax(0,1fr); gap:1.5rem; padding-block:1.4rem; border-bottom:1px solid var(--rule)}
+.stmt .lbl{font-family:var(--f-mono); font-size:.74rem; letter-spacing:.09em; text-transform:uppercase; color:var(--accent); padding-top:.35rem; font-weight:500}
+.stmt p{font-family:var(--f-display); font-stretch:100%; font-size:clamp(1.12rem,1.9vw,1.42rem); line-height:1.4; font-weight:450; max-width:52ch}
+@media (max-width:640px){.stmt{grid-template-columns:1fr; gap:.4rem}}
+
+.grid{display:grid; gap:clamp(1rem,2vw,1.5rem)}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:980px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))} .g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+.card{background:var(--surface); border:1px solid var(--rule); padding:1.3rem 1.3rem 1.4rem; display:grid; gap:.6rem; align-content:start; min-width:0}
+.card .ic{width:40px; height:40px; color:var(--accent)}
+.card p{color:var(--muted); font-size:.98rem}
+.card ul{margin:.2rem 0 0; padding-left:1.1rem; color:var(--muted); font-size:.95rem; display:grid; gap:.25rem}
+.alt .card{background:var(--paper)}
+
+.ticks{list-style:none; margin:0; padding:0; display:grid; gap:.75rem}
+.ticks li{display:grid; grid-template-columns:18px minmax(0,1fr); gap:.75rem; align-items:start}
+.ticks li::before{content:""; width:10px; height:10px; margin-top:.5em; background:var(--accent-fill); border:1px solid var(--accent)}
+.ticks li b{color:var(--ink)}
+
+/* Steps (secuencia real) */
+.steps{display:grid; grid-template-columns:repeat(var(--cols,6),minmax(0,1fr)); gap:0; border-top:2px solid var(--ink); counter-reset:s}
+.step{position:relative; padding:1.2rem 1rem 1.3rem 0; display:grid; gap:.55rem; align-content:start; min-width:0}
+.step + .step{padding-left:1rem; border-left:1px solid var(--rule)}
+.step .no{font-family:var(--f-mono); font-size:.72rem; color:var(--accent); letter-spacing:.06em; font-weight:500}
+.step h3{font-size:1.04rem}
+.step p{font-size:.93rem; color:var(--muted)}
+.step ul{margin:0; padding-left:1rem; font-size:.9rem; color:var(--muted); display:grid; gap:.2rem}
+.mile{display:inline-flex; align-items:center; gap:.45rem; font-family:var(--f-mono); font-size:.68rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink); background:var(--accent-soft); border:1px solid var(--accent); padding:.25rem .5rem; justify-self:start; margin-top:.3rem}
+.mile::before{content:""; width:8px; height:8px; background:var(--accent); transform:rotate(45deg)}
+@media (min-width:1051px){.steps.c4 .step:nth-child(4n+1){padding-left:0; border-left:0} .steps.c4 .step:nth-child(n+5){border-top:1px solid var(--rule)}}
+@media (max-width:1050px){.steps{grid-template-columns:repeat(3,minmax(0,1fr))} .step:nth-child(3n+1){padding-left:0; border-left:0} .step:nth-child(n+4){border-top:1px solid var(--rule)}}
+@media (max-width:1050px) and (min-width:641px){
+  .steps.c4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps.c4 .step:nth-child(odd){padding-left:0; border-left:0}
+  .steps.c4 .step:nth-child(even){padding-left:1rem; border-left:1px solid var(--rule)}
+  .steps.c4 .step:nth-child(n+3){border-top:1px solid var(--rule)}
+  .steps.c4 .step:nth-child(-n+2){border-top:0}
+}
+.f-tree{fill:var(--ml-fill)} .f-agband{fill:var(--ag-band)} .s-gold{stroke:var(--gold)} .s-band-ink{stroke:var(--band-ink)}
+@media (max-width:640px){.steps{grid-template-columns:1fr} .step,.step + .step{padding-left:0; border-left:0} .step + .step{border-top:1px solid var(--rule)}}
+
+.mini-steps{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); border-top:2px solid var(--ink)}
+.mini-steps li{display:grid; gap:.2rem; padding:.9rem .9rem .9rem 0; border-bottom:1px solid var(--rule); align-content:start; min-width:0}
+.mini-steps li:nth-child(even){padding-left:.9rem; border-left:1px solid var(--rule)}
+.mini-steps .no{font-family:var(--f-mono); font-size:.7rem; color:var(--accent)}
+.mini-steps li > span:last-child{font-size:.9rem; color:var(--muted)}
+@media (max-width:480px){.mini-steps{grid-template-columns:1fr} .mini-steps li:nth-child(even){padding-left:0; border-left:0}}
+.split{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(1.5rem,4vw,3.5rem); align-items:start}
+.split.wide-left{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+@media (max-width:860px){.split,.split.wide-left{grid-template-columns:1fr}}
+
+.ficha{border:1px solid var(--rule); background:var(--surface); font-size:.93rem}
+.ficha .row{display:grid; grid-template-columns:minmax(0,150px) minmax(0,1fr); gap:1rem; padding:.7rem 1rem; border-bottom:1px solid var(--rule-2)}
+.ficha .row:last-child{border-bottom:0}
+.ficha .k{font-family:var(--f-mono); font-size:.7rem; text-transform:uppercase; letter-spacing:.07em; color:var(--muted); padding-top:.2rem}
+.ficha .hd{background:var(--accent); color:var(--surface); font-family:var(--f-mono); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; padding:.6rem 1rem}
+.page[data-line="ag"] .ficha .hd, .page[data-line="pc"] .ficha .hd, .page[data-line="ml"] .ficha .hd{color:var(--paper)}
+
+.note{border-left:3px solid var(--accent); background:var(--accent-soft); padding:.9rem 1.1rem; font-size:.9rem; color:var(--ink)}
+.note b{font-family:var(--f-mono); font-size:.72rem; letter-spacing:.07em; text-transform:uppercase; display:block; margin-bottom:.2rem; color:var(--accent)}
+
+.formula{font-family:var(--f-mono); background:var(--surface); border:1px solid var(--rule); padding:1.1rem 1.2rem; font-size:.95rem; display:grid; gap:.4rem}
+.formula .eq{font-size:clamp(1rem,1.8vw,1.2rem); color:var(--ink)}
+.formula .eq em{font-style:normal; color:var(--accent); font-weight:500}
+
+/* Tables */
+.tbl-wrap{overflow-x:auto; border:1px solid var(--rule); background:var(--surface)}
+table{border-collapse:collapse; width:100%; font-size:.93rem; font-variant-numeric:tabular-nums}
+th,td{padding:.65rem .9rem; text-align:right; border-bottom:1px solid var(--rule-2); white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+thead th{font-family:var(--f-mono); font-size:.68rem; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); font-weight:500; background:var(--paper); border-bottom:1px solid var(--rule)}
+tfoot td{font-weight:700; border-top:2px solid var(--ink); border-bottom:0}
+.heat td{text-align:center; font-family:var(--f-mono); font-size:.88rem}
+.heat td.base{outline:2px solid var(--ink); outline-offset:-2px; font-weight:500}
+.heat th[scope="row"]{font-family:var(--f-mono); font-size:.8rem; text-align:left; color:var(--ink); background:var(--paper); font-weight:500}
+
+.kpis{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-top:2px solid var(--ink)}
+.kpi{padding:1.1rem 1rem 1.2rem 0; display:grid; gap:.3rem; align-content:start}
+.kpi + .kpi{padding-left:1rem; border-left:1px solid var(--rule)}
+.kpi .v{font-family:var(--f-display); font-stretch:118%; font-size:clamp(1.6rem,3vw,2.3rem); font-weight:650; line-height:1; color:var(--ink); font-variant-numeric:tabular-nums}
+.kpi .l{font-size:.88rem; color:var(--muted)}
+@media (max-width:760px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))} .kpi:nth-child(3){padding-left:0; border-left:0} .kpi:nth-child(n+3){border-top:1px solid var(--rule)}}
+
+.chart{background:var(--surface); border:1px solid var(--rule); padding:1rem; overflow-x:auto}
+.chart svg{display:block; width:100%; min-width:520px; height:auto}
+.chart text{font-family:var(--f-mono)}
+
+.lines3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule)}
+.line-card{background:var(--surface); display:grid; grid-template-rows:auto auto 1fr auto; gap:.8rem; padding:1.4rem; text-decoration:none; color:var(--ink); min-width:0; transition:background .2s}
+.line-card:hover{background:var(--paper)}
+.line-card .art{background:var(--paper); border:1px solid var(--rule-2); aspect-ratio:16/10; display:flex; align-items:center; justify-content:center; max-width:100%}
+.line-card .art svg{width:88%; height:auto}
+.line-card p{color:var(--muted); font-size:.96rem}
+.line-card .go{font-family:var(--f-mono); font-size:.74rem; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); display:flex; gap:.5rem; align-items:center}
+.line-card[data-line="ml"]{--accent:var(--ml); --accent-soft:var(--ml-soft); --accent-fill:var(--ml-fill)}
+.line-card[data-line="pc"]{--accent:var(--pc); --accent-soft:var(--pc-soft); --accent-fill:var(--pc-fill)}
+.line-card[data-line="ag"]{--accent:var(--ag); --accent-soft:var(--ag-soft); --accent-fill:var(--ag-fill)}
+@media (max-width:900px){.lines3{grid-template-columns:1fr}}
+
+/* Home hero */
+.home-hero{background:var(--band); color:var(--band-ink)}
+.home-hero .wrap{padding-block:clamp(2.6rem,6vw,4.6rem); display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); gap:clamp(1.5rem,4vw,3rem); align-items:end}
+.home-hero h1{color:var(--band-ink); font-size:clamp(2.1rem,5vw,3.8rem)}
+.home-hero .lead{color:var(--band-muted)}
+.home-hero .eyebrow{color:var(--cyan)}
+.home-hero .ledger{border-top:1px solid var(--band-muted); font-family:var(--f-mono); font-size:.8rem; color:var(--band-muted)}
+.home-hero .ledger div{display:flex; justify-content:space-between; gap:1rem; padding:.7rem 0; border-bottom:1px solid var(--band-2)}
+.home-hero .ledger b{color:var(--band-ink); font-weight:500}
+.home-hero .ledger i{width:9px; height:9px; display:inline-block; margin-right:.55rem; vertical-align:middle}
+@media (max-width:860px){.home-hero .wrap{grid-template-columns:1fr}}
+
+/* Agentización dark panels */
+.dark-band{background:var(--ag-band); color:var(--band-ink)}
+.dark-band h2,.dark-band h3{color:var(--band-ink)}
+.dark-band .muted,.dark-band p{color:var(--band-muted)}
+.dark-band .eyebrow{color:var(--gold)}
+
+.flow{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:0}
+.flow .f{position:relative; padding:1.1rem 1.1rem 1.2rem; border:1px solid var(--rule); background:var(--surface); display:grid; gap:.45rem; align-content:start; min-width:0}
+.flow .f + .f{border-left:0}
+.flow .f .no{font-family:var(--f-mono); font-size:.7rem; color:var(--accent)}
+.flow .f p{font-size:.92rem; color:var(--muted)}
+.flow .f.human{background:var(--accent-soft)}
+.flow .f.human .no{color:var(--accent)}
+.flow .f:not(:last-child)::after{content:""; position:absolute; right:-7px; top:1.35rem; width:12px; height:12px; background:var(--surface); border-top:1px solid var(--rule); border-right:1px solid var(--rule); transform:rotate(45deg); z-index:1}
+@media (max-width:980px){.flow{grid-template-columns:1fr} .flow .f + .f{border-left:1px solid var(--rule); border-top:0} .flow .f:not(:last-child)::after{right:auto; left:1.4rem; top:auto; bottom:-7px; transform:rotate(135deg)}}
+.sources{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); border-top:0}
+.sources div{background:var(--paper); padding:.8rem 1rem; font-size:.9rem}
+.sources b{font-family:var(--f-mono); font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); display:block; font-weight:500}
+@media (max-width:640px){.sources{grid-template-columns:1fr}}
+
+.pillars{display:grid; gap:6px; justify-items:center}
+.pillar{width:var(--w); max-width:100%; display:grid; grid-template-columns:auto minmax(0,1fr); gap:1rem; align-items:center; padding:.8rem 1rem; background:var(--surface); border:1px solid var(--rule)}
+.pillar .no{font-family:var(--f-mono); font-size:.72rem; color:var(--accent); font-weight:500}
+.pillar b{display:block; font-size:.98rem}
+.pillar span{font-size:.88rem; color:var(--muted)}
+.pillar.top{background:var(--ag); border-color:var(--ag)}
+.pillar.top b,.pillar.top span{color:var(--paper)}
+.pillar.top .no{color:var(--gold)}
+
+.stairs{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:6px; align-items:end}
+.stair{background:var(--accent-soft); border:1px solid var(--rule); border-top:3px solid var(--accent); padding:.8rem .8rem 1rem; display:grid; gap:.35rem; align-content:start; min-width:0}
+.stair .no{font-family:var(--f-mono); font-size:.7rem; color:var(--accent)}
+.stair b{font-size:.95rem; line-height:1.3}
+.stair span{font-size:.86rem; color:var(--muted)}
+.stair:nth-child(1){min-height:120px}.stair:nth-child(2){min-height:150px}.stair:nth-child(3){min-height:180px}.stair:nth-child(4){min-height:210px}.stair:nth-child(5){min-height:240px; background:var(--ag); border-color:var(--ag)}
+.stair:nth-child(5) b,.stair:nth-child(5) span{color:var(--paper)} .stair:nth-child(5) .no{color:var(--gold)}
+@media (max-width:760px){.stairs{grid-template-columns:1fr} .stair:nth-child(n){min-height:0}}
+
+.sectors{display:grid; grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule)}
+.sectors div{background:var(--surface); padding:1rem; display:grid; gap:.3rem; align-content:start}
+.sectors b{font-size:.96rem}
+.sectors span{font-size:.88rem; color:var(--muted)}
+
+.roles{display:grid; grid-template-columns:minmax(0,170px) repeat(6,minmax(0,1fr)); border:1px solid var(--rule); background:var(--surface); font-size:.86rem; min-width:720px}
+.roles > div{padding:.65rem .7rem; border-bottom:1px solid var(--rule-2); border-left:1px solid var(--rule-2)}
+.roles > div:nth-child(7n+1){border-left:0; font-family:var(--f-mono); font-size:.7rem; letter-spacing:.05em; text-transform:uppercase; color:var(--muted)}
+.roles .hd{font-family:var(--f-mono); font-size:.68rem; letter-spacing:.05em; text-transform:uppercase; background:var(--paper); color:var(--ink)}
+.roles .lead-c{background:var(--accent-fill); color:var(--ink); font-weight:700}
+.roles .joint{background:var(--accent-soft); font-weight:700}
+.roles .supp{color:var(--muted)}
+
+.cta{background:var(--band); color:var(--band-ink)}
+.cta .wrap{padding-block:clamp(2.4rem,5vw,3.6rem); display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:2rem; align-items:center}
+.cta h2{color:var(--band-ink)}
+.cta p{color:var(--band-muted)}
+.cta .contacts{display:grid; gap:.8rem; font-size:.95rem}
+.cta .contacts div{border-top:1px solid var(--band-2); padding-top:.7rem}
+.cta .contacts b{color:var(--band-ink); display:block}
+.cta .contacts span{color:var(--band-muted); font-family:var(--f-mono); font-size:.82rem; user-select:all}
+.cta a.btn{justify-self:start}
+@media (max-width:860px){.cta .wrap{grid-template-columns:1fr}}
+.btn{display:inline-flex; align-items:center; gap:.6rem; padding:.8rem 1.2rem; font-weight:700; font-size:.95rem; text-decoration:none; border:1px solid currentColor; color:var(--ink); background:transparent; border-radius:2px}
+.btn.solid{background:var(--accent); border-color:var(--accent); color:var(--paper)}
+.cta .btn{color:var(--band-ink)}
+
+.pager{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--rule); border-top:1px solid var(--rule)}
+.pager a{background:var(--surface); padding:1.3rem max(16px,env(safe-area-inset-right,0px)) 1.3rem max(16px,env(safe-area-inset-left,0px)); text-decoration:none; color:var(--ink); display:grid; gap:.2rem}
+.pager a:hover{background:var(--paper)}
+.pager a.next{text-align:right}
+.pager .tag{color:var(--accent)}
+.pager b{font-family:var(--f-display); font-stretch:110%; font-size:1.05rem; font-weight:620}
+.pager span.empty{background:var(--surface)}
+
+footer.site{background:var(--surface); border-top:1px solid var(--rule); font-size:.86rem; color:var(--muted)}
+footer.site .wrap{padding-block:2rem 2.4rem; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.4fr); gap:2rem}
+@media (max-width:760px){footer.site .wrap{grid-template-columns:1fr}}
+
+/* SVG tokens */
+.s-ink{stroke:var(--ink)} .s-rule{stroke:var(--rule)} .s-muted{stroke:var(--muted)} .s-acc{stroke:var(--accent)}
+.f-ink{fill:var(--ink)} .f-surface{fill:var(--surface)} .f-paper{fill:var(--paper)} .f-rule{fill:var(--rule)} .f-rule2{fill:var(--rule-2)} .f-muted{fill:var(--muted)}
+.f-acc{fill:var(--accent)} .f-accsoft{fill:var(--accent-soft)} .f-accfill{fill:var(--accent-fill)} .f-glass{fill:var(--glass)} .f-gold{fill:var(--gold)}
+.f-band-ink{fill:var(--band-ink)} .f-band-muted{fill:var(--band-muted)} .s-band-muted{stroke:var(--band-muted)}
+svg text{font-family:var(--f-mono)}
+.cardus-mark .arc{stroke:var(--ag)} .cardus-mark .core{fill:var(--ag)} .cardus-mark .pt{fill:var(--gold)}
+.op{display:inline-flex; align-items:center; gap:.6rem; font-size:.9rem; color:var(--muted)}
+.op svg{width:26px; height:26px}
+.op b{font-family:"Georgia",serif; font-weight:400; font-size:1.1rem; color:var(--ag)}
+</style>
+
+<div class="strip"><div class="wrap"><span>ARS INVEST · NUEVAS LÍNEAS DE NEGOCIO</span><span>Propuesta de contenido para <a href="https://arsinvest.cl" target="_blank" rel="noopener">arsinvest.cl</a></span></div></div>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Verity, inicio">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1.5" y="1.5" width="29" height="29" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 9 L16 23.5 L24 9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="miter"/><circle cx="24" cy="9" r="2.8" style="fill:var(--cyan)"/></svg>
+      <div><b>VERITY</b><span>Una sociedad de ARS Invest</span></div>
+    </a>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="main-nav">Menú</button>
+    <nav class="main" id="main-nav" aria-label="Principal"></nav>
+  </div>
+</header>
+
+<main id="content">
+
+<!-- =========================== INICIO =========================== -->
+<article class="page" id="p-inicio" data-line="verity">
+  <div class="home-hero">
+    <div class="wrap">
+      <div style="display:grid; gap:1.2rem">
+        <div class="eyebrow">Verity · Nueva sociedad</div>
+        <h1>Suelo, renta comercial e inteligencia artificial, estructurados con disciplina financiera.</h1>
+        <p class="lead">Verity es la nueva sociedad que se suma a ARS Invest para administrar tres líneas de negocio: el desarrollo de macrolotes, el desarrollo de power centers y la agentización empresarial. Reúne la experiencia de sus socios en banca, deuda privada e inversión inmobiliaria con tecnología aplicada a la gestión.</p>
+      </div>
+      <div class="ledger" aria-label="Líneas de negocio">
+        <div><span><i style="background:var(--ml-fill)"></i>Verity Macrolotes</span><b>Suelo urbanizado</b></div>
+        <div><span><i style="background:var(--pc-fill)"></i>Verity Power Center</span><b>Renta comercial</b></div>
+        <div><span><i style="background:var(--ag-fill)"></i>Verity Agentización</span><b>IA empresarial</b></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Tres líneas de negocio</div>
+        <h2>Una misma forma de trabajar: analizar a fondo, financiar en el mercado chileno y ejecutar de punta a punta.</h2>
+      </div>
+      <div class="lines3">
+        <a class="line-card" data-line="ml" href="#macrolotes">
+          <div class="eyebrow">Verity Macrolotes</div>
+          <div class="art" aria-hidden="true"><svg viewBox="0 0 200 125" id="mini-ml"></svg></div>
+          <p>Búsqueda, análisis y financiamiento de terrenos, con o sin subdivisión, para desarrollar permisos, urbanización integral y venta de lotes con financiamiento de largo plazo.</p>
+          <span class="go">Ver la línea →</span>
+        </a>
+        <a class="line-card" data-line="pc" href="#power-center">
+          <div class="eyebrow">Verity Power Center</div>
+          <div class="art" aria-hidden="true"><svg viewBox="0 0 200 125" id="mini-pc"></svg></div>
+          <p>Desarrollo de centros comerciales de conveniencia: terreno, cabida, contratos con retailers, financiamiento, construcción, estabilización y venta a inversionistas institucionales.</p>
+          <span class="go">Ver la línea →</span>
+        </a>
+        <a class="line-card" data-line="ag" href="#agentizacion">
+          <div class="eyebrow">Verity Agentización</div>
+          <div class="art" aria-hidden="true"><svg viewBox="0 0 200 125" id="mini-ag"></svg></div>
+          <p>Infraestructura de inteligencia artificial para empresas: agentes conectados a la información de la compañía, con reglas claras y una persona que aprueba. Operada con la marca Cardus.</p>
+          <span class="go">Ver la línea →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap split">
+      <div style="display:grid; gap:1rem">
+        <div class="eyebrow">La sociedad</div>
+        <h2>Visión y misión de Verity</h2>
+        <p class="muted">Verity nace para ampliar el campo de acción de ARS Invest más allá de la vivienda: hacia el suelo, los activos comerciales de renta y la tecnología que hace más eficiente la gestión de empresas e inversiones.</p>
+      </div>
+      <div class="statements">
+        <div class="stmt"><div class="lbl">Visión</div><p>Ser una plataforma de referencia en Chile para convertir suelo, proyectos y empresas en activos rentables, financiados y bien gobernados.</p></div>
+        <div class="stmt"><div class="lbl">Misión</div><p>Buscar, analizar, estructurar y financiar proyectos con rigor técnico y financiero, y acompañar a inversionistas y socios desde la originación hasta la salida.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Principios</div>
+        <h2>Cuatro criterios que se aplican en las tres líneas</h2>
+      </div>
+      <div class="grid g4">
+        <div class="card"><h3>Rigor antes de invertir</h3><p>Cada oportunidad pasa por un análisis cualitativo y cuantitativo, con una decisión explícita de avanzar o detenerse antes de comprometer capital.</p></div>
+        <div class="card"><h3>Un vehículo por proyecto</h3><p>Cada proyecto se estructura en una sociedad independiente, con contabilidad separada y reglas de gobierno acordadas desde el inicio.</p></div>
+        <div class="card"><h3>Intereses alineados</h3><p>Los administradores co-invierten junto a los inversionistas y recuperan sus costos cuando el proyecto cierra su financiamiento o su venta.</p></div>
+        <div class="card"><h3>Un equipo de punta a punta</h3><p>El mismo equipo acompaña el proyecto desde el análisis de mercado hasta la venta, sin brechas entre asesores separados.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap split wide-left">
+      <div style="display:grid; gap:1.4rem">
+        <div class="blk-head" style="margin:0">
+          <div class="eyebrow">Para quién trabajamos</div>
+          <h2>Inversionistas, family offices, empresas y propietarios de suelo</h2>
+        </div>
+        <ul class="ticks">
+          <li><span><b>Inversionistas y multi family offices</b> que buscan proyectos inmobiliarios estructurados, con un vehículo independiente y reportes periódicos.</span></li>
+          <li><span><b>Empresas de gran tamaño</b> que quieren llevar la inteligencia artificial a su operación diaria con control y resultados medibles.</span></li>
+          <li><span><b>Propietarios de terrenos</b> que desean vender o aportar su suelo a un proyecto con financiamiento y gestión profesional.</span></li>
+          <li><span><b>Retailers y operadores</b> que buscan nuevas ubicaciones con contratos de largo plazo.</span></li>
+        </ul>
+      </div>
+      <div style="display:grid; gap:.8rem">
+        <div class="eyebrow">Trayectoria de los socios</div>
+        <div class="kpis" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+          <div class="kpi"><span class="v">30+</span><span class="l">años en banca, inversión y desarrollo inmobiliario</span></div>
+          <div class="kpi"><span class="v">11</span><span class="l">fondos inmobiliarios estructurados y administrados</span></div>
+          <div class="kpi" style="padding-left:0;border-left:0;border-top:1px solid var(--rule)"><span class="v">UF 5,3 MM</span><span class="l">en ventas en 9 proyectos de ARS Invest</span></div>
+          <div class="kpi" style="border-top:1px solid var(--rule)"><span class="v">40+</span><span class="l">empresas con IA y automatización implementadas por el equipo</span></div>
+        </div>
+        <p class="tag" style="text-transform:none; letter-spacing:0">Cifras de la trayectoria de los socios de ARS Invest y del equipo de Cardus, previas a la creación de Verity.</p>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- =========================== MACROLOTES 1 =========================== -->
+<article class="page" id="p-macrolotes" data-line="ml" hidden>
+  <div class="hero"><div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Verity Macrolotes</div>
+      <div class="pos" data-pos></div>
+      <h1>Del terreno bruto al lote urbanizado, con permisos y financiamiento.</h1>
+      <p class="lead">Verity Macrolotes busca y analiza terrenos, gestiona su financiamiento en el mercado chileno y levanta inversionistas para comprarlos o recibirlos en aporte, con o sin subdivisión. Luego desarrolla los permisos, la urbanización integral y la venta de los lotes a clientes finales, con financiamiento de largo plazo.</p>
+    </div>
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 560 420" id="ml-hero" role="img" aria-label="Plano de un macrolote con vialidad interior, lotes vendidos, lotes disponibles y área verde"></svg>
+      <figcaption><span class="key"><i style="background:var(--ml-fill)"></i>Lote vendido</span><span class="key"><i style="background:var(--surface)"></i>Lote disponible</span><span class="key"><i style="background:var(--ml-soft)"></i>Área verde</span><span>Plano esquemático</span></figcaption>
+    </figure>
+  </div></div>
+
+  <section class="blk">
+    <div class="wrap split">
+      <div style="display:grid; gap:1rem">
+        <div class="eyebrow">Propósito de la línea</div>
+        <h2>Habilitar suelo de forma ordenada, para que propietarios, inversionistas y compradores ganen con el mismo proyecto.</h2>
+        <p class="muted">En Chile hay grandes paños de terreno con buena ubicación que no se desarrollan porque falta capital, gestión de permisos o un plan financiero que conecte la compra del suelo con la venta final. Verity Macrolotes integra esas piezas en una sola gestión.</p>
+      </div>
+      <div class="statements">
+        <div class="stmt"><div class="lbl">Visión</div><p>Ser el estructurador de referencia en Chile para transformar grandes paños de suelo en lotes urbanizados, con permisos aprobados y financiamiento disponible para quien los compra.</p></div>
+        <div class="stmt"><div class="lbl">Misión</div><p>Identificar terrenos con potencial, validarlos con análisis cualitativo y cuantitativo, reunir el capital y la deuda necesarios, y conducir cada proyecto hasta la entrega y el financiamiento de sus lotes.</p></div>
+        <div class="stmt"><div class="lbl">Objetivo</div><p>Crear valor comprando o recibiendo suelo a valor de terreno bruto y vendiéndolo como lotes urbanizados, con títulos saneados, permisos aprobados y crédito de largo plazo para el comprador.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap split wide-left">
+      <div style="display:grid; gap:1.3rem">
+        <div class="blk-head" style="margin:0">
+          <div class="eyebrow">Objetivos específicos</div>
+          <h2>Lo que la línea se compromete a lograr en cada proyecto</h2>
+        </div>
+        <ul class="ticks">
+          <li><span><b>Originar con criterio.</b> Mantener una cartera de terrenos evaluados con los mismos parámetros normativos, comerciales y financieros, para comparar oportunidades de forma objetiva.</span></li>
+          <li><span><b>Estructurar cada proyecto por separado.</b> Un vehículo independiente por terreno, con capital de inversionistas, deuda bancaria o de fondos de deuda privada y reglas de gobierno claras.</span></li>
+          <li><span><b>Cumplir plazo y presupuesto en permisos y obras.</b> Tramitar subdivisión, loteo y urbanización con un calendario controlado y obras supervisadas por inspección técnica independiente.</span></li>
+          <li><span><b>Facilitar la compra del lote.</b> Ofrecer al cliente final alternativas de financiamiento de largo plazo, para ampliar la demanda y acelerar las ventas.</span></li>
+          <li><span><b>Devolver capital y utilidad.</b> Cerrar cada vehículo con la devolución del capital y la rentabilidad comprometida a sus inversionistas.</span></li>
+        </ul>
+      </div>
+      <div class="ficha">
+        <div class="hd">Ficha de la línea</div>
+        <div class="row"><span class="k">Producto</span><span>Lotes urbanizados: industriales y logísticos, de equipamiento, habitacionales y parcelas</span></div>
+        <div class="row"><span class="k">Entrada</span><span>Compra o aporte de terrenos, con o sin subdivisión</span></div>
+        <div class="row"><span class="k">Financiamiento</span><span>Mercado financiero chileno: banca, fondos de inversión y de deuda privada, inversionistas</span></div>
+        <div class="row"><span class="k">Vehículo</span><span>Sociedad independiente por proyecto, con contabilidad separada</span></div>
+        <div class="row"><span class="k">Salida</span><span>Venta de lotes a clientes finales con financiamiento de largo plazo</span></div>
+        <div class="row"><span class="k">Clientes</span><span>Propietarios de suelo, inversionistas, family offices, empresas que requieren terreno</span></div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- =========================== MACROLOTES 2 =========================== -->
+<article class="page" id="p-macrolotes-servicios" data-line="ml" hidden>
+  <div class="hero"><div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Verity Macrolotes</div>
+      <div class="pos" data-pos></div>
+      <h1>Una sola gestión, desde la búsqueda del terreno hasta el crédito del comprador.</h1>
+      <p class="lead">El valor de un macrolote se crea en la transición entre el suelo bruto y el lote listo para construir. Verity se hace cargo de cada eslabón de esa transición, con equipos propios y especialistas externos coordinados bajo una misma dirección.</p>
+    </div>
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 560 300" id="ml-before-after" role="img" aria-label="Comparación entre un terreno bruto y el mismo terreno loteado y urbanizado"></svg>
+      <figcaption><span>Izquierda: paño bruto con su topografía</span><span>Derecha: loteo con vialidad, lotes y área verde</span></figcaption>
+    </figure>
+  </div></div>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Servicios de la línea</div>
+        <h2>Siete capacidades integradas</h2>
+      </div>
+      <div class="grid g3">
+        <div class="card"><svg class="ic" viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="17" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M24.5 24.5 L34 34" stroke="currentColor" stroke-width="2.4"/><path d="M12 19 L15 15 L18 18 L22 13" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          <h3>Búsqueda y originación</h3><p>Prospección activa de terrenos y contacto con propietarios que quieren vender o aportar su suelo a un proyecto.</p></div>
+        <div class="card"><svg class="ic" viewBox="0 0 40 40" aria-hidden="true"><rect x="7" y="5" width="22" height="30" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 13h12M12 19h12M12 25h7" stroke="currentColor" stroke-width="1.6"/><circle cx="30" cy="29" r="6" fill="var(--surface)" stroke="currentColor" stroke-width="2"/><path d="M27.5 29l2 2 3.5-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          <h3>Análisis cualitativo</h3><p>Normativa vigente, uso de suelo, títulos y gravámenes, factibilidades de agua, alcantarillado, electricidad y vialidad, entorno y demanda.</p></div>
+        <div class="card"><svg class="ic" viewBox="0 0 40 40" aria-hidden="true"><path d="M5 34h30" stroke="currentColor" stroke-width="2"/><rect x="8" y="22" width="5" height="12" fill="currentColor"/><rect x="17" y="15" width="5" height="19" fill="currentColor" opacity=".7"/><rect x="26" y="8" width="5" height="26" fill="currentColor" opacity=".45"/></svg>
+          <h3>Análisis cuantitativo</h3><p>Cabida y loteo preliminar, costo de urbanización, precio por metro cuadrado, flujo de caja, rentabilidad y escenarios de sensibilidad.</p></div>
+        <div class="card"><svg class="ic" viewBox="0 0 40 40" aria-hidden="true"><path d="M6 16 L20 6 L34 16" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 18v12M16 18v12M24 18v12M31 18v12" stroke="currentColor" stroke-width="2"/><path d="M5 33h30" stroke="currentColor" stroke-width="2.4"/></svg>
+          <h3>Gestión de financiamiento</h3><p>Deuda para la compra y la urbanización con bancos y fondos de deuda privada del mercado financiero chileno.</p></div>
+        <div class="card"><svg class="ic" viewBox="0 0 40 40" aria-hidden="true"><circle cx="13" cy="13" r="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="27" cy="13" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 33c1-7 5-10 9-10s8 3 9 10M18 33c1-7 5-10 9-10s8 3 9 10" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          <h3>Inversionistas y puesta en marcha</h3><p>Levantamiento de capital, constitución del vehículo del proyecto, suscripción de acciones y definición del gobierno corporativo.</p></div>
+        <div class="card"><svg class="ic" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 30h32M4 22h32" stroke="currentColor" stroke-width="2"/><path d="M12 22v8M20 22v8M28 22v8" stroke="currentColor" stroke-width="1.4"/><path d="M8 18 L14 8 L20 18" fill="none" stroke="currentColor" stroke-width="2"/><path d="M26 6v12M23 9h6" stroke="currentColor" stroke-width="2"/></svg>
+          <h3>Permisos y urbanización integral</h3><p>Tramitación de subdivisión, loteo y obras, y ejecución de vialidad, agua potable, alcantarillado, aguas lluvia, electrificación, alumbrado y áreas verdes.</p></div>
+        <div class="card" style="grid-column:1/-1; grid-template-columns:auto minmax(0,1fr); align-items:start; column-gap:1.2rem"><svg class="ic" viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="9" width="30" height="22" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 15h30" stroke="currentColor" stroke-width="2"/><path d="M10 24h8" stroke="currentColor" stroke-width="2"/><circle cx="29" cy="25" r="3" fill="currentColor"/></svg>
+          <div style="display:grid; gap:.4rem"><h3>Venta y financiamiento de largo plazo</h3><p>Comercialización de los lotes, escrituración y financiamiento de largo plazo para el comprador final, mediante venta a plazo del propio vehículo o crédito de instituciones financieras. Las carteras de crédito resultantes pueden estructurarse para fondos de deuda privada.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Modalidades de entrada</div>
+        <h2>Compra o aporte, con o sin subdivisión</h2>
+        <p class="muted">La estructura de cada proyecto se elige según la situación del propietario, la normativa del terreno y la demanda del mercado al que apunta.</p>
+      </div>
+      <div class="grid g2">
+        <div class="card"><div class="tag">Según la forma de entrada</div><h3>Compra del terreno</h3><p>El vehículo del proyecto compra el terreno con capital de inversionistas y deuda. El propietario recibe el precio en dinero, al contado o por parcialidades asociadas a hitos.</p>
+          <h3 style="margin-top:.6rem">Aporte del terreno</h3><p>El propietario aporta el terreno al vehículo y participa del resultado del proyecto. Es útil cuando quiere capturar la plusvalía de la urbanización sin asumir su gestión.</p></div>
+        <div class="card"><div class="tag">Según el producto</div><h3>Con subdivisión</h3><p>El paño se divide en lotes para venta individual a usuarios finales: empresas que necesitan suelo industrial o logístico, familias o pequeños inversionistas.</p>
+          <h3 style="margin-top:.6rem">Sin subdivisión</h3><p>El terreno se habilita como un macrolote urbanizado, con factibilidades y permisos, y se vende completo a un desarrollador o a un usuario de gran escala.</p></div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- =========================== MACROLOTES 3 =========================== -->
+<article class="page" id="p-macrolotes-proceso" data-line="ml" hidden>
+  <div class="hero"><div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Verity Macrolotes</div>
+      <div class="pos" data-pos></div>
+      <h1>Seis etapas, con una decisión de avance al cierre de cada una.</h1>
+      <p class="lead">El proceso está diseñado para que el capital entre solo cuando el terreno ha demostrado que sostiene el proyecto, y para que cada etapa deje un entregable verificable por los inversionistas.</p>
+    </div>
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 560 300" id="ml-gantt" role="img" aria-label="Diagrama de etapas superpuestas, desde la originación hasta la venta, con sus hitos"></svg>
+      <figcaption><span class="key"><i style="background:var(--ml-fill)"></i>Etapa</span><span>◆ Hito de decisión</span><span>Duraciones referenciales; cada proyecto define su calendario</span></figcaption>
+    </figure>
+  </div></div>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">El proceso</div>
+        <h2>De la originación al cierre del vehículo</h2>
+      </div>
+      <div class="steps" style="--cols:6">
+        <div class="step"><span class="no">ETAPA 01</span><h3>Originación</h3><p>Búsqueda de terrenos, primer filtro normativo y de ubicación, y acuerdo de confidencialidad y exclusividad con el propietario.</p><span class="mile">Ficha del terreno</span></div>
+        <div class="step"><span class="no">ETAPA 02</span><h3>Evaluación</h3><p>Análisis cualitativo y cuantitativo, cabida y loteo preliminar, revisión de títulos y factibilidades, modelo financiero inicial.</p><span class="mile">Go / No-go</span></div>
+        <div class="step"><span class="no">ETAPA 03</span><h3>Estructuración</h3><p>Constitución del vehículo, levantamiento de capital y de deuda, y compra o aporte formal del terreno.</p><span class="mile">Cierre financiero</span></div>
+        <div class="step"><span class="no">ETAPA 04</span><h3>Permisos</h3><p>Proyecto de loteo y urbanización, aprobaciones municipales y sectoriales, y factibilidades definitivas de servicios.</p><span class="mile">Permisos aprobados</span></div>
+        <div class="step"><span class="no">ETAPA 05</span><h3>Urbanización integral</h3><p>Licitación, adjudicación y supervisión de obras: vialidad, redes sanitarias, aguas lluvia, electrificación, alumbrado y áreas verdes.</p><span class="mile">Recepción de obras</span></div>
+        <div class="step"><span class="no">ETAPA 06</span><h3>Venta y financiamiento</h3><p>Comercialización, escrituración, financiamiento de largo plazo al comprador y devolución de capital y utilidad.</p><span class="mile">Cierre del vehículo</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap split">
+      <div style="display:grid; gap:1rem">
+        <div class="eyebrow">Permisología</div>
+        <h2>Los permisos son la principal fuente de valor y de riesgo de un loteo</h2>
+        <p class="muted">Por eso se revisan desde la evaluación, no después de comprar. El tipo de suelo define el camino: un terreno urbano se rige por el plan regulador comunal, mientras uno rural requiere las autorizaciones especiales para subdividir o construir fuera del límite urbano.</p>
+      </div>
+      <div class="ficha">
+        <div class="hd">Revisiones habituales</div>
+        <div class="row"><span class="k">Normativa</span><span>Plan regulador comunal o intercomunal, usos de suelo permitidos, densidades y superficie predial mínima</span></div>
+        <div class="row"><span class="k">Antecedentes</span><span>Certificado de informaciones previas, títulos, deslindes y gravámenes</span></div>
+        <div class="row"><span class="k">Municipio</span><span>Aprobación de subdivisión o loteo y recepción de obras de urbanización ante la Dirección de Obras</span></div>
+        <div class="row"><span class="k">Sectoriales</span><span>Pavimentación y aguas lluvia, empresa sanitaria, distribuidora eléctrica y, en suelo rural, los organismos que correspondan</span></div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- =========================== MACROLOTES 4 =========================== -->
+<article class="page" id="p-macrolotes-inversion" data-line="ml" hidden>
+  <div class="hero"><div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Verity Macrolotes</div>
+      <div class="pos" data-pos></div>
+      <h1>Capital y deuda del mercado chileno, ordenados en un vehículo por proyecto.</h1>
+      <p class="lead">Cada terreno se desarrolla en una sociedad independiente. Los inversionistas aportan capital, la deuda financia la compra y la urbanización, y la venta de lotes devuelve primero la deuda y luego el capital con su rentabilidad.</p>
+    </div>
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 560 330" id="ml-structure" role="img" aria-label="Estructura de financiamiento: capital y deuda entran al vehículo del proyecto, que compra el terreno, lo urbaniza y vende lotes con financiamiento de largo plazo"></svg>
+      <figcaption><span>Flujo de recursos de un proyecto tipo</span></figcaption>
+    </figure>
+  </div></div>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Fuentes de financiamiento</div>
+        <h2>Tres capas, cada una con su función</h2>
+      </div>
+      <div class="grid g3">
+        <div class="card"><div class="tag">Capa 1 · Capital</div><h3>Inversionistas</h3><p>Family offices, inversionistas calificados y el propietario que aporta su terreno. Suscriben acciones del vehículo y reciben dividendos o la recompra de sus acciones al cierre.</p></div>
+        <div class="card"><div class="tag">Capa 2 · Deuda de desarrollo</div><h3>Bancos y fondos de deuda privada</h3><p>Financian la compra del terreno y las obras de urbanización, con el terreno y el proyecto como respaldo y desembolsos asociados al avance.</p></div>
+        <div class="card"><div class="tag">Capa 3 · Financiamiento al comprador</div><h3>Crédito de largo plazo</h3><p>Venta a plazo del propio vehículo o crédito de instituciones financieras, para que el cliente final pueda pagar su lote en el tiempo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap split wide-left">
+      <div style="display:grid; gap:1.3rem">
+        <div class="blk-head" style="margin:0">
+          <div class="eyebrow">Cómo participa el inversionista</div>
+          <h2>Una participación pasiva, con información y control</h2>
+        </div>
+        <ul class="ticks">
+          <li><span><b>Suscripción de acciones</b> de la sociedad del proyecto, siguiendo el modelo que ARS Invest aplica en sus proyectos inmobiliarios.</span></li>
+          <li><span><b>Co-inversión de los administradores</b> en paralelo a los inversionistas.</span></li>
+          <li><span><b>Contabilidad separada</b> y reportes periódicos de avance de permisos, obras, ventas y caja.</span></li>
+          <li><span><b>Hitos de desembolso</b>: el capital y la deuda se liberan a medida que el proyecto cumple sus etapas.</span></li>
+          <li><span><b>Revisión independiente</b> legal, financiera y técnica antes de cada cierre relevante.</span></li>
+        </ul>
+      </div>
+      <div style="display:grid; gap:1rem">
+        <div class="ficha">
+          <div class="hd">Mitigantes de riesgo</div>
+          <div class="row"><span class="k">Activo real</span><span>El terreno respalda la inversión desde el primer día</span></div>
+          <div class="row"><span class="k">Decisión previa</span><span>Go / no-go antes de comprar, con permisos y factibilidades revisados</span></div>
+          <div class="row"><span class="k">Obras</span><span>Contratista externo con licitación, e inspección técnica independiente</span></div>
+          <div class="row"><span class="k">Ventas</span><span>Financiamiento al comprador para sostener la velocidad de venta</span></div>
+        </div>
+        <p class="note"><b>Aviso</b>La información de esta página es referencial. No constituye una oferta pública de valores ni una recomendación de inversión. Las condiciones de cada proyecto se informan en sus documentos de suscripción.</p>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- =========================== MACROLOTES 5 =========================== -->
+<article class="page" id="p-macrolotes-propietarios" data-line="ml" hidden>
+  <div class="hero"><div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Verity Macrolotes</div>
+      <div class="pos" data-pos></div>
+      <h1>Si tiene un terreno, lo evaluamos con usted.</h1>
+      <p class="lead">Muchos paños con buen potencial siguen sin desarrollarse porque su dueño no cuenta con el capital, el equipo o el tiempo para hacerlo. Verity ofrece caminos para vender el terreno, aportarlo a un proyecto o combinar ambas opciones.</p>
+    </div>
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 560 320" id="ml-parcel" role="img" aria-label="Plano de un predio con sus cotas y los antecedentes que se solicitan para evaluarlo"></svg>
+      <figcaption><span>Antecedentes de un predio para la evaluación preliminar</span></figcaption>
+    </figure>
+  </div></div>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Alternativas para el propietario</div>
+        <h2>Tres formas de participar</h2>
+      </div>
+      <div class="grid g3">
+        <div class="card"><div class="tag">Liquidez</div><h3>Venta</h3><p>El vehículo del proyecto compra el terreno. El propietario recibe el precio acordado, al contado o en cuotas ligadas a hitos del proyecto.</p></div>
+        <div class="card"><div class="tag">Plusvalía</div><h3>Aporte</h3><p>El terreno se aporta al vehículo y el propietario participa del resultado. Captura el mayor valor que genera la urbanización, sin gestionar el proyecto.</p></div>
+        <div class="card"><div class="tag">Equilibrio</div><h3>Mixta</h3><p>Una parte del valor se paga en dinero y otra se mantiene como participación en el proyecto.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap split">
+      <div style="display:grid; gap:1rem">
+        <div class="eyebrow">Qué evaluamos</div>
+        <h2>Siete preguntas que definen si un terreno sostiene un proyecto</h2>
+        <ul class="ticks">
+          <li><span><b>Ubicación y accesos:</b> conectividad vial y cercanía a la demanda.</span></li>
+          <li><span><b>Normativa:</b> usos permitidos, densidad y superficie predial mínima.</span></li>
+          <li><span><b>Superficie y topografía:</b> cabida útil y costo de movimiento de tierra.</span></li>
+          <li><span><b>Factibilidades:</b> agua potable, alcantarillado y energía eléctrica.</span></li>
+          <li><span><b>Títulos:</b> dominio, deslindes, servidumbres y gravámenes.</span></li>
+          <li><span><b>Mercado:</b> demanda y precios de lotes comparables en la zona.</span></li>
+          <li><span><b>Números:</b> margen entre el valor del suelo bruto y el del lote urbanizado.</span></li>
+        </ul>
+      </div>
+      <div style="display:grid; gap:1rem">
+        <div class="ficha">
+          <div class="hd">Antecedentes para la evaluación preliminar</div>
+          <div class="row"><span class="k">Dominio</span><span>Inscripción de dominio vigente y certificado de hipotecas y gravámenes</span></div>
+          <div class="row"><span class="k">Rol</span><span>Rol de avalúo del Servicio de Impuestos Internos</span></div>
+          <div class="row"><span class="k">Normativa</span><span>Certificado de informaciones previas de la municipalidad</span></div>
+          <div class="row"><span class="k">Ubicación</span><span>Plano o archivo KMZ con los deslindes del predio</span></div>
+          <div class="row"><span class="k">Opcional</span><span>Levantamiento topográfico, estudios o factibilidades existentes</span></div>
+        </div>
+        <ol class="mini-steps">
+          <li><span class="no">PASO 1</span><b>Conversación inicial</b><span>Conocemos el terreno y sus expectativas.</span></li>
+          <li><span class="no">PASO 2</span><b>Antecedentes</b><span>Usted nos envía la documentación disponible.</span></li>
+          <li><span class="no">PASO 3</span><b>Evaluación preliminar</b><span>Normativa, cabida y números iniciales.</span></li>
+          <li><span class="no">PASO 4</span><b>Propuesta</b><span>Venta, aporte o fórmula mixta.</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- =========================== POWER CENTER 1 =========================== -->
+<article class="page" id="p-power-center" data-line="pc" hidden>
+  <div class="hero"><div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Verity Power Center</div>
+      <div class="pos" data-pos></div>
+      <h1>Centros comerciales de conveniencia, desarrollados para su venta a inversionistas institucionales.</h1>
+      <p class="lead">Verity Power Center busca terrenos, valida su cabida y factibilidad, firma contratos con retailers de distintas áreas, financia la compra y la construcción en el mercado de capitales chileno, estabiliza los flujos del activo y lo vende a inversionistas institucionales.</p>
+    </div>
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 640 320" id="pc-hero" role="img" aria-label="Elevación de un power center con supermercado ancla, tiendas menores, gimnasio, tótem publicitario y estacionamientos"></svg>
+      <figcaption><span>Elevación esquemática de un power center tipo</span><span class="key"><i style="background:var(--pc-fill)"></i>Ancla y semi-ancla</span></figcaption>
+    </figure>
+  </div></div>
+
+  <section class="blk">
+    <div class="wrap split">
+      <div style="display:grid; gap:1rem">
+        <div class="eyebrow">Qué es un power center</div>
+        <h2>Un formato de renta estable, cercano al consumidor</h2>
+        <p class="muted">Un power center es un centro comercial abierto, de uno o dos niveles, con tiendas ancla de gran formato, como un supermercado o una tienda de mejoramiento del hogar, acompañadas de tiendas menores y estacionamiento en superficie frente a los locales. El strip center es su versión de menor escala, orientada a la conveniencia del barrio.</p>
+        <p class="muted">Su atractivo para el inversionista institucional está en los contratos de arriendo de largo plazo con operadores conocidos, que generan un flujo predecible.</p>
+      </div>
+      <div class="statements">
+        <div class="stmt"><div class="lbl">Visión</div><p>Ser un desarrollador y estructurador de referencia en Chile en power centers y strip centers, reconocido por entregar activos con contratos firmados, flujos estables y una salida institucional clara.</p></div>
+        <div class="stmt"><div class="lbl">Misión</div><p>Integrar en un solo equipo el análisis comercial, la estructuración financiera y la gestión de la construcción, para llevar cada proyecto desde el terreno hasta su venta con menos riesgo y mejor precio de salida.</p></div>
+        <div class="stmt"><div class="lbl">Objetivo</div><p>Crear activos de renta comercial con contratos de largo plazo, un ingreso operacional estabilizado y una tasa de capitalización atractiva para compradores institucionales.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap split wide-left">
+      <div style="display:grid; gap:1.3rem">
+        <div class="blk-head" style="margin:0">
+          <div class="eyebrow">Objetivos específicos</div>
+          <h2>Cinco compromisos por proyecto</h2>
+        </div>
+        <ul class="ticks">
+          <li><span><b>Comercializar antes de construir.</b> Cerrar contratos con operadores ancla desde las etapas tempranas, para no terminar la obra y recién salir a buscar arrendatarios.</span></li>
+          <li><span><b>Validar antes de comprometer capital.</b> Cruzar el dimensionamiento comercial con la validación de costo y plazo antes de invertir en el terreno.</span></li>
+          <li><span><b>Aislar cada proyecto.</b> Un vehículo independiente por proyecto, con contabilidad separada y gobierno acordado.</span></li>
+          <li><span><b>Apuntar a una utilidad sobre costo del orden de 20%</b>, como meta referencial de cada caso de negocio.</span></li>
+          <li><span><b>Tener dos ventanas de salida.</b> Venta del proyecto con anteproyecto aprobado y contratos clave (Exit 1), o venta del activo construido y estabilizado (Exit 2).</span></li>
+        </ul>
+      </div>
+      <div class="ficha">
+        <div class="hd">Ficha de la línea</div>
+        <div class="row"><span class="k">Producto</span><span>Power centers y strip centers de conveniencia</span></div>
+        <div class="row"><span class="k">Arrendatarios</span><span>Supermercados, gimnasios, farmacias, mejoramiento del hogar, servicios y tiendas menores</span></div>
+        <div class="row"><span class="k">Financiamiento</span><span>Mercado de capitales chileno: capital de inversionistas y deuda bancaria</span></div>
+        <div class="row"><span class="k">Vehículo</span><span>Sociedad independiente por proyecto</span></div>
+        <div class="row"><span class="k">Salida</span><span>Exit 1: venta del proyecto · Exit 2: venta del activo estabilizado</span></div>
+        <div class="row"><span class="k">Compradores</span><span>Fondos de inversión, compañías de seguros, rentistas e inversionistas institucionales</span></div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- =========================== POWER CENTER 2 =========================== -->
+<article class="page" id="p-power-center-modelo" data-line="pc" hidden>
+  <div class="hero"><div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Verity Power Center</div>
+      <div class="pos" data-pos></div>
+      <h1>De un terreno a un activo de renta en ocho pasos.</h1>
+      <p class="lead">El modelo de negocio crea valor en la diferencia entre lo que cuesta desarrollar el activo y lo que un inversionista institucional paga por sus flujos estabilizados. Cada paso existe para ampliar esa diferencia o para proteger que se cumpla.</p>
+    </div>
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 560 400" id="pc-siteplan" role="img" aria-label="Planta a escala de un power center de 10.200 metros cuadrados arrendables sobre un terreno de 25.000 metros cuadrados"></svg>
+      <figcaption><span>Planta a escala · terreno 25.000 m² · 10.200 m² arrendables (GLA)</span></figcaption>
+    </figure>
+  </div></div>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Cadena de valor</div>
+        <h2>Los ocho pasos del modelo</h2>
+      </div>
+      <div class="steps c4" style="--cols:4">
+        <div class="step"><span class="no">01</span><h3>Búsqueda activa de terrenos</h3><p>Identificación de ubicaciones con flujo, accesibilidad y demanda insatisfecha de comercio de conveniencia.</p></div>
+        <div class="step"><span class="no">02</span><h3>Análisis de cabida</h3><p>Superficie arrendable posible según la normativa, el programa comercial y los estacionamientos exigidos.</p></div>
+        <div class="step"><span class="no">03</span><h3>Prefactibilidad y factibilidad</h3><p>Mercado, normativa, costos, plazos y modelo financiero, con una decisión go / no-go antes de comprar.</p></div>
+        <div class="step"><span class="no">04</span><h3>Contratos con retailers</h3><p>Precolocación de locales y firma de contratos con anclas y operadores de distintas áreas de negocio.</p></div>
+        <div class="step"><span class="no">05</span><h3>Financiamiento</h3><p>Capital y deuda en el mercado de capitales chileno para la compra del terreno y el desarrollo.</p></div>
+        <div class="step"><span class="no">06</span><h3>Construcción</h3><p>Licitación, adjudicación y supervisión de la obra, permisos y recepciones finales.</p></div>
+        <div class="step"><span class="no">07</span><h3>Estabilización de flujos</h3><p>Puesta en marcha, ocupación objetivo y administración hasta lograr un ingreso operacional estable.</p></div>
+        <div class="step"><span class="no">08</span><h3>Venta institucional</h3><p>Valorización de los flujos, estructuración de la venta y negociación con inversionistas institucionales.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap split">
+      <div style="display:grid; gap:1rem">
+        <div class="eyebrow">Cómo se crea valor</div>
+        <h2>Desarrollar a un rendimiento mayor que la tasa a la que se vende</h2>
+        <p class="muted">Un activo de renta se valoriza dividiendo su ingreso operacional neto estabilizado (NOI) por la tasa de capitalización que exige el comprador. Si el proyecto rinde sobre su costo más que esa tasa, la diferencia es la utilidad del desarrollo.</p>
+        <p class="muted">Por eso los contratos firmados importan tanto: un activo con concepto claro y anclas comprometidas reduce el riesgo que percibe el comprador y mejora la tasa de salida.</p>
+      </div>
+      <div style="display:grid; gap:1rem">
+        <div class="formula">
+          <span class="tag">Valor de salida</span>
+          <span class="eq">Valor = <em>NOI estabilizado</em> ÷ <em>cap rate de salida</em></span>
+          <span class="tag" style="margin-top:.6rem">Rendimiento sobre costo</span>
+          <span class="eq">Yield on cost = <em>NOI</em> ÷ <em>costo total de desarrollo</em></span>
+        </div>
+        <div class="ficha">
+          <div class="hd">En el caso ilustrativo</div>
+          <div class="row"><span class="k">Yield on cost</span><span class="mono">8,4%</span></div>
+          <div class="row"><span class="k">Cap rate de salida</span><span class="mono">7,0%</span></div>
+          <div class="row"><span class="k">Utilidad sobre costo</span><span class="mono">20%</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Mix comercial</div>
+        <h2>Operadores de distintas áreas de negocio, con roles distintos en el centro</h2>
+      </div>
+      <div class="grid g4">
+        <div class="card"><div class="tag">Ancla</div><h3>Atrae el flujo</h3><p>Supermercado o mejoramiento del hogar. Gran superficie, contrato largo y renta por m² menor.</p></div>
+        <div class="card"><div class="tag">Semi-ancla</div><h3>Amplía el motivo de visita</h3><p>Gimnasio, farmacia o tienda intermedia. Complementan al ancla y extienden el horario de uso.</p></div>
+        <div class="card"><div class="tag">Tiendas menores</div><h3>Aporta la renta</h3><p>Servicios, comida, salud y belleza. Menor superficie y mayor renta por m², con rotación más alta.</p></div>
+        <div class="card"><div class="tag">Pad</div><h3>Monetiza el frente</h3><p>Locales independientes hacia la calle, como comida rápida o sucursales de servicios.</p></div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- =========================== POWER CENTER 3 =========================== -->
+<article class="page" id="p-power-center-proceso" data-line="pc" hidden>
+  <div class="hero"><div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Verity Power Center</div>
+      <div class="pos" data-pos></div>
+      <h1>Seis fases, una decisión de avance y dos ventanas de salida.</h1>
+      <p class="lead">El mapa de etapas ordena el proyecto desde la originación hasta la colocación final. Tiene un punto de decisión antes de invertir en serio y dos momentos en que el proyecto puede venderse con utilidad.</p>
+    </div>
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 560 280" id="pc-phases" role="img" aria-label="Línea de seis fases con la decisión go o no-go tras la validación, el Exit 1 tras el desarrollo y el Exit 2 tras la colocación"></svg>
+      <figcaption><span>◆ Puntos de decisión y de salida</span></figcaption>
+    </figure>
+  </div></div>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Mapa de etapas del proceso</div>
+        <h2>Qué ocurre en cada fase</h2>
+      </div>
+      <div class="steps" style="--cols:6">
+        <div class="step"><span class="no">FASE 1</span><h3>Originación</h3><ul><li>Búsqueda de mercados y oportunidades</li><li>Análisis de factibilidad normativa</li><li>Aporte de terreno, proyecto o activos</li></ul></div>
+        <div class="step"><span class="no">FASE 2</span><h3>Validación</h3><ul><li>Evaluación del mercado potencial</li><li>Propuesta de valor</li><li>Estrategia y posicionamiento</li><li>Masterplan 1</li><li>Análisis financiero del activo</li></ul><span class="mile">Go / No-go</span></div>
+        <div class="step"><span class="no">FASE 3</span><h3>Desarrollo y Exit 1</h3><ul><li>Masterplan 2</li><li>Precolocación de locales</li><li>Cierre de contratos clave</li><li>Anteproyecto de arquitectura</li><li>Diseño del negocio y estrategia financiera</li><li>Venta del proyecto</li></ul><span class="mile">Exit 1</span></div>
+        <div class="step"><span class="no">FASE 4</span><h3>Estructuración</h3><ul><li>Modelo financiero y vehículo de inversión</li><li>Levantamiento de capital y deuda bancaria</li></ul></div>
+        <div class="step"><span class="no">FASE 5</span><h3>Construcción y recepciones</h3><ul><li>Proyecto de arquitectura</li><li>Gerenciamiento del desarrollo</li><li>Gestión de permisos</li><li>Licitación, adjudicación y gerenciamiento de la construcción</li><li>Recepciones finales</li><li>Intermediación comercial final y apoyo en contratos</li></ul></div>
+        <div class="step"><span class="no">FASE 6</span><h3>Colocación y Exit 2</h3><ul><li>Valorización de flujos y estructuración de la venta</li><li>Inversionistas finales y negociación</li><li>Venta final del activo</li></ul><span class="mile">Exit 2</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap split">
+      <div style="display:grid; gap:1rem">
+        <div class="eyebrow">Hitos de éxito</div>
+        <h2>Cómo se mide el avance de un proyecto</h2>
+        <p class="muted">Cada hito reduce un riesgo concreto y aumenta el valor del proyecto frente a un comprador o un financista. Si la evaluación inicial resulta negativa, el proyecto se detiene antes de comprometer capital de inversionistas.</p>
+      </div>
+      <ul class="ticks">
+        <li><span><b>Anteproyecto aprobado</b>, que habilita la venta del proyecto en el Exit 1.</span></li>
+        <li><span><b>Permisos de edificación aprobados</b>, que fijan lo que se puede construir.</span></li>
+        <li><span><b>Contratos de arriendo con anclas firmados</b>, que aseguran la base de la renta.</span></li>
+        <li><span><b>Cierre del financiamiento bancario</b>, que permite iniciar la construcción.</span></li>
+        <li><span><b>Ocupación y flujos estabilizados</b>, que habilitan la venta institucional en el Exit 2.</span></li>
+      </ul>
+    </div>
+  </section>
+</article>
+
+<!-- =========================== POWER CENTER 4 =========================== -->
+<article class="page" id="p-power-center-operacion" data-line="pc" hidden>
+  <div class="hero"><div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Verity Power Center</div>
+      <div class="pos" data-pos></div>
+      <h1>Un solo equipo responsable de punta a punta.</h1>
+      <p class="lead">Verity lidera las etapas financieras y de ejecución, y trabaja en alianza con un socio especialista en estrategia comercial y diseño de valor. Cada socio lidera sus etapas, sin capacidades duplicadas y sin etapas en disputa.</p>
+    </div>
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 560 320" id="pc-alliance" role="img" aria-label="Diagrama de la alianza: estrategia comercial y finanzas y ejecución convergen en un vehículo por proyecto"></svg>
+      <figcaption><span>Dos capacidades complementarias, un vehículo por proyecto</span></figcaption>
+    </figure>
+  </div></div>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Quién lidera cada fase</div>
+        <h2>Roles definidos desde el inicio</h2>
+        <p class="muted">Cada socio lidera la decisión en sus etapas. Las decisiones que implican inversión o gasto se toman por consenso, y los procesos conjuntos, como la originación y la evaluación preliminar, se revisan de forma iterativa a medida que avanzan.</p>
+      </div>
+      <div style="overflow-x:auto">
+        <div class="roles" role="table" aria-label="Liderazgo por fase">
+          <div class="hd" role="columnheader">Fase</div><div class="hd">1 · Originación</div><div class="hd">2 · Validación</div><div class="hd">3 · Desarrollo y Exit 1</div><div class="hd">4 · Estructuración</div><div class="hd">5 · Construcción</div><div class="hd">6 · Colocación y Exit 2</div>
+          <div>Estrategia comercial y concepto</div><div class="joint">Conjunto</div><div class="lead-c">Lidera</div><div class="lead-c">Lidera</div><div class="supp">Apoya</div><div class="supp">Intermediación comercial final</div><div class="supp">Apoya</div>
+          <div>Finanzas y ejecución · Verity</div><div class="joint">Conjunto</div><div class="supp">Análisis financiero del activo</div><div class="supp">Estrategia financiera</div><div class="lead-c">Lidera</div><div class="lead-c">Lidera y supervisa</div><div class="lead-c">Lidera</div>
+          <div>Especialistas externos</div><div class="supp">—</div><div class="supp">Due diligence</div><div class="supp">Oficina de arquitectura</div><div class="supp">Asesores legales y tributarios</div><div class="supp">Arquitectura, especialistas y constructora</div><div class="supp">Due diligence</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap split">
+      <div style="display:grid; gap:1rem">
+        <div class="eyebrow">Gobierno del proyecto</div>
+        <h2>Reglas claras para cada vehículo</h2>
+        <div class="ficha">
+          <div class="row"><span class="k">Vehículo</span><span>Sociedad independiente por proyecto, con contabilidad separada</span></div>
+          <div class="row"><span class="k">Decisiones</span><span>Cada socio lidera sus etapas; inversión y gasto se deciden por consenso</span></div>
+          <div class="row"><span class="k">Costos de viabilidad</span><span>Estudios, topografía, costos legales y diseño los asumen los socios gestores</span></div>
+          <div class="row"><span class="k">Honorarios</span><span>Diferidos; los socios gestores los recuperan al cierre del financiamiento o de la venta</span></div>
+          <div class="row"><span class="k">Salida anticipada</span><span>Si la validación es negativa, el proyecto se detiene antes de comprometer capital de inversionistas</span></div>
+        </div>
+      </div>
+      <div style="display:grid; gap:1rem">
+        <div class="eyebrow">Servicios especializados</div>
+        <h2>Lo que se contrata a terceros</h2>
+        <div class="ficha">
+          <div class="row"><span class="k">Due diligence</span><span>Revisión legal, financiera y técnica antes de cada hito de cierre</span></div>
+          <div class="row"><span class="k">Legal y tributario</span><span>Estructura societaria, contratos y tributación del vehículo</span></div>
+          <div class="row"><span class="k">Arquitectura</span><span>Concepto, proyecto ejecutivo a partir del masterplan y tramitación de permisos</span></div>
+          <div class="row"><span class="k">Especialistas</span><span>Ingeniería vial, cálculo estructural, especialidades, revisores independientes e inspección técnica</span></div>
+          <div class="row"><span class="k">Constructora</span><span>La obra queda en manos de un tercero; la licitación y la supervisión quedan en Verity</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Ventajas del modelo</div>
+        <h2>Por qué operar en alianza</h2>
+      </div>
+      <div class="grid g3">
+        <div class="card"><h3>Sin capacidades duplicadas</h3><p>Un socio cubre lo comercial y conceptual; Verity cubre lo financiero y la ejecución. Ninguna etapa queda en disputa.</p></div>
+        <div class="card"><h3>Decisiones validadas desde el día uno</h3><p>El dimensionamiento comercial y la validación de costo y plazo se cruzan antes de comprometer capital en el terreno.</p></div>
+        <div class="card"><h3>Financiamiento con mejor argumento</h3><p>La propuesta de valor y el masterplan sostienen el caso financiero que se presenta a bancos e inversionistas.</p></div>
+        <div class="card"><h3>Comercialización anticipada</h3><p>Los contratos con anclas se cierran en etapas tempranas, sin esperar el fin de la obra para buscar operadores.</p></div>
+        <div class="card"><h3>Mejor condición de salida</h3><p>Un activo con concepto definido y contratos firmados reduce la negociación a la baja del comprador institucional y mejora la tasa de capitalización.</p></div>
+        <div class="card"><h3>Un equipo de punta a punta</h3><p>Los mismos socios acompañan desde el análisis de mercado hasta la venta, sin brechas de coordinación.</p></div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- =========================== POWER CENTER 5 =========================== -->
+<article class="page" id="p-power-center-caso" data-line="pc" hidden>
+  <div class="hero"><div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Verity Power Center</div>
+      <div class="pos" data-pos></div>
+      <h1>Un proyecto tipo, en números.</h1>
+      <p class="lead">Este caso ilustra la lógica financiera de un power center de 10.200 m² arrendables sobre un terreno de 25.000 m². Con un costo total de UF 470.600 y un valor de salida de UF 564.711, la utilidad sobre costo alcanza 20%.</p>
+      <p class="note"><b>Ejemplo ilustrativo</b>Cifras preliminares, pendientes de validación. No corresponden a un proyecto en comercialización ni constituyen una oferta o recomendación de inversión.</p>
+    </div>
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 560 300" id="pc-bridge" role="img" aria-label="Puente de valor: terreno 185.000 UF más construcción 285.600 UF suman 470.600 UF de costo; la utilidad de 94.111 UF lleva al valor de salida de 564.711 UF"></svg>
+      <figcaption><span>Puente de valor, en miles de UF</span></figcaption>
+    </figure>
+  </div></div>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="kpis">
+        <div class="kpi"><span class="v">39.530</span><span class="l">UF/año de NOI estabilizado</span></div>
+        <div class="kpi"><span class="v">7,0%</span><span class="l">cap rate de salida</span></div>
+        <div class="kpi"><span class="v">8,4%</span><span class="l">yield on cost resultante</span></div>
+        <div class="kpi"><span class="v">20%</span><span class="l">utilidad sobre costo (meta)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">A · Programa comercial y renta</div>
+        <h2>Cuatro tipos de local, 10.200 m² arrendables</h2>
+      </div>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Local</th><th>GLA (m²)</th><th>UF/m²/mes</th><th>Ocupación</th><th>Renta anual (UF)</th></tr></thead>
+          <tbody>
+            <tr><td>Tiendas menores</td><td>4.000</td><td>0,76</td><td>93%</td><td>33.926,4</td></tr>
+            <tr><td>Supermercado</td><td>4.500</td><td>0,25</td><td>100%</td><td>13.500,0</td></tr>
+            <tr><td>Gimnasio</td><td>1.200</td><td>0,25</td><td>100%</td><td>3.600,0</td></tr>
+            <tr><td>Tienda intermedia</td><td>500</td><td>0,28</td><td>100%</td><td>1.680,0</td></tr>
+          </tbody>
+          <tfoot><tr><td>Total</td><td>10.200</td><td>—</td><td>—</td><td>52.706,4</td></tr></tfoot>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap split">
+      <div style="display:grid; gap:1rem">
+        <div class="eyebrow">B · Indicadores de rentabilidad</div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Indicador</th><th>Valor</th></tr></thead>
+            <tbody>
+              <tr><td>Margen NOI</td><td>75%</td></tr>
+              <tr><td>NOI estabilizado</td><td>39.529,8 UF/año</td></tr>
+              <tr><td>Cap rate de salida</td><td>7,0%</td></tr>
+              <tr><td>Valor de salida</td><td>564.711,4 UF</td></tr>
+              <tr><td>Costo total de desarrollo (techo)</td><td>470.600 UF</td></tr>
+              <tr><td>Yield on cost resultante</td><td>8,4%</td></tr>
+              <tr><td>Utilidad sobre costo (meta)</td><td>20%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div style="display:grid; gap:1rem">
+        <div class="eyebrow">C · Estructura de costos</div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>Componente</th><th>Monto (UF)</th><th>UF/m²</th></tr></thead>
+            <tbody>
+              <tr><td>Terreno<br><span class="tag" style="text-transform:none;letter-spacing:0">sobre 25.000 m² de terreno</span></td><td>185.000</td><td>7,4</td></tr>
+              <tr><td>Construcción y soft costs<br><span class="tag" style="text-transform:none;letter-spacing:0">sobre 10.200 m² GLA</span></td><td>285.600</td><td>28,0</td></tr>
+            </tbody>
+            <tfoot><tr><td>Costo total</td><td>470.600</td><td>—</td></tr></tfoot>
+          </table>
+        </div>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th>D · Puente de valor</th><th>UF</th></tr></thead>
+            <tbody>
+              <tr><td>Costo total de desarrollo</td><td>470.600</td></tr>
+              <tr><td>Valor de salida</td><td>564.711,4</td></tr>
+            </tbody>
+            <tfoot><tr><td>Utilidad sobre costo</td><td>94.111,4 (20%)</td></tr></tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Sensibilización</div>
+        <h2>Utilidad sobre costo según precio del terreno y cap rate de salida</h2>
+        <p class="muted">Construcción fija en 28,0 UF/m² (UF 285.600) y NOI estabilizado de UF 39.529,8 al año. El recuadro marca el caso base.</p>
+      </div>
+      <div class="tbl-wrap"><table class="heat" id="pc-heat"></table></div>
+      <div class="grid g3" style="margin-top:1.4rem">
+        <div class="card"><h3>El cap rate manda</h3><p>Cada 0,5 puntos de alza en el cap rate de salida reduce la utilidad entre 7 y 9 puntos porcentuales. Es la variable más sensible del modelo.</p></div>
+        <div class="card"><h3>El terreno pesa menos</h3><p>Cada 0,5 UF/m² de alza en el precio del terreno reduce la utilidad en torno a 3 puntos.</p></div>
+        <div class="card"><h3>Pendiente de cerrar</h3><p>Plazos de desarrollo y estabilización, mezcla de deuda y capital, TIR con flujo temporal y costo de construcción con cotización real.</p></div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- =========================== AGENTIZACIÓN 1 =========================== -->
+<article class="page" id="p-agentizacion" data-line="ag" hidden>
+  <div class="hero"><div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Verity Agentización Empresarial</div>
+      <div class="pos" data-pos></div>
+      <h1>Inteligencia artificial que trabaja para las personas de su empresa.</h1>
+      <p class="lead">La tercera línea de Verity lleva la inteligencia artificial desde la prueba a la operación diaria. Integra los datos, sistemas y procesos de la empresa bajo controles comunes, para que cada área produzca más, reduzca trabajo manual y aproveche mejor sus oportunidades de crecimiento.</p>
+      <div class="op"><svg class="cardus-mark" viewBox="0 0 100 100" aria-hidden="true"><path class="arc" d="M 76.81 35.63 A 34 34 0 1 0 76.81 64.37" fill="none" stroke-width="7"/><circle class="core" cx="46" cy="50" r="13"/><circle class="pt" cx="88" cy="50" r="6"/></svg><span>Operada con la marca <b>Cardus</b> · <a href="https://cardus.cl" target="_blank" rel="noopener">cardus.cl</a></span></div>
+    </div>
+    <figure class="plate dark" style="margin:0">
+      <svg viewBox="0 0 560 400" id="ag-hero" role="img" aria-label="Red de agentes: un orquestador central conectado a los sistemas de la empresa y a una persona que aprueba"></svg>
+      <figcaption><span>Orquestador, agentes y fuentes de la empresa</span><span>● Aprobación humana</span></figcaption>
+    </figure>
+  </div></div>
+
+  <section class="blk">
+    <div class="wrap split">
+      <div style="display:grid; gap:1rem">
+        <div class="eyebrow">Propósito</div>
+        <h2>Que la IA trabaje para las personas de la empresa, y no al revés.</h2>
+        <p class="muted">El objetivo es devolverle tiempo al equipo para decidir, atender clientes y hacer crecer el negocio. Para lograrlo, los agentes trabajan conectados a la información real de la compañía, dentro de permisos definidos y con una persona que aprueba las decisiones importantes.</p>
+      </div>
+      <div class="statements">
+        <div class="stmt"><div class="lbl">Visión</div><p>Ser el socio de referencia para empresas e instituciones de inversión que quieren operar con agentes de inteligencia artificial conectados a su información, gobernados por reglas claras y medidos por sus resultados.</p></div>
+        <div class="stmt"><div class="lbl">Misión</div><p>Diseñar, implementar y acompañar la infraestructura de inteligencia artificial de nuestros clientes, conectada a su información, gobernada por reglas claras y evaluada por los resultados que produce.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Objetivos</div>
+        <h2>Cuatro resultados que se miden en cada implementación</h2>
+        <p class="muted">Las metas específicas se fijan con los datos reales de cada empresa, en un taller ejecutivo previo al piloto.</p>
+      </div>
+      <div class="grid g4">
+        <div class="card"><div class="tag">Volumen</div><h3>Más operaciones con el mismo equipo</h3><p>Procesar más clientes, documentos y solicitudes sin aumentar la dotación en la misma proporción.</p></div>
+        <div class="card"><div class="tag">Ingresos</div><h3>Mejor atención y seguimiento</h3><p>Responder más rápido, con el historial completo del cliente y compromisos que no se pierden.</p></div>
+        <div class="card"><div class="tag">Costos</div><h3>Menos trabajo manual y retrabajo</h3><p>Reportes y documentos automatizados, y errores detectados antes de que generen costos.</p></div>
+        <div class="card"><div class="tag">Tiempo</div><h3>Más horas para lo que agrega valor</h3><p>El equipo dedica su tiempo a asesorar, decidir y vender, no a buscar y consolidar información.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Lo que distingue a la línea</div>
+        <h2>De la prueba a la operación diaria</h2>
+      </div>
+      <div class="grid g3">
+        <div class="card"><h3>Implementación, no licencias</h3><p>Un equipo de especialistas diseña, construye y acompaña la infraestructura. No se trata de vender una herramienta genérica.</p></div>
+        <div class="card"><h3>Especialización en agentes empresariales</h3><p>Agentes conectados a la información de la empresa, con reglas claras y una persona que aprueba las decisiones importantes.</p></div>
+        <div class="card"><h3>Experiencia del equipo</h3><p>Implementaciones de IA y automatización en más de 40 empresas y en 9 países, en la trayectoria previa de sus integrantes.</p></div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- =========================== AGENTIZACIÓN 2 =========================== -->
+<article class="page" id="p-agentizacion-funcionamiento" data-line="ag" hidden>
+  <div class="hero"><div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Verity Agentización Empresarial</div>
+      <div class="pos" data-pos></div>
+      <h1>Agentes conectados a su información, con una persona que aprueba.</h1>
+      <p class="lead">Cada solicitud del equipo recorre un camino controlado: se verifica quién pide y qué puede usar, un orquestador reparte el trabajo entre agentes especializados y una persona aprueba el resultado antes de que salga.</p>
+    </div>
+    <figure class="plate dark" style="margin:0">
+      <svg viewBox="0 0 560 300" id="ag-flow" role="img" aria-label="Recorrido de una solicitud: solicitud, guardas, orquestador, agentes y aprobación humana, con registro"></svg>
+      <figcaption><span>Recorrido de una solicitud</span></figcaption>
+    </figure>
+  </div></div>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Cómo funciona</div>
+        <h2>Cinco pasos, de la solicitud al registro</h2>
+      </div>
+      <div class="flow">
+        <div class="f"><span class="no">1 · SOLICITUD</span><h3>El equipo pide</h3><p>Por correo, chat o voz, en el lenguaje de todos los días.</p></div>
+        <div class="f"><span class="no">2 · GUARDAS</span><h3>Se verifica el acceso</h3><p>Quién pide y a qué información puede acceder según su rol.</p></div>
+        <div class="f"><span class="no">3 · ORQUESTADOR</span><h3>Se reparte el trabajo</h3><p>El orquestador asigna cada tarea al agente que corresponde.</p></div>
+        <div class="f"><span class="no">4 · AGENTES</span><h3>Se prepara el resultado</h3><p>Los agentes preparan, revisan y consolidan la respuesta.</p></div>
+        <div class="f human"><span class="no">5 · APROBACIÓN</span><h3>Una persona decide</h3><p>Aprueba el borrador y la acción queda registrada.</p></div>
+      </div>
+      <div class="sources">
+        <div><b>Memoria</b>Historial y criterios acumulados de la empresa</div>
+        <div><b>Documentos</b>Contratos, políticas, informes y correos</div>
+        <div><b>Sistemas</b>CRM, ERP y planillas, siempre dentro de los permisos de cada agente</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap split">
+      <div style="display:grid; gap:1rem">
+        <div class="eyebrow">Arquitectura</div>
+        <h2>Seis pilares, de la base hacia arriba</h2>
+        <p class="muted">La inteligencia y la automatización son la parte más visible, pero dependen de los cinco pilares que las sostienen. Sin gobierno, datos, memoria, conocimiento y monitoreo, un agente no es confiable en una operación real.</p>
+        <div class="ficha">
+          <div class="hd">Una infraestructura</div>
+          <div class="row"><span class="k">Centralizada</span><span>Todos trabajan con la misma información y los mismos criterios</span></div>
+          <div class="row"><span class="k">Segura</span><span>Permisos, fuentes autorizadas, registro paso a paso y supervisión humana</span></div>
+          <div class="row"><span class="k">Integrada</span><span>Conectada a los sistemas, documentos y procesos reales de la empresa</span></div>
+        </div>
+      </div>
+      <div class="pillars" aria-label="Seis pilares, del superior a la base">
+        <div class="pillar top" style="--w:62%"><span class="no">6</span><div><b>Inteligencia y automatización</b><span>Lo que el usuario ve: agentes que trabajan</span></div></div>
+        <div class="pillar" style="--w:70%"><span class="no">5</span><div><b>Monitoreo y control</b><span>Seguimiento de uso, calidad y costos</span></div></div>
+        <div class="pillar" style="--w:78%"><span class="no">4</span><div><b>Conocimiento</b><span>Fuentes internas y externas confiables, con citas</span></div></div>
+        <div class="pillar" style="--w:86%"><span class="no">3</span><div><b>Memoria institucional</b><span>Lo que la empresa sabe queda en la empresa</span></div></div>
+        <div class="pillar" style="--w:93%"><span class="no">2</span><div><b>Datos e integraciones</b><span>Conexión con sistemas y documentos</span></div></div>
+        <div class="pillar" style="--w:100%"><span class="no">1</span><div><b>Gobierno y seguridad</b><span>Políticas, permisos, trazabilidad y revisión humana</span></div></div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- =========================== AGENTIZACIÓN 3 =========================== -->
+<article class="page" id="p-agentizacion-metodo" data-line="ag" hidden>
+  <div class="hero"><div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Verity Agentización Empresarial</div>
+      <div class="pos" data-pos></div>
+      <h1>La inteligencia artificial se implementa, no se compra.</h1>
+      <p class="lead">Cuando una empresa crece, la complejidad aumenta más rápido que su capacidad operativa. La asesoría identifica dónde se pierden tiempo y oportunidades, construye una infraestructura común para toda la organización y la aplica en los procesos que más mueven los resultados.</p>
+    </div>
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 560 300" id="ag-maturity" role="img" aria-label="Curva de madurez en el uso de inteligencia artificial, en cinco etapas"></svg>
+      <figcaption><span>Madurez en el uso de IA · se puede comenzar desde cualquier etapa</span></figcaption>
+    </figure>
+  </div></div>
+
+  <section class="blk">
+    <div class="wrap split">
+      <div style="display:grid; gap:1rem">
+        <div class="eyebrow">El problema</div>
+        <h2>Cinco señales de que la operación quedó chica</h2>
+        <ul class="ticks">
+          <li><span>Crece el volumen de clientes y operaciones.</span></li>
+          <li><span>La información está dispersa entre sistemas y archivos.</span></li>
+          <li><span>Los clientes son más exigentes.</span></li>
+          <li><span>El seguimiento es irregular.</span></li>
+          <li><span>Los procesos son manuales y propensos a error.</span></li>
+        </ul>
+      </div>
+      <div style="display:grid; gap:1rem">
+        <div class="eyebrow">Respuestas habituales</div>
+        <h2>Ayudan un poco, pero no cambian la operación</h2>
+        <div class="ficha">
+          <div class="row"><span class="k">Contratar más</span><span>Sube el costo fijo y la complejidad crece igual</span></div>
+          <div class="row"><span class="k">Automatizar tareas sueltas</span><span>Resuelve partes, pero no conecta el proceso completo</span></div>
+          <div class="row"><span class="k">Herramientas genéricas</span><span>No tienen memoria de la empresa, ni conexión con sus sistemas, ni controles</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Diagnóstico de madurez</div>
+        <h2>Dónde está su empresa hoy</h2>
+      </div>
+      <div class="stairs">
+        <div class="stair"><span class="no">ETAPA 1</span><b>Sin uso oficial</b><span>No hay herramientas de IA aprobadas.</span></div>
+        <div class="stair"><span class="no">ETAPA 2</span><b>Uso informal</b><span>Cada persona usa herramientas por su cuenta.</span></div>
+        <div class="stair"><span class="no">ETAPA 3</span><b>Herramientas aprobadas</b><span>La empresa define qué se puede usar.</span></div>
+        <div class="stair"><span class="no">ETAPA 4</span><b>Asistentes por área</b><span>Soluciones a medida para equipos específicos.</span></div>
+        <div class="stair"><span class="no">ETAPA 5</span><b>Infraestructura compartida</b><span>Una base común de IA para toda la empresa.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Método de implementación</div>
+        <h2>Cuatro fases, y se escala solo con evidencia</h2>
+      </div>
+      <div class="steps c4" style="--cols:4">
+        <div class="step"><span class="no">FASE 1</span><h3>Descubrimiento</h3><p>Se mapean los procesos actuales, sus entregables, quién los opera y qué información necesitan.</p></div>
+        <div class="step"><span class="no">FASE 2</span><h3>Diseño y accesos</h3><p>Se definen resultados esperados, permisos y aprobadores antes de conectar datos reales.</p></div>
+        <div class="step"><span class="no">FASE 3</span><h3>Construcción y validación</h3><p>Se construye con los datos y reglas de la empresa, y se prueba con los usuarios.</p></div>
+        <div class="step"><span class="no">FASE 4</span><h3>Despliegue y escala</h3><p>Se lanza, se mide el uso y se amplía a otros procesos cuando el primero demuestra resultados.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Aplicaciones por sector</div>
+        <h2>Casos de uso habituales</h2>
+      </div>
+      <div class="sectors">
+        <div><b>Minería y energía</b><span>Reportes operacionales consolidados y seguimiento de plazos regulatorios.</span></div>
+        <div><b>Forestal y salmonicultura</b><span>Control documental y consolidación de información de faena.</span></div>
+        <div><b>Servicios financieros</b><span>Historial de clientes para reuniones y preparación de informes.</span></div>
+        <div><b>Family offices</b><span>Consolidación de carteras y reportes a la familia.</span></div>
+        <div><b>Construcción e inmobiliario</b><span>Revisión de contratos y seguimiento de permisos y obras.</span></div>
+        <div><b>Retail</b><span>Atención de clientes y seguimiento comercial consistente.</span></div>
+        <div><b>Servicios legales y profesionales</b><span>Revisión de contratos y gestión documental.</span></div>
+        <div><b>Sector público</b><span>Gestión de solicitudes y trazabilidad de expedientes.</span></div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- =========================== AGENTIZACIÓN 4 =========================== -->
+<article class="page" id="p-agentizacion-control" data-line="ag" hidden>
+  <div class="hero"><div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Verity Agentización Empresarial</div>
+      <div class="pos" data-pos></div>
+      <h1>Primero los controles, después las capacidades.</h1>
+      <p class="lead">La innovación con inteligencia artificial avanza solo dentro de controles definidos de antemano. Antes de que un sistema acceda a datos reales, se establece qué puede ver, qué puede hacer y quién responde por cada acción.</p>
+    </div>
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 560 320" id="ag-rings" role="img" aria-label="Anillos concéntricos: los datos de la empresa al centro, rodeados por los controles y, por fuera, las capacidades"></svg>
+      <figcaption><span>Los datos al centro, protegidos por los controles</span></figcaption>
+    </figure>
+  </div></div>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Modelo de gestión de la innovación</div>
+        <h2>Cuatro ámbitos donde la IA se convierte en resultados</h2>
+      </div>
+      <div class="grid g4">
+        <div class="card"><div class="tag">Ámbito 1</div><h3>Valor al cliente</h3><p>Atención más rápida, consistente y personalizada, con el historial completo y compromisos registrados.</p></div>
+        <div class="card"><div class="tag">Ámbito 2</div><h3>Eficiencia</h3><p>Menos trabajo manual y retrabajo: reportes automáticos y errores detectados a tiempo.</p></div>
+        <div class="card"><div class="tag">Ámbito 3</div><h3>Integración</h3><p>Una base común de información entre sistemas, documentos y correos, que permanece cuando las personas cambian.</p></div>
+        <div class="card"><div class="tag">Ámbito 4</div><h3>Seguridad</h3><p>Permisos por proceso, aprobación humana de las acciones importantes y registro auditable de cada paso.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap split">
+      <div style="display:grid; gap:1rem">
+        <div class="eyebrow">Controles</div>
+        <h2>Cinco reglas que se fijan antes de conectar datos reales</h2>
+        <p class="muted">Estas reglas determinan qué tan autónomo puede ser cada flujo. La autonomía se amplía solo cuando la calidad está demostrada y una persona identificada lo decide.</p>
+      </div>
+      <div class="ficha">
+        <div class="row"><span class="k">Solo lectura</span><span>Acceso de lectura por defecto; la escritura se habilita flujo por flujo cuando la calidad está probada</span></div>
+        <div class="row"><span class="k">Permisos mínimos</span><span>Cada agente tiene permisos enumerados y accede solo a las fuentes declaradas</span></div>
+        <div class="row"><span class="k">Borradores</span><span>Las comunicaciones externas quedan como borrador; las envía una persona</span></div>
+        <div class="row"><span class="k">Registro</span><span>Bitácora que no se puede editar ni borrar, con consultas, fuentes leídas y resultados</span></div>
+        <div class="row"><span class="k">Autonomía</span><span>Nivel de autonomía declarado por flujo, que solo sube por decisión explícita de una persona</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Valores</div>
+        <h2>Cuatro compromisos que no se negocian</h2>
+      </div>
+      <div class="grid g4">
+        <div class="card"><h3>Primero el control</h3><p>Antes de que un sistema actúe, se define a qué accede y quién responde por él.</p></div>
+        <div class="card"><h3>Resultados que se miden</h3><p>Cada proyecto parte con metas acordadas y escala solo cuando los números lo respaldan.</p></div>
+        <div class="card"><h3>Las personas deciden</h3><p>La IA prepara el trabajo; una persona aprueba las decisiones importantes.</p></div>
+        <div class="card"><h3>Transparencia total</h3><p>Todo queda documentado, para que la empresa entienda y opere su sistema sin depender del proveedor.</p></div>
+      </div>
+    </div>
+  </section>
+</article>
+
+<!-- =========================== AGENTIZACIÓN 5 =========================== -->
+<article class="page" id="p-agentizacion-caso" data-line="ag" hidden>
+  <div class="hero"><div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Verity Agentización Empresarial</div>
+      <div class="pos" data-pos></div>
+      <h1>Se parte por un proceso, con datos reales.</h1>
+      <p class="lead">El caso de negocio se construye sobre la operación de la propia empresa. Un taller ejecutivo elige un proceso, lo dimensiona con datos reales y fija las metas de un primer piloto. Solo si el piloto cumple, se amplía.</p>
+    </div>
+    <figure class="plate" style="margin:0">
+      <svg viewBox="0 0 560 300" id="ag-case" role="img" aria-label="Cuatro dimensiones del caso de negocio: más volumen, más ingresos, menores costos y más tiempo del equipo"></svg>
+      <figcaption><span>Dirección esperada de cada dimensión · las metas se fijan en el taller</span></figcaption>
+    </figure>
+  </div></div>
+
+  <section class="blk">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Trayectoria del equipo</div>
+        <h2>Experiencia acumulada antes de esta línea</h2>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><span class="v">70+</span><span class="l">años de experiencia combinada</span></div>
+        <div class="kpi"><span class="v">40+</span><span class="l">empresas con IA y automatización implementadas</span></div>
+        <div class="kpi"><span class="v">9</span><span class="l">países con operaciones</span></div>
+        <div class="kpi"><span class="v">11</span><span class="l">fondos inmobiliarios estructurados</span></div>
+      </div>
+      <p class="tag" style="text-transform:none; letter-spacing:0; margin-top:.8rem">Cifras de la trayectoria de los integrantes del equipo antes de Cardus y Verity. No corresponden a resultados de clientes de la línea.</p>
+    </div>
+  </section>
+
+  <section class="blk alt">
+    <div class="wrap">
+      <div class="blk-head">
+        <div class="eyebrow">Integración con las otras líneas de Verity</div>
+        <h2>La misma infraestructura, aplicada a macrolotes y power centers</h2>
+        <p class="muted">Verity usa la agentización en su propia operación. Estos son los procesos de las otras dos líneas donde los agentes preparan el trabajo y el equipo decide.</p>
+      </div>
+      <div class="grid g3">
+        <div class="card"><div class="tag" style="color:var(--ml)">Macrolotes</div><h3>Evaluación de terrenos</h3><p>Lectura de certificados de informaciones previas, títulos y normativa, y una ficha comparable de cada terreno.</p></div>
+        <div class="card"><div class="tag" style="color:var(--ml)">Macrolotes</div><h3>Seguimiento de permisos y ventas</h3><p>Calendario de trámites, alertas de plazos y estado de la cartera de lotes y créditos.</p></div>
+        <div class="card"><div class="tag" style="color:var(--pc)">Power Center</div><h3>Cabida y prefactibilidad</h3><p>Primer cálculo de superficie arrendable, renta y caso de negocio a partir de los datos del terreno.</p></div>
+        <div class="card"><div class="tag" style="color:var(--pc)">Power Center</div><h3>Gestión de contratos con retailers</h3><p>Seguimiento de negociaciones, vencimientos, reajustes y cláusulas de cada contrato de arriendo.</p></div>
+        <div class="card"><div class="tag">Ambas líneas</div><h3>Reportes a inversionistas</h3><p>Informes periódicos consolidados de avance físico, financiero y comercial de cada vehículo.</p></div>
+        <div class="card"><div class="tag">Ambas líneas</div><h3>Data room y due diligence</h3><p>Orden, revisión y trazabilidad de la documentación para financistas y compradores.</p></div>
+      </div>
+    </div>
+  </section>
+</article>
+
+</main>
+
+<nav class="pager" id="pager" aria-label="Páginas anterior y siguiente"></nav>
+
+<section class="cta" id="cta">
+  <div class="wrap">
+    <div style="display:grid; gap:1rem">
+      <div class="eyebrow" id="cta-eyebrow" style="color:var(--cyan)">Contacto</div>
+      <h2 id="cta-title">Conversemos sobre su proyecto, su terreno o su empresa.</h2>
+      <p id="cta-text">Los socios de Verity atienden personalmente a inversionistas, propietarios y empresas.</p>
+      <a class="btn" id="cta-btn" href="https://arsinvest.cl/contacto" target="_blank" rel="noopener">Ir al formulario de contacto ↗</a>
+    </div>
+    <div class="contacts">
+      <div><b>Felipe Vergara Moll</b><span>felipe@arsinvest.cl · +56 9 9324 6580</span></div>
+      <div><b>Arturo Ready Salamé</b><span>arturo@arsinvest.cl · +56 9 4253 4825</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div style="display:grid; gap:.6rem">
+      <a class="brand" href="#inicio" aria-label="Verity, inicio">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="1.5" y="1.5" width="29" height="29" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 9 L16 23.5 L24 9" fill="none" stroke="currentColor" stroke-width="2.6"/><circle cx="24" cy="9" r="2.8" style="fill:var(--cyan)"/></svg>
+        <div><b>VERITY</b><span>Santiago, Chile</span></div>
+      </a>
+      <span>Sociedad vinculada a <a href="https://arsinvest.cl" target="_blank" rel="noopener">ARS Invest</a>. Agentización empresarial operada con la marca <a href="https://cardus.cl" target="_blank" rel="noopener">Cardus</a>.</span>
+    </div>
+    <p>La información de este sitio es referencial y no constituye una oferta pública de valores ni una recomendación de inversión. Las cifras de los casos ilustrativos son preliminares y pueden cambiar. Las condiciones de cada proyecto se informan en sus documentos de suscripción.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+var NS = "http://www.w3.org/2000/svg";
+function E(tag, attrs, parent, text){
+  var n = document.createElementNS(NS, tag);
+  if (attrs) for (var k in attrs) n.setAttribute(k, attrs[k]);
+  if (text != null) n.textContent = text;
+  if (parent) parent.appendChild(n);
+  return n;
+}
+function T(parent, x, y, text, size, cls, anchor, extra){
+  var a = {x:x, y:y, "font-size":size||10, "class":cls||"f-ink"};
+  if (anchor) a["text-anchor"] = anchor;
+  if (extra) for (var k in extra) a[k] = extra[k];
+  return E("text", a, parent, text);
+}
+var uid = 0;
+
+/* ---------------------------------------------------------------- Config */
+var LINES = {
+  verity:{name:"Verity", short:"Verity", color:"var(--cyan)", pages:[["inicio","Inicio"]]},
+  ml:{name:"Verity Macrolotes", short:"Macrolotes", color:"var(--ml-fill)", pages:[
+    ["macrolotes","Visión y objetivo"],["macrolotes-servicios","Qué hacemos"],["macrolotes-proceso","Proceso"],["macrolotes-inversion","Financiamiento e inversión"],["macrolotes-propietarios","Propietarios de terrenos"]]},
+  pc:{name:"Verity Power Center", short:"Power Center", color:"var(--pc-fill)", pages:[
+    ["power-center","Visión y objetivo"],["power-center-modelo","Modelo de negocio"],["power-center-proceso","Proceso en seis fases"],["power-center-operacion","Cómo operamos"],["power-center-caso","Caso ilustrativo"]]},
+  ag:{name:"Verity Agentización", short:"Agentización", color:"var(--ag-fill)", pages:[
+    ["agentizacion","Visión, misión y objetivos"],["agentizacion-funcionamiento","Cómo funciona"],["agentizacion-metodo","Método de implementación"],["agentizacion-control","Innovación y control"],["agentizacion-caso","Caso de negocio"]]}
+};
+var ORDER = [], INFO = {};
+["verity","ml","pc","ag"].forEach(function(l){
+  LINES[l].pages.forEach(function(p, i){ ORDER.push(p[0]); INFO[p[0]] = {line:l, title:p[1], idx:i, total:LINES[l].pages.length}; });
+});
+var CTA = {
+  verity:{e:"Contacto", t:"Conversemos sobre su proyecto, su terreno o su empresa.", p:"Los socios de Verity atienden personalmente a inversionistas, propietarios y empresas.", href:"https://arsinvest.cl/contacto", b:"Ir al formulario de contacto ↗"},
+  ml:{e:"Verity Macrolotes", t:"¿Tiene un terreno o quiere invertir en suelo urbanizado?", p:"Cuéntenos de su terreno o de su interés como inversionista y le propondremos un primer análisis.", href:"https://arsinvest.cl/contacto", b:"Ir al formulario de contacto ↗"},
+  pc:{e:"Verity Power Center", t:"¿Tiene un terreno con vocación comercial o busca un activo de renta?", p:"Evaluamos terrenos, proyectos y oportunidades de co-inversión en power centers y strip centers.", href:"https://arsinvest.cl/contacto", b:"Ir al formulario de contacto ↗"},
+  ag:{e:"Verity Agentización", t:"El primer paso es un taller ejecutivo.", p:"En él se elige un proceso, se dimensiona con datos reales y se fijan las metas del primer piloto.", href:"https://cardus.cl/contacto", b:"Conversemos en cardus.cl ↗"}
+};
+
+/* ---------------------------------------------------------------- Navigation */
+var nav = document.getElementById("main-nav");
+var chev = '<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3 L5 7 L9 3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+(function buildNav(){
+  var home = document.createElement("div"); home.className = "item";
+  home.innerHTML = '<a class="top" href="#inicio" data-line="verity"><span class="dot" style="background:var(--cyan)"></span>Verity</a>';
+  nav.appendChild(home);
+  ["ml","pc","ag"].forEach(function(l){
+    var L = LINES[l], item = document.createElement("div"); item.className = "item";
+    var id = "dd-" + l;
+    var html = '<button class="top" type="button" aria-expanded="false" aria-controls="'+id+'" data-line="'+l+'"><span style="display:flex;align-items:center;gap:.5rem"><span class="dot" style="background:'+L.color+'"></span>'+L.short+'</span>'+chev+'</button><div class="dd" id="'+id+'" hidden>';
+    L.pages.forEach(function(p, i){ html += '<a href="#'+p[0]+'"><span class="n">0'+(i+1)+'</span><span>'+p[1]+'</span></a>'; });
+    item.innerHTML = html + '</div>';
+    nav.appendChild(item);
+  });
+})();
+function closeDropdowns(except){
+  nav.querySelectorAll("button.top").forEach(function(b){
+    if (b === except) return;
+    b.setAttribute("aria-expanded","false");
+    document.getElementById(b.getAttribute("aria-controls")).hidden = true;
+  });
+}
+nav.addEventListener("click", function(ev){
+  var b = ev.target.closest("button.top");
+  if (b){
+    var open = b.getAttribute("aria-expanded") === "true";
+    closeDropdowns(b);
+    b.setAttribute("aria-expanded", open ? "false" : "true");
+    document.getElementById(b.getAttribute("aria-controls")).hidden = open;
+    return;
+  }
+  if (ev.target.closest("a")){ closeDropdowns(); closeMenu(); }
+});
+document.addEventListener("click", function(ev){ if (!ev.target.closest("#main-nav") && !ev.target.closest("#menu-btn")) closeDropdowns(); });
+document.addEventListener("keydown", function(ev){ if (ev.key === "Escape"){ closeDropdowns(); closeMenu(); } });
+var menuBtn = document.getElementById("menu-btn");
+function closeMenu(){ nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded","false"); }
+menuBtn.addEventListener("click", function(){
+  var o = nav.classList.toggle("open");
+  menuBtn.setAttribute("aria-expanded", o ? "true" : "false");
+});
+
+/* sub-navigation for each line page */
+document.querySelectorAll(".page").forEach(function(pg){
+  var id = pg.id.slice(2), inf = INFO[id];
+  if (!inf || inf.line === "verity") return;
+  var L = LINES[inf.line];
+  var sn = document.createElement("nav"); sn.className = "subnav"; sn.setAttribute("aria-label", L.name);
+  var html = '<div class="wrap">';
+  L.pages.forEach(function(p, i){ html += '<a href="#'+p[0]+'"'+(p[0]===id?' aria-current="page"':'')+'><span class="n">0'+(i+1)+'</span>'+p[1]+'</a>'; });
+  sn.innerHTML = html + '</div>';
+  var hero = pg.querySelector(".hero");
+  hero.parentNode.insertBefore(sn, hero.nextSibling);
+  var pos = pg.querySelector("[data-pos]");
+  if (pos) pos.textContent = "PÁGINA 0" + (inf.idx+1) + " DE 0" + inf.total + " · " + inf.title.toUpperCase();
+});
+
+/* ---------------------------------------------------------------- Router */
+var pager = document.getElementById("pager");
+function pagerLink(id, cls, label){
+  var inf = INFO[id];
+  return '<a class="'+cls+'" href="#'+id+'"><span class="tag">'+label+' · '+LINES[inf.line].name+'</span><b>'+inf.title+'</b></a>';
+}
+function show(id, initial){
+  if (!INFO[id]) id = "inicio";
+  document.querySelectorAll(".page").forEach(function(p){ p.hidden = (p.id !== "p-" + id); });
+  var inf = INFO[id], line = inf.line;
+  nav.querySelectorAll(".top").forEach(function(t){ t.setAttribute("aria-current", t.getAttribute("data-line") === line ? "true" : "false"); });
+  nav.querySelectorAll(".dd a").forEach(function(a){ if (a.getAttribute("href") === "#" + id) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  var i = ORDER.indexOf(id);
+  pager.innerHTML = (i > 0 ? pagerLink(ORDER[i-1], "prev", "← Anterior") : '<span class="empty"></span>') + (i < ORDER.length-1 ? pagerLink(ORDER[i+1], "next", "Siguiente →") : '<span class="empty"></span>');
+  var c = CTA[line];
+  document.getElementById("cta-eyebrow").textContent = c.e;
+  document.getElementById("cta-title").textContent = c.t;
+  document.getElementById("cta-text").textContent = c.p;
+  var b = document.getElementById("cta-btn"); b.href = c.href; b.textContent = c.b;
+  document.title = (id === "inicio" ? "Verity · ARS Invest" : inf.title + " · " + LINES[line].name);
+  if (!initial) window.scrollTo(0, 0);
+}
+window.addEventListener("hashchange", function(){ show(location.hash.slice(1)); });
+
+/* ---------------------------------------------------------------- Illustrations */
+
+/* Macrolote plan: contours + boundary + optional lots, drawn inside box */
+function mlPlan(svg, g, box, opt){
+  opt = opt || {};
+  var x = box.x, y = box.y, w = box.w, h = box.h, id = "clip" + (++uid);
+  // contours
+  var cg = E("g", {"class":"s-rule", fill:"none", "stroke-width":1}, g);
+  var nC = opt.contours || 12;
+  for (var i = 0; i < nC; i++){
+    var d = "", y0 = y - h*0.1 + i * (h*1.2/nC);
+    for (var xx = 0; xx <= w; xx += w/40){
+      var yy = y0 + Math.sin(xx/w*5.2 + i*0.55)*h*0.045 + Math.sin(xx/w*2.1 + i*0.9)*h*0.06;
+      d += (xx === 0 ? "M" : "L") + (x+xx).toFixed(1) + " " + yy.toFixed(1);
+    }
+    E("path", {d:d}, cg);
+  }
+  // site polygon
+  var P = [[0.07,0.09],[0.95,0.02],[0.99,0.88],[0.02,0.97]].map(function(p){ return [x + p[0]*w, y + p[1]*h]; });
+  var pts = P.map(function(p){ return p[0].toFixed(1)+","+p[1].toFixed(1); }).join(" ");
+  var defs = svg.querySelector("defs") || E("defs", null, svg);
+  var cp = E("clipPath", {id:id}, defs); E("polygon", {points:pts}, cp);
+  if (opt.lots){
+    E("polygon", {points:pts, "class":"f-surface"}, g);
+    var lg = E("g", {"clip-path":"url(#"+id+")"}, g);
+    var rows = [[0.00,0.36],[0.43,0.68],[0.75,1.0]], cols = [[0.0,0.47],[0.53,1.0]];
+    // roads
+    E("rect", {x:x, y:y+h*0.36, width:w, height:h*0.07, "class":"f-rule2"}, lg);
+    E("rect", {x:x, y:y+h*0.68, width:w, height:h*0.07, "class":"f-rule2"}, lg);
+    E("rect", {x:x+w*0.47, y:y, width:w*0.06, height:h, "class":"f-rule2"}, lg);
+    [[x, y+h*0.395, x+w, y+h*0.395],[x, y+h*0.715, x+w, y+h*0.715],[x+w*0.5, y, x+w*0.5, y+h]].forEach(function(l){
+      E("line", {x1:l[0], y1:l[1], x2:l[2], y2:l[3], "class":"s-muted", "stroke-width":0.8, "stroke-dasharray":"4 4"}, lg);
+    });
+    var lotW = opt.lotW || w*0.052, k = 0;
+    rows.forEach(function(r, ri){
+      cols.forEach(function(c, ci){
+        var bx = x + c[0]*w + 3, bw = (c[1]-c[0])*w - 6, by = y + r[0]*h + 3, bh = (r[1]-r[0])*h - 6;
+        if (ri === 0 && ci === 0){ // área verde
+          E("rect", {x:bx, y:by, width:bw, height:bh, "class":"f-accsoft s-acc", "stroke-width":0.8}, lg);
+          for (var t = 0; t < 16; t++){
+            var tx = bx + 10 + ((t*37) % Math.max(10, bw-20)), ty = by + 10 + ((t*23) % Math.max(10, bh-20));
+            E("circle", {cx:tx, cy:ty, r:Math.max(2.5, w*0.012), "class":"f-accfill"}, lg);
+          }
+          if (opt.labels) T(lg, bx + bw/2, by + bh/2 + 3, "ÁREA VERDE", 9, "f-ink", "middle", {"letter-spacing":"1"});
+          return;
+        }
+        var half = bh/2;
+        for (var rr = 0; rr < 2; rr++){
+          for (var lx = bx; lx + lotW <= bx + bw + 0.5; lx += lotW){
+            k++;
+            var sold = ((k*7 + ri*3 + ci*5) % 9) < 4;
+            E("rect", {x:lx+0.6, y:by + rr*half + 0.6, width:lotW-1.2, height:half-1.2, "class":(sold?"f-accfill ":"f-surface ")+"s-ink", "stroke-width":0.6}, lg);
+          }
+        }
+      });
+    });
+    if (opt.labels){
+      T(g, x + w*0.505, y + h*0.995 + 14, "ACCESO", 9, "f-muted", "middle", {"letter-spacing":"1"});
+      E("path", {d:"M"+(x+w*0.5)+" "+(y+h*0.995+3)+" l-5 -8 l10 0 z", "class":"f-acc"}, g);
+    }
+  }
+  E("polygon", {points:pts, fill:"none", "class":"s-ink", "stroke-width":1.6, "stroke-dasharray": opt.lots ? "none" : "7 4"}, g);
+}
+function northArrow(g, x, y){
+  E("path", {d:"M"+x+" "+(y-16)+" L"+(x+7)+" "+(y+8)+" L"+x+" "+(y+3)+" L"+(x-7)+" "+(y+8)+" Z", "class":"f-ink"}, g);
+  T(g, x, y-21, "N", 10, "f-ink", "middle");
+}
+function scaleBar(g, x, y, px, labels){
+  var seg = px/(labels.length-1);
+  for (var i = 0; i < labels.length-1; i++) E("rect", {x:x+i*seg, y:y, width:seg, height:5, "class": i%2 ? "f-surface s-ink" : "f-ink", "stroke-width":0.8}, g);
+  labels.forEach(function(l, i){ T(g, x+i*seg, y+16, l, 8.5, "f-muted", "middle"); });
+}
+
+function drawMlHero(){
+  var s = document.getElementById("ml-hero"); if (!s) return;
+  var g = E("g", null, s);
+  mlPlan(s, g, {x:40, y:40, w:480, h:330}, {lots:true, labels:true, contours:16});
+  northArrow(s, 520, 42);
+  scaleBar(s, 40, 395, 120, ["0","50","100 m"]);
+}
+function drawMlBeforeAfter(){
+  var s = document.getElementById("ml-before-after"); if (!s) return;
+  var a = E("g", null, s), b = E("g", null, s);
+  T(s, 20, 22, "ANTES · TERRENO BRUTO", 10, "f-muted", null, {"letter-spacing":"1"});
+  T(s, 300, 22, "DESPUÉS · LOTEO URBANIZADO", 10, "f-acc", null, {"letter-spacing":"1"});
+  mlPlan(s, a, {x:20, y:40, w:240, h:240}, {lots:false, contours:14});
+  mlPlan(s, b, {x:300, y:40, w:240, h:240}, {lots:true, contours:14, lotW:13});
+  E("path", {d:"M266 160 L292 160 M284 153 L293 160 L284 167", fill:"none", "class":"s-acc", "stroke-width":2}, s);
+}
+function drawMlGantt(){
+  var s = document.getElementById("ml-gantt"); if (!s) return;
+  var x0 = 150, x1 = 540, top = 22, rh = 40;
+  var S = [["Originación",0,0.12,null],["Evaluación",0.08,0.25,"Go / No-go"],["Estructuración",0.22,0.36,"Cierre financiero"],["Permisos",0.33,0.58,"Permisos aprobados"],["Urbanización",0.52,0.85,"Recepción de obras"],["Venta y crédito",0.62,1.0,"Cierre del vehículo"]];
+  [0,0.25,0.5,0.75,1].forEach(function(f){ E("line", {x1:x0+f*(x1-x0), y1:top-6, x2:x0+f*(x1-x0), y2:top+rh*6, "class":"s-rule", "stroke-dasharray":"2 4"}, s); });
+  S.forEach(function(r, i){
+    var y = top + i*rh, a = x0 + r[1]*(x1-x0), b = x0 + r[2]*(x1-x0);
+    T(s, 10, y+17, r[0], 11, "f-ink");
+    E("rect", {x:a, y:y+6, width:b-a, height:16, "class":"f-accfill"}, s);
+    if (r[3]){
+      E("rect", {x:b-5, y:y+9, width:10, height:10, transform:"rotate(45 "+b+" "+(y+14)+")", "class":"f-ink"}, s);
+      if (r[2] > 0.8) T(s, a-8, y+18, r[3], 9.5, "f-muted", "end");
+      else T(s, b+10, y+18, r[3], 9.5, "f-muted");
+    }
+  });
+  var yb = top + rh*6 + 8;
+  E("line", {x1:x0, y1:yb, x2:x1, y2:yb, "class":"s-ink", "stroke-width":1}, s);
+  T(s, x0, yb+16, "INICIO", 9, "f-muted", "start", {"letter-spacing":"1"});
+  T(s, x1, yb+16, "CIERRE", 9, "f-muted", "end", {"letter-spacing":"1"});
+}
+function box(s, x, y, w, h, title, sub, cls){
+  E("rect", {x:x, y:y, width:w, height:h, "class":cls || "f-surface s-ink", "stroke-width":1.2}, s);
+  T(s, x + w/2, y + (sub ? h/2 - 3 : h/2 + 4), title, 11, "f-ink", "middle", {"font-weight":"500"});
+  if (sub) T(s, x + w/2, y + h/2 + 13, sub, 9, "f-muted", "middle");
+}
+function arrow(s, d, dashed, cls){
+  var p = E("path", {d:d, fill:"none", "class":cls || "s-ink", "stroke-width":1.4}, s);
+  if (dashed) p.setAttribute("stroke-dasharray", "5 4");
+  return p;
+}
+function head(s, x, y, dir, cls){
+  var m = {down:[[-5,-8],[5,-8]], up:[[-5,8],[5,8]], right:[[-8,-5],[-8,5]], left:[[8,-5],[8,5]]}[dir];
+  E("path", {d:"M"+x+" "+y+" L"+(x+m[0][0])+" "+(y+m[0][1])+" L"+(x+m[1][0])+" "+(y+m[1][1])+" Z", "class":cls || "f-ink"}, s);
+}
+function drawMlStructure(){
+  var s = document.getElementById("ml-structure"); if (!s) return;
+  T(s, 30, 14, "CAPITAL", 8.5, "f-acc", null, {"letter-spacing":"1"});
+  T(s, 530, 14, "DEUDA", 8.5, "f-acc", "end", {"letter-spacing":"1"});
+  box(s, 30, 20, 200, 54, "Inversionistas", "family offices · propietario");
+  box(s, 330, 20, 200, 54, "Bancos y fondos", "deuda privada y bancaria");
+  box(s, 180, 120, 200, 60, "Sociedad del proyecto", "un vehículo por terreno", "f-accsoft s-acc");
+  // capital
+  arrow(s, "M195 74 V118"); head(s, 195, 120, "down");
+  arrow(s, "M215 120 V76", true); head(s, 215, 74, "up");
+  T(s, 188, 101, "capital", 9, "f-muted", "end"); T(s, 222, 101, "retorno", 9, "f-muted");
+  // deuda
+  arrow(s, "M345 74 V118"); head(s, 345, 120, "down");
+  arrow(s, "M365 120 V76", true); head(s, 365, 74, "up");
+  T(s, 338, 101, "crédito", 9, "f-muted", "end"); T(s, 372, 101, "pago", 9, "f-muted");
+  // to assets
+  box(s, 30, 232, 150, 52, "Terreno", "compra o aporte");
+  box(s, 205, 232, 150, 52, "Urbanización", "permisos y obras");
+  box(s, 380, 232, 150, 52, "Venta de lotes", "crédito de largo plazo", "f-accfill s-ink");
+  arrow(s, "M230 180 V206 H105 V230"); head(s, 105, 232, "down");
+  arrow(s, "M280 180 V230"); head(s, 280, 232, "down");
+  arrow(s, "M180 258 H203"); head(s, 205, 258, "right");
+  arrow(s, "M355 258 H378"); head(s, 380, 258, "right");
+  arrow(s, "M455 232 V150 H384", true); head(s, 382, 150, "left");
+  T(s, 462, 196, "ventas", 9, "f-muted");
+  T(s, 455, 306, "COMPRADORES FINALES", 8.5, "f-muted", "middle", {"letter-spacing":"1"});
+}
+function drawMlParcel(){
+  var s = document.getElementById("ml-parcel"); if (!s) return;
+  var g = E("g", null, s);
+  // contours behind parcel
+  for (var i = 0; i < 9; i++){
+    var d = "", y0 = 20 + i*34;
+    for (var xx = 0; xx <= 330; xx += 10){ d += (xx?"L":"M") + (20+xx) + " " + (y0 + Math.sin(xx/55 + i*0.7)*9).toFixed(1); }
+    E("path", {d:d, fill:"none", "class":"s-rule"}, g);
+  }
+  var pts = "60,70 300,48 320,250 48,272";
+  E("polygon", {points:pts, "class":"f-accsoft s-ink", "stroke-width":1.6}, g);
+  // dimension lines
+  E("line", {x1:60, y1:52, x2:300, y2:30, "class":"s-muted", "stroke-width":0.8}, g);
+  T(g, 180, 32, "FRENTE", 8.5, "f-muted", "middle", {transform:"rotate(-5.2 180 32)", "letter-spacing":"1"});
+  E("line", {x1:318, y1:48, x2:338, y2:250, "class":"s-muted", "stroke-width":0.8}, g);
+  T(g, 344, 150, "FONDO", 8.5, "f-muted", "middle", {transform:"rotate(84 344 150)", "letter-spacing":"1"});
+  E("rect", {x:128, y:146, width:118, height:34, "class":"f-surface s-ink", "stroke-width":1}, g);
+  T(g, 187, 161, "ROL SII", 9, "f-muted", "middle", {"letter-spacing":"1"});
+  T(g, 187, 174, "Predio a evaluar", 10, "f-ink", "middle");
+  E("circle", {cx:250, cy:220, r:4, "class":"f-acc"}, g);
+  E("circle", {cx:250, cy:220, r:10, fill:"none", "class":"s-acc"}, g);
+  northArrow(s, 40, 300);
+  // documents
+  var docs = [["Inscripción de dominio","Conservador de Bienes Raíces"],["Certificado de informaciones previas","Dirección de Obras"],["Plano o archivo KMZ","Deslindes del predio"]];
+  docs.forEach(function(dc, i){
+    var x = 372, y = 40 + i*88, w = 170, h = 74;
+    E("path", {d:"M"+x+" "+y+" H"+(x+w-14)+" L"+(x+w)+" "+(y+14)+" V"+(y+h)+" H"+x+" Z", "class":"f-surface s-ink", "stroke-width":1.1}, s);
+    E("path", {d:"M"+(x+w-14)+" "+y+" V"+(y+14)+" H"+(x+w), fill:"none", "class":"s-ink", "stroke-width":1}, s);
+    E("rect", {x:x+10, y:y+12, width:6, height:6, "class":"f-acc"}, s);
+    var words = dc[0].split(" "), l1 = "", l2 = "";
+    words.forEach(function(wd){ if ((l1 + " " + wd).trim().length <= 20 && !l2) l1 = (l1 + " " + wd).trim(); else l2 = (l2 + " " + wd).trim(); });
+    T(s, x+22, y+19, l1, 10, "f-ink", null, {"font-weight":"500"});
+    if (l2) T(s, x+10, y+33, l2, 10, "f-ink", null, {"font-weight":"500"});
+    T(s, x+10, y+(l2?50:36), dc[1], 8.5, "f-muted");
+    E("line", {x1:x+10, y1:y+h-12, x2:x+w-40, y2:y+h-12, "class":"s-rule", "stroke-width":2}, s);
+  });
+}
+
+/* Power center elevation */
+function pcElevation(s){
+  var g = E("g", null, s), G = 250;
+  // pavement
+  E("rect", {x:0, y:G, width:640, height:22, "class":"f-rule2"}, g);
+  E("line", {x1:0, y1:G+11, x2:640, y2:G+11, "class":"s-muted", "stroke-dasharray":"10 8", "stroke-width":0.8}, g);
+  // pylon
+  E("rect", {x:37, y:112, width:8, height:G-112, "class":"f-ink"}, g);
+  E("rect", {x:14, y:36, width:54, height:84, "class":"f-acc"}, g);
+  for (var i = 0; i < 4; i++) E("rect", {x:20, y:44 + i*18, width:42, height:12, "class": i===0 ? "f-accfill" : "f-surface"}, g);
+  // supermarket
+  E("rect", {x:90, y:108, width:210, height:G-108, "class":"f-surface s-ink", "stroke-width":1.4}, g);
+  E("rect", {x:90, y:108, width:210, height:26, "class":"f-accfill s-ink", "stroke-width":1.4}, g);
+  T(g, 195, 125, "SUPERMERCADO", 11, "f-ink", "middle", {"letter-spacing":"2.5", "font-weight":"500"});
+  E("rect", {x:160, y:170, width:70, height:8, "class":"f-ink"}, g);
+  E("rect", {x:168, y:178, width:54, height:G-178, "class":"f-glass s-ink", "stroke-width":1}, g);
+  E("line", {x1:195, y1:178, x2:195, y2:G, "class":"s-ink", "stroke-width":1}, g);
+  [104,124,252,272].forEach(function(x){ E("rect", {x:x, y:150, width:14, height:60, "class":"f-rule2 s-rule"}, g); });
+  // shops strip
+  E("rect", {x:300, y:160, width:200, height:G-160, "class":"f-surface s-ink", "stroke-width":1.4}, g);
+  for (var j = 0; j < 5; j++){
+    var sx = 300 + j*40;
+    if (j) E("line", {x1:sx, y1:160, x2:sx, y2:G, "class":"s-ink", "stroke-width":1}, g);
+    E("rect", {x:sx+6, y:166, width:28, height:9, "class":"f-rule"}, g);
+    E("path", {d:"M"+(sx+3)+" 182 H"+(sx+37)+" L"+(sx+34)+" 194 H"+(sx+6)+" Z", "class": j%2 ? "f-accsoft s-ink" : "f-accfill s-ink", "stroke-width":0.8}, g);
+    E("rect", {x:sx+7, y:198, width:26, height:G-198, "class":"f-glass s-ink", "stroke-width":0.8}, g);
+  }
+  // gym
+  E("rect", {x:500, y:128, width:112, height:G-128, "class":"f-surface s-ink", "stroke-width":1.4}, g);
+  E("rect", {x:500, y:128, width:112, height:24, "class":"f-accfill s-ink", "stroke-width":1.4}, g);
+  T(g, 556, 144, "GIMNASIO", 10.5, "f-ink", "middle", {"letter-spacing":"2.5", "font-weight":"500"});
+  E("rect", {x:512, y:170, width:88, height:G-170, "class":"f-glass s-ink", "stroke-width":1}, g);
+  for (var m = 1; m < 4; m++) E("line", {x1:512 + m*22, y1:170, x2:512 + m*22, y2:G, "class":"s-ink", "stroke-width":0.8}, g);
+  // trees
+  [78, 296, 496, 626].forEach(function(x){ E("rect", {x:x-1.5, y:G-26, width:3, height:26, "class":"f-ink"}, g); E("circle", {cx:x, cy:G-36, r:15, "class":"f-tree"}, g); });
+  // cars (side view)
+  [[118,"f-muted"],[350,"f-ink"],[432,"f-muted"],[560,"f-ink"]].forEach(function(c){
+    var x = c[0];
+    E("path", {d:"M"+x+" "+(G+2)+" v-10 q0 -4 4 -5 l8 -2 l6 -7 h16 l7 7 l6 1 q4 1 4 5 v11 Z", "class":c[1]}, g);
+    E("circle", {cx:x+10, cy:G+3, r:4.5, "class":"f-surface s-ink", "stroke-width":1.5}, g);
+    E("circle", {cx:x+36, cy:G+3, r:4.5, "class":"f-surface s-ink", "stroke-width":1.5}, g);
+  });
+  E("line", {x1:0, y1:G, x2:640, y2:G, "class":"s-ink", "stroke-width":1.6}, g);
+  return g;
+}
+function drawPcHero(){
+  var s = document.getElementById("pc-hero"); if (!s) return;
+  pcElevation(s);
+  [[195,"ANCLA"],[400,"TIENDAS MENORES"],[556,"SEMI-ANCLA"]].forEach(function(l){
+    E("line", {x1:l[0], y1:278, x2:l[0], y2:290, "class":"s-muted"}, s);
+    T(s, l[0], 306, l[1], 9.5, "f-muted", "middle", {"letter-spacing":"1.5"});
+  });
+}
+function drawPcSitePlan(){
+  var s = document.getElementById("pc-siteplan"); if (!s) return;
+  var k = 2.3, ox = 50, oy = 34;
+  function R(x, y, w, h, cls, sw){ return E("rect", {x:ox+x*k, y:oy+y*k, width:w*k, height:h*k, "class":cls, "stroke-width":sw||1}, s); }
+  R(0, 0, 200, 125, "f-surface");
+  // parking blocks
+  [38,55,72,89,106].forEach(function(by){
+    R(42, by, 123, 10, "f-rule2 s-rule", 0.6);
+    E("line", {x1:ox+42*k, y1:oy+(by+5)*k, x2:ox+165*k, y2:oy+(by+5)*k, "class":"s-rule", "stroke-width":0.8}, s);
+    for (var x = 42; x <= 165.01; x += 2.5) E("line", {x1:ox+x*k, y1:oy+by*k, x2:ox+x*k, y2:oy+(by+10)*k, "class":"s-rule", "stroke-width":0.6}, s);
+  });
+  // landscape + trees
+  R(0, 62, 38, 30, "f-accsoft", 0);
+  for (var t = 0; t < 12; t++) E("circle", {cx:ox+(5 + (t%4)*9.5)*k, cy:oy+(67 + Math.floor(t/4)*10)*k, r:3*k, "class":"f-tree"}, s);
+  for (var u = 0; u < 10; u++) E("circle", {cx:ox+(72 + u*9.6)*k, cy:oy+120.5*k, r:2.6*k, "class":"f-tree"}, s);
+  // buildings
+  var B = [[0,0,75,60,"f-accfill","SUPERMERCADO","4.500 m²"],[75,0,80,25,"f-accsoft","TIENDAS MENORES","2.000 m²"],[155,0,40,30,"f-accfill","GIMNASIO","1.200 m²"],[170,30,25,80,"f-accsoft","TIENDAS","2.000 m²"],[8,95,25,20,"f-accfill","",""]];
+  B.forEach(function(b){
+    R(b[0], b[1], b[2], b[3], b[4] + " s-ink", 1.3);
+    if (b[5]){
+      var cx = ox + (b[0]+b[2]/2)*k, cy = oy + (b[1]+b[3]/2)*k;
+      T(s, cx, cy-1, b[5], 8.5, "f-ink", "middle", {"letter-spacing":"0.8", "font-weight":"500"});
+      T(s, cx, cy+11, b[6], 8.5, "f-ink", "middle");
+    }
+  });
+  T(s, ox+8*k, oy+119.6*k, "TIENDA INTERMEDIA · 500 m²", 8, "f-ink", null, {"font-weight":"500"});
+  // pylon
+  R(186, 117, 5, 5, "f-acc", 0);
+  // boundary
+  E("rect", {x:ox, y:oy, width:200*k, height:125*k, fill:"none", "class":"s-ink", "stroke-width":1.4, "stroke-dasharray":"8 4"}, s);
+  // street
+  var sy = oy + 125*k + 6;
+  E("rect", {x:ox-20, y:sy, width:200*k+40, height:24, "class":"f-rule2"}, s);
+  T(s, ox + 60*k, sy+16, "AVENIDA", 9, "f-muted", "middle", {"letter-spacing":"2"});
+  [100, 150].forEach(function(ax){ head(s, ox+ax*k, oy+124*k, "up", "f-acc"); });
+  northArrow(s, ox + 200*k + 22, 40);
+  scaleBar(s, ox, sy + 38, 50*k, ["0","25","50 m"]);
+}
+function drawPcPhases(){
+  var s = document.getElementById("pc-phases"); if (!s) return;
+  var Y = 140, X = function(i){ return 40 + i*90; };
+  E("line", {x1:X(0), y1:Y, x2:540, y2:Y, "class":"s-ink", "stroke-width":2}, s);
+  var names = ["Originación","Validación","Desarrollo","Estructuración","Construcción","Colocación"];
+  names.forEach(function(n, i){
+    E("circle", {cx:X(i), cy:Y, r:15, "class":"f-surface s-ink", "stroke-width":2}, s);
+    T(s, X(i), Y+4, String(i+1), 11, "f-ink", "middle", {"font-weight":"500"});
+    var ly = i % 2 ? 84 : 104;
+    E("line", {x1:X(i), y1:ly+6, x2:X(i), y2:Y-16, "class":"s-rule"}, s);
+    T(s, X(i), ly, n, 10, "f-ink", "middle");
+  });
+  T(s, X(0), 30, "FASE", 8.5, "f-muted", "middle", {"letter-spacing":"1.5"});
+  [[175,"GO / NO-GO","antes de invertir","end"],[265,"EXIT 1","venta del proyecto","start"],[530,"EXIT 2","venta del activo","end"]].forEach(function(m){
+    E("rect", {x:m[0]-7, y:Y-7, width:14, height:14, transform:"rotate(45 "+m[0]+" "+Y+")", "class":"f-acc"}, s);
+    var tx = m[3] === "end" ? m[0]+(m[0]>500?15:25) : m[0]-15;
+    T(s, tx, Y+32, m[1], 10, "f-acc", m[3], {"font-weight":"500", "letter-spacing":"1"});
+    T(s, tx, Y+48, m[2], 9, "f-muted", m[3]);
+  });
+  // leadership brackets
+  [[X(0)-14, X(0)+14, "conjunto"],[X(1)-14, X(2)+14, "lidera estrategia comercial"],[X(3)-14, X(5)+14, "lidera finanzas y ejecución"]].forEach(function(b){
+    E("path", {d:"M"+b[0]+" 226 V232 H"+b[1]+" V226", fill:"none", "class":"s-muted"}, s);
+    T(s, (b[0]+b[1])/2, 250, b[2], 9, "f-muted", "middle");
+  });
+}
+function drawPcAlliance(){
+  var s = document.getElementById("pc-alliance"); if (!s) return;
+  E("circle", {cx:212, cy:150, r:105, "class":"f-accsoft s-ink", "stroke-width":1.2, "fill-opacity":0.95}, s);
+  E("circle", {cx:348, cy:150, r:105, "class":"f-accfill s-ink", "stroke-width":1.2, "fill-opacity":0.45}, s);
+  T(s, 175, 22, "ESTRATEGIA COMERCIAL", 9.5, "f-ink", "middle", {"letter-spacing":"1", "font-weight":"500"});
+  T(s, 175, 36, "socio estratégico", 9, "f-muted", "middle");
+  T(s, 385, 22, "FINANZAS Y EJECUCIÓN", 9.5, "f-ink", "middle", {"letter-spacing":"1", "font-weight":"500"});
+  T(s, 385, 36, "Verity", 9, "f-muted", "middle");
+  ["Mercado","Propuesta de valor","Masterplan","Contratos con anclas"].forEach(function(w, i){ T(s, 176, 112 + i*24, w, 9.5, "f-ink", "middle"); });
+  ["Financiamiento","Estructuración","Construcción","Venta"].forEach(function(w, i){ T(s, 390, 112 + i*24, w, 9.5, "f-ink", "middle"); });
+  T(s, 280, 145, "Originación", 9, "f-ink", "middle", {"font-weight":"500"});
+  T(s, 280, 158, "y evaluación", 9, "f-ink", "middle", {"font-weight":"500"});
+  arrow(s, "M212 255 V272"); arrow(s, "M348 255 V272");
+  E("rect", {x:150, y:274, width:260, height:32, "class":"f-surface s-ink", "stroke-width":1.4}, s);
+  T(s, 280, 294, "VEHÍCULO POR PROYECTO (SPV)", 9.5, "f-ink", "middle", {"letter-spacing":"1", "font-weight":"500"});
+}
+function fmt(n, d){ return n.toLocaleString("es-CL", {minimumFractionDigits:d||0, maximumFractionDigits:d||0}); }
+function drawPcBridge(){
+  var s = document.getElementById("pc-bridge"); if (!s) return;
+  var x0 = 150, x1 = 520, max = 600, sc = (x1-x0)/max, top = 16, rh = 46;
+  for (var t = 0; t <= 600; t += 100){
+    var x = x0 + t*sc;
+    E("line", {x1:x, y1:top-4, x2:x, y2:top+rh*5-8, "class":"s-rule", "stroke-dasharray": t ? "2 4" : "none"}, s);
+    T(s, x, top+rh*5+8, String(t), 9, "f-muted", "middle");
+  }
+  T(s, x1, top+rh*5+24, "miles de UF", 8.5, "f-muted", "end");
+  var R = [["Terreno",0,185.0,"f-accsoft s-acc"],["Construcción",185.0,470.6,"f-accsoft s-acc"],["Costo total",0,470.6,"f-muted"],["Utilidad (20%)",470.6,564.711,"f-accfill s-acc"],["Valor de salida",0,564.711,"f-acc"]];
+  R.forEach(function(r, i){
+    var y = top + i*rh, a = x0 + r[1]*sc, b = x0 + r[2]*sc;
+    T(s, 8, y+18, r[0], 10.5, "f-ink");
+    E("rect", {x:a, y:y+4, width:b-a, height:22, "class":r[3], "stroke-width":1}, s);
+    T(s, b+6, y+19, fmt(r[2]-r[1], 1), 10, "f-ink");
+    if (i < R.length-1){
+      var endx = (i === 2) ? b : b;
+      E("line", {x1:endx, y1:y+26, x2:endx, y2:y+rh+4, "class":"s-muted", "stroke-dasharray":"2 3"}, s);
+    }
+  });
+}
+function drawHeat(){
+  var tb = document.getElementById("pc-heat"); if (!tb) return;
+  var NOI = 39529.8, CONS = 285600, LAND = 25000, terr = [6.5,7.0,7.4,8.0], caps = [0.065,0.07,0.075,0.08];
+  var h = '<thead><tr><th>Terreno (UF/m²) ↓ · Cap rate →</th>' + caps.map(function(c){ return '<th>' + fmt(c*100,1) + '%</th>'; }).join("") + '</tr></thead><tbody>';
+  terr.forEach(function(t){
+    h += '<tr><th scope="row">' + fmt(t,1) + ' UF/m²</th>';
+    caps.forEach(function(c){
+      var cost = t*LAND + CONS, u = (NOI/c - cost)/cost, p = Math.max(6, Math.min(88, u/0.36*88));
+      var base = (t === 7.4 && c === 0.07);
+      h += '<td' + (base ? ' class="base"' : '') + ' style="background:color-mix(in srgb, var(--pc-fill) ' + p.toFixed(0) + '%, var(--surface))">' + fmt(u*100,1) + '%</td>';
+    });
+    h += '</tr>';
+  });
+  tb.innerHTML = h + '</tbody>';
+}
+
+/* Agentización */
+function agNetwork(s, cx, cy, R){
+  var g = E("g", null, s), N = 380, phi = Math.PI*(3-Math.sqrt(5)), rot = 0.5;
+  for (var i = 0; i < N; i++){
+    var y = 1 - (i/(N-1))*2, r = Math.sqrt(1-y*y), th = phi*i;
+    var x = Math.cos(th)*r, z = Math.sin(th)*r;
+    var xr = x*Math.cos(rot) - z*Math.sin(rot), zr = x*Math.sin(rot) + z*Math.cos(rot);
+    var depth = (zr + 1)/2;
+    E("circle", {cx:(cx + xr*R).toFixed(1), cy:(cy + y*R*0.92).toFixed(1), r:(0.6 + depth*1.5).toFixed(2), "class":"f-band-muted", "fill-opacity":(0.15 + depth*0.5).toFixed(2)}, g);
+  }
+  return g;
+}
+function drawAgHero(){
+  var s = document.getElementById("ag-hero"); if (!s) return;
+  var cx = 280, cy = 190;
+  agNetwork(s, cx, cy, 150);
+  var sats = [["CRM",200],["ERP",245],["PLANILLAS",295],["DOCUMENTOS",340],["CORREO",25],["MEMORIA",155]];
+  sats.forEach(function(st){
+    var a = st[1]*Math.PI/180, x = cx + Math.cos(a)*165, y = cy + Math.sin(a)*150;
+    E("line", {x1:cx, y1:cy, x2:x, y2:y, "class":"s-band-muted", "stroke-opacity":0.55, "stroke-width":1}, s);
+    E("circle", {cx:x, cy:y, r:5.5, "class":"f-band-ink"}, s);
+    var anchor = Math.cos(a) > 0.2 ? "start" : (Math.cos(a) < -0.2 ? "end" : "middle");
+    var dx = anchor === "start" ? 12 : (anchor === "end" ? -12 : 0), dy = anchor === "middle" ? (Math.sin(a) < 0 ? -12 : 20) : 4;
+    T(s, x+dx, y+dy, st[0], 10, "f-band-ink", anchor, {"letter-spacing":"1.2"});
+  });
+  E("circle", {cx:cx, cy:cy, r:62, fill:"none", "class":"s-gold", "stroke-dasharray":"3 5", "stroke-width":1.3}, s);
+  T(s, cx, cy-70, "GUARDAS", 9, "f-gold", "middle", {"letter-spacing":"1.5"});
+  E("circle", {cx:cx, cy:cy, r:30, "class":"f-agband s-band-ink", "stroke-width":2}, s);
+  E("circle", {cx:cx, cy:cy, r:9, "class":"f-band-ink"}, s);
+  T(s, cx, cy+48, "ORQUESTADOR", 9.5, "f-band-ink", "middle", {"letter-spacing":"1.5"});
+  var hy = cy + 172;
+  E("line", {x1:cx, y1:cy+30, x2:cx, y2:hy-9, "class":"s-gold", "stroke-width":1.4}, s);
+  E("circle", {cx:cx, cy:hy, r:9, "class":"f-gold"}, s);
+  T(s, cx+16, hy+4, "APROBACIÓN HUMANA", 10, "f-gold", "start", {"letter-spacing":"1.2"});
+}
+function drawAgFlow(){
+  var s = document.getElementById("ag-flow"); if (!s) return;
+  var L = [["SOLICITUD","texto o voz"],["GUARDAS","quién y qué"],["ORQUESTADOR","asigna tareas"],["AGENTES","preparan"],["APROBACIÓN","una persona"]];
+  L.forEach(function(l, i){
+    var x = 10 + i*110, y = 40, w = 98, h = 62, human = i === 4;
+    E("rect", {x:x, y:y, width:w, height:h, fill:"none", "class": human ? "s-gold" : "s-band-muted", "stroke-width": human ? 2 : 1.2}, s);
+    T(s, x + w/2, y + 28, l[0], 9.5, human ? "f-gold" : "f-band-ink", "middle", {"letter-spacing":"1", "font-weight":"500"});
+    T(s, x + w/2, y + 44, l[1], 8.5, "f-band-muted", "middle");
+    if (i < 4){ E("line", {x1:x+w+1, y1:y+h/2, x2:x+w+9, y2:y+h/2, "class":"s-band-ink", "stroke-width":1.4}, s); head(s, x+w+12, y+h/2, "right", "f-band-ink"); }
+  });
+  // agents fan-out
+  var ax = 10 + 3*110 + 49;
+  [-30, 0, 30].forEach(function(dx){ E("rect", {x:ax+dx-9, y:116, width:18, height:18, fill:"none", "class":"s-band-ink", "stroke-width":1.2}, s); E("line", {x1:ax, y1:102, x2:ax+dx, y2:116, "class":"s-band-muted"}, s); });
+  // sources
+  [["MEMORIA",150],["DOCUMENTOS",280],["SISTEMAS",410]].forEach(function(src){
+    E("rect", {x:src[1]-55, y:178, width:110, height:34, fill:"none", "class":"s-band-muted", "stroke-dasharray":"3 3"}, s);
+    T(s, src[1], 199, src[0], 9, "f-band-muted", "middle", {"letter-spacing":"1"});
+    E("line", {x1:src[1], y1:178, x2:ax, y2:134, "class":"s-band-muted", "stroke-opacity":0.6}, s);
+  });
+  // registry
+  E("line", {x1:10, y1:252, x2:548, y2:252, "class":"s-gold", "stroke-width":1.4}, s);
+  for (var t = 10; t <= 548; t += 14) E("line", {x1:t, y1:248, x2:t, y2:256, "class":"s-gold", "stroke-width":0.8}, s);
+  E("line", {x1:10+4*110+49, y1:102, x2:10+4*110+49, y2:248, "class":"s-gold", "stroke-dasharray":"3 3"}, s);
+  T(s, 10, 276, "REGISTRO INALTERABLE DE CADA PASO", 9, "f-gold", "start", {"letter-spacing":"1.2"});
+}
+function drawAgMaturity(){
+  var s = document.getElementById("ag-maturity"); if (!s) return;
+  var P = [], labels = ["Sin uso oficial","Uso informal","Herramientas aprobadas","Asistentes por área","Infraestructura compartida"];
+  for (var i = 0; i < 5; i++) P.push([120 + i*100, 246 - i*46]);
+  var d = "M" + P[0][0] + " 268 L" + P.map(function(p){ return p[0]+" "+p[1]; }).join(" L") + " L" + P[4][0] + " 268 Z";
+  E("path", {d:d, "class":"f-accsoft"}, s);
+  E("path", {d:"M" + P.map(function(p){ return p[0]+" "+p[1]; }).join(" L"), fill:"none", "class":"s-acc", "stroke-width":2}, s);
+  E("line", {x1:20, y1:268, x2:545, y2:268, "class":"s-ink"}, s);
+  T(s, 20, 30, "MADUREZ EN EL USO DE IA", 9, "f-muted", "start", {"letter-spacing":"1.5"});
+  P.forEach(function(p, i){
+    E("line", {x1:p[0], y1:p[1]+8, x2:p[0], y2:268, "class":"s-rule", "stroke-dasharray":"2 3"}, s);
+    E("circle", {cx:p[0], cy:p[1], r: i === 4 ? 8 : 6, "class": i === 4 ? "f-gold" : "f-acc"}, s);
+    T(s, p[0], 286, "ETAPA " + (i+1), 9, "f-ink", "middle", {"font-weight":"500", "letter-spacing":"0.5"});
+    T(s, p[0]-12, p[1]-6, labels[i], 10, "f-ink", "end");
+  });
+}
+function drawAgRings(){
+  var s = document.getElementById("ag-rings"); if (!s) return;
+  var cx = 280, cy = 160, r0 = 40, r1 = 106, r2 = 148;
+  E("circle", {cx:cx, cy:cy, r:r2, "class":"f-surface s-rule", "stroke-width":1.2}, s);
+  E("circle", {cx:cx, cy:cy, r:r1, "class":"f-accsoft s-acc", "stroke-width":1.4}, s);
+  var ctrl = [["solo","lectura"],["permisos","mínimos"],["borradores",""],["registro",""],["autonomía",""]];
+  ctrl.forEach(function(w, i){
+    var a = (-90 + i*72)*Math.PI/180, b = a + 36*Math.PI/180;
+    E("line", {x1:cx + Math.cos(b)*r0, y1:cy + Math.sin(b)*r0, x2:cx + Math.cos(b)*r1, y2:cy + Math.sin(b)*r1, "class":"s-acc", "stroke-width":1}, s);
+    var x = cx + Math.cos(a)*73, y = cy + Math.sin(a)*73;
+    if (w[1]){ T(s, x, y-2, w[0], 9, "f-ink", "middle"); T(s, x, y+9, w[1], 9, "f-ink", "middle"); }
+    else T(s, x, y+3, w[0], 9, "f-ink", "middle");
+  });
+  E("circle", {cx:cx, cy:cy, r:r0, "class":"f-acc"}, s);
+  T(s, cx, cy-2, "DATOS DE", 8.5, "f-paper", "middle", {"letter-spacing":"0.8"});
+  T(s, cx, cy+10, "LA EMPRESA", 8.5, "f-paper", "middle", {"letter-spacing":"0.8"});
+  T(s, cx, cy + r1 + 16, "CONTROLES", 8.5, "f-acc", "middle", {"letter-spacing":"1.5", "font-weight":"500"});
+  var caps = [["agentes",-135],["automatización",-45],["reportes",45],["asistentes",135]];
+  caps.forEach(function(c){
+    var a = c[1]*Math.PI/180, px = cx + Math.cos(a)*r2, py = cy + Math.sin(a)*r2;
+    E("circle", {cx:px, cy:py, r:4, "class":"f-ink"}, s);
+    T(s, px + (Math.cos(a) > 0 ? 9 : -9), py + 4, c[0], 10, "f-ink", Math.cos(a) > 0 ? "start" : "end");
+  });
+  T(s, 18, 18, "CAPACIDADES", 8.5, "f-muted", "start", {"letter-spacing":"1.5"});
+}
+function drawAgCase(){
+  var s = document.getElementById("ag-case"); if (!s) return;
+  var D = [["Volumen",1,1.55],["Ingresos",1,1.35],["Costos",1,0.7],["Tiempo del equipo",1,1.5]];
+  var base = 240, unit = 100;
+  E("line", {x1:20, y1:base, x2:540, y2:base, "class":"s-ink"}, s);
+  D.forEach(function(d, i){
+    var x = 40 + i*130;
+    E("rect", {x:x, y:base - d[1]*unit, width:34, height:d[1]*unit, "class":"f-rule"}, s);
+    E("rect", {x:x+40, y:base - d[2]*unit, width:34, height:d[2]*unit, "class": d[2] < 1 ? "f-accsoft s-acc" : "f-acc"}, s);
+    T(s, x+57, base - d[2]*unit - 10, d[2] < 1 ? "↓" : "↑", 14, "f-acc", "middle");
+    T(s, x+37, base+20, d[0], 10, "f-ink", "middle", {"font-weight":"500"});
+  });
+  E("rect", {x:350, y:14, width:10, height:10, "class":"f-rule"}, s); T(s, 366, 23, "Hoy", 9, "f-muted");
+  E("rect", {x:410, y:14, width:10, height:10, "class":"f-acc"}, s); T(s, 426, 23, "Con agentes", 9, "f-muted");
+}
+function drawMinis(){
+  var a = document.getElementById("mini-ml");
+  if (a) mlPlan(a, E("g", null, a), {x:12, y:10, w:176, h:105}, {lots:true, contours:10, lotW:9.2});
+  var b = document.getElementById("mini-pc");
+  if (b){ var g = E("g", {transform:"translate(0 14) scale(0.3125)"}, b); pcElevation(g); }
+  var c = document.getElementById("mini-ag");
+  if (c){
+    E("rect", {x:0, y:0, width:200, height:125, "class":"f-agband"}, c);
+    agNetwork(c, 100, 62, 50);
+    [[0,"#"],[60,""],[120,""],[180,""],[240,""],[300,""]].forEach(function(p){ var a2 = p[0]*Math.PI/180; E("line", {x1:100, y1:62, x2:100+Math.cos(a2)*66, y2:62+Math.sin(a2)*48, "class":"s-band-muted", "stroke-opacity":0.6}, c); E("circle", {cx:100+Math.cos(a2)*66, cy:62+Math.sin(a2)*48, r:3, "class":"f-band-ink"}, c); });
+    E("circle", {cx:100, cy:62, r:10, "class":"f-agband s-band-ink", "stroke-width":1.5}, c);
+    E("circle", {cx:100, cy:62, r:3.5, "class":"f-gold"}, c);
+  }
+}
+
+[drawMlHero, drawMlBeforeAfter, drawMlGantt, drawMlStructure, drawMlParcel, drawPcHero, drawPcSitePlan, drawPcPhases, drawPcAlliance, drawPcBridge, drawHeat, drawAgHero, drawAgFlow, drawAgMaturity, drawAgRings, drawAgCase, drawMinis].forEach(function(f){
+  try { f(); } catch(e){ if (window.console) console.error(f.name, e); }
+});
+show(location.hash.slice(1), true);
+})();
+</script>
+
+</body></html>

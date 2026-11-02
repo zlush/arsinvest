@@ -174,7 +174,6 @@ Ninguna transición usa `linear` ni `ease-in-out`: ningún objeto físico se mue
 |---|---|---|
 | `ease-salida` | `cubic-bezier(0.22, 1, 0.36, 1)` | Revelados y entradas. Arranca rápido y frena largo. |
 | `ease-suave` | `cubic-bezier(0.32, 0.72, 0, 1)` | Cambios de estado: hover, header, overlays. |
-| `ease-resorte` | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Micro-rebote, solo en elementos de menos de 40px. |
 
 ### Los cinco patrones, y ninguno más
 
@@ -317,3 +316,22 @@ Extraídos del sitio publicado. Los marcados **[validar]** requieren confirmaci�
 | Arturo Ready Salamé | Fundador y accionista mayoritario · Ingeniero Comercial · +30 años en banca e inversión · arturo@arsinvest.cl · +56 9 4253 4825 |
 | Felipe Vergara Moll | Socio · Ingeniero Comercial UDP, Máster en Dirección Financiera UAI · +30 años en el sector financiero · felipe@arsinvest.cl · +56 9 9324 6580 |
 | Cifras de trayectoria | 11 fondos inmobiliarios administrados · USD 23M en activos · USD 280M en ventas acumuladas · USD 25M de EBITDA consolidado — **[validar alcance y fecha de corte: son cifras de la carrera de Arturo, no de ARS Invest como firma]** |
+
+---
+
+## 12. Verity, dentro de arsinvest.cl
+
+Verity es una sociedad vinculada a ARS Invest con tres líneas: Macrolotes, Power Center y Agentización Empresarial (operada con la marca Cardus). Vive en `/verity` con su propia identidad, tomada de *Verity — Identidad de marca* ([docs/verity/Verity-Identidad-de-marca.pdf](verity/Verity-Identidad-de-marca.pdf)). El menú, el pie y el formulario siguen siendo de ARS.
+
+| Rol | Token | Hex | Contraste |
+|---|---|---|---|
+| Fondo oscuro | `verity-tinta` | `#0B1622` | piedra encima: 15.95:1 |
+| Superficie oscura | `verity-profundo` | `#13293D` | piedra encima: 13.02:1 · sobre blanco: 14.87:1 |
+| Acento | `verity-bronce` | `#C2A26B` | sobre tinta: 7.53:1 · sobre profundo: 6.14:1 · **sobre blanco: 2.42:1, solo formas** |
+| Texto claro | `verity-piedra` | `#EEF0F2` | — |
+
+- **El bronce es texto solo sobre fondo oscuro.** Sobre blanco no alcanza ni el 3:1; ahí es filete, marcador o forma. El "Bronce texto" del manual (`#9C7B45`) da 3.94:1 sobre blanco: tampoco sirve para texto chico, por eso no se agregó como token.
+- **Títulos en Marcellus** (`font-verity`, un solo peso). El texto corrido sigue en Inter, igual que el resto del sitio.
+- **Sin colores por línea.** La propuesta web de Arturo usaba verde, naranjo y petróleo; sumados al azul de ARS y al bronce eran demasiados. Las líneas se distinguen por número e ilustración.
+- **Logo:** reconstruido en SVG desde el PPTX oficial (`src/components/VerityMarca.jsx`). Brazo izquierdo = capital, brazo derecho en bronce = inteligencia, línea de nivel = la verdad.
+- **Ilustraciones:** las de la propuesta de Arturo, recoloreadas a esta paleta (`src/assets/verity/`).

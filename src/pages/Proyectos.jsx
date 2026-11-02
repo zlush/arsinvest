@@ -59,6 +59,8 @@ export default function Proyectos() {
           </p>
         </div>
 
+        {/* Las fichas son h3: sin este h2 el esquema salta del h1 al h3. */}
+        <h2 className="sr-only">Listado de proyectos</h2>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {visibles.map((proyecto) => (
             <ProyectoCard key={proyecto.slug} proyecto={proyecto} />

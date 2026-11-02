@@ -45,7 +45,8 @@ export default function Inicio() {
                 anterior. El ojo sigue el orden de lectura en vez de recibir
                 la pantalla entera de golpe. */}
             <Revelar>
-              <p className="etiqueta text-azul-400">Inversión en desarrollo inmobiliario</p>
+              {/* azul-400 sobre azul-900 da 3.9:1: en texto no alcanza AA. */}
+              <p className="etiqueta text-azul-100">Inversión en desarrollo inmobiliario</p>
             </Revelar>
             <Revelar retraso={90}>
               <h1 className="mt-6 text-white">{portada.titulo}</h1>
@@ -129,7 +130,7 @@ export default function Inicio() {
                 i === comoTrabajamos.length - 1 ? 'sm:col-span-2' : ''
               }`}
             >
-              <p className="cifra text-[15px] text-azul-400 transition-transform duration-500 ease-resorte group-hover:-translate-y-0.5 motion-reduce:transition-none">
+              <p className="cifra text-[15px] text-azul-500 transition-transform duration-500 ease-suave group-hover:-translate-y-0.5 motion-reduce:transition-none">
                 {paso.paso}
               </p>
               <h3 className="mt-4 text-[1.05rem]">{paso.titulo}</h3>

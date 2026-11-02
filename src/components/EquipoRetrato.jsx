@@ -58,7 +58,7 @@ export default function EquipoRetrato({ persona, alcance, invertido = false }) {
             </div>
             {/* El alcance va pegado a la cifra, no en una nota al pie que nadie
                 lee. Brand kit §2: toda cifra con su alcance. */}
-            <p className="mt-5 border-l-2 border-azul-400 pl-4 text-[13px] leading-relaxed text-gris-500">
+            <p className="mt-5 max-w-md border-l-2 border-azul-400 pl-4 text-[13px] leading-relaxed text-gris-500">
               {alcance}
             </p>
           </>

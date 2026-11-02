@@ -84,7 +84,7 @@ Tres cosas más que costaron encontrar y no hay que volver a romper:
   `reducedMotionMediaQuery`.
 
 El lenguaje de movimiento está definido en **[docs/brand-kit.md §6](docs/brand-kit.md)**:
-cuatro patrones, tres curvas propias, y la regla de que nada rebote, gire ni
+cuatro patrones, dos curvas propias, y la regla de que nada rebote, gire ni
 llame la atención sobre sí mismo. Dos cosas que no se negocian:
 
 - **Solo `transform` y `opacity`.** La única excepción es el alto del header,

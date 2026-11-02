@@ -16,6 +16,7 @@ export const navegacion = [
   { texto: 'Quiénes somos', ruta: '/quienes-somos' },
   { texto: 'Proyectos', ruta: '/proyectos' },
   { texto: 'Actualidad inmobiliaria', ruta: '/actualidad-inmobiliaria' },
+  { texto: 'Verity', ruta: '/verity' },
 ]
 
 export const portada = {
@@ -98,5 +99,6 @@ export const motivosContacto = [
   { valor: 'inversionista', texto: 'Soy inversionista' },
   { valor: 'propietario', texto: 'Soy propietario de un terreno' },
   { valor: 'constructora', texto: 'Represento a una constructora' },
+  { valor: 'verity', texto: 'Quiero conversar sobre Verity' },
   { valor: 'otra', texto: 'Otra consulta' },
 ]

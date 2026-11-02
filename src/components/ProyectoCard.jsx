@@ -20,7 +20,7 @@ export default function ProyectoCard({ proyecto }) {
           </>
         ) : (
           <div className="flex h-full items-center justify-center">
-            <span className="etiqueta text-azul-500">Imagen en validación</span>
+            <span className="etiqueta text-azul-600">Imagen en validación</span>
           </div>
         )}
       </div>

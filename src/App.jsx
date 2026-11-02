@@ -10,6 +10,8 @@ import ProyectoDetalle from './pages/ProyectoDetalle.jsx'
 import Actualidad from './pages/Actualidad.jsx'
 import ArticuloDetalle from './pages/ArticuloDetalle.jsx'
 import Contacto from './pages/Contacto.jsx'
+import Verity from './pages/Verity.jsx'
+import VerityLinea from './pages/VerityLinea.jsx'
 import NoEncontrado from './pages/NoEncontrado.jsx'
 
 function AlCambiarDeRuta({ lenis }) {
@@ -39,6 +41,8 @@ export default function App() {
           <Route path="/actualidad-inmobiliaria" element={<Actualidad />} />
           <Route path="/actualidad-inmobiliaria/:slug" element={<ArticuloDetalle />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/verity" element={<Verity />} />
+          <Route path="/verity/:linea" element={<VerityLinea />} />
 
           {/* Rutas del sitio anterior. Se conservan como redirección para no
               perder lo ya indexado por buscadores. */}

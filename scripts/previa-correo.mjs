@@ -17,7 +17,9 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 const RAIZ = join(dirname(fileURLToPath(import.meta.url)), '..')
-const TEMPORAL = join(RAIZ, '_previa_tmp.mjs')
+// El temporal vive en api/ y no en la raiz: si no, los imports relativos del
+// handler (../src/content/...) resuelven un nivel mas arriba y fallan.
+const TEMPORAL = join(RAIZ, 'api', '_previa_tmp.mjs')
 
 const fuente = readFileSync(join(RAIZ, 'api/contacto.js'), 'utf8').replace(
   "import nodemailer from 'nodemailer'",

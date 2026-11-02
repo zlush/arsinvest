@@ -22,6 +22,13 @@ export default {
           200: '#DDE3E8',
         },
         niebla: '#F5F7F9',
+        // Identidad de Verity (docs/brand-kit.md §11). Solo en /verity.
+        verity: {
+          tinta: '#0B1622',
+          profundo: '#13293D',
+          bronce: '#C2A26B',
+          piedra: '#EEF0F2',
+        },
         estado: {
           ejecucion: '#0094C5',
           finalizado: '#2E7D5B',
@@ -31,6 +38,7 @@ export default {
       fontFamily: {
         titulo: ['Archivo', 'system-ui', 'sans-serif'],
         texto: ['Inter', 'system-ui', 'sans-serif'],
+        verity: ['Marcellus', 'Georgia', 'serif'],
       },
       letterSpacing: {
         etiqueta: '0.08em',
@@ -40,7 +48,6 @@ export default {
       transitionTimingFunction: {
         salida: 'cubic-bezier(0.22, 1, 0.36, 1)', // revelados y entradas
         suave: 'cubic-bezier(0.32, 0.72, 0, 1)', // cambios de estado
-        resorte: 'cubic-bezier(0.34, 1.56, 0.64, 1)', // micro-rebote
       },
       maxWidth: {
         contenido: '72rem',

@@ -9,6 +9,7 @@
 
 import { proyectos } from './proyectos.js'
 import { articulos } from './articulos/index.js'
+import { lineas, portadaVerity } from './verity.js'
 
 const ESTATICAS = [
   {
@@ -48,6 +49,21 @@ const ESTATICAS = [
   },
 ]
 
+const DE_VERITY = [
+  {
+    ruta: '/verity',
+    titulo: 'Verity — Macrolotes, power centers y agentización empresarial',
+    descripcion: portadaVerity.bajada,
+    prioridad: '0.8',
+  },
+  ...lineas.map((l) => ({
+    ruta: `/verity/${l.slug}`,
+    titulo: `${l.nombre} — Verity`,
+    descripcion: l.resumen,
+    prioridad: '0.7',
+  })),
+]
+
 const DE_PROYECTOS = proyectos.map((p) => ({
   ruta: `/proyectos/${p.slug}`,
   titulo: `${p.nombre} — ARS Invest`,
@@ -66,7 +82,7 @@ const DE_ARTICULOS = articulos.map((a) => ({
   prioridad: '0.6',
 }))
 
-export const RUTAS = [...ESTATICAS, ...DE_PROYECTOS, ...DE_ARTICULOS]
+export const RUTAS = [...ESTATICAS, ...DE_VERITY, ...DE_PROYECTOS, ...DE_ARTICULOS]
 
 export function metaDe(ruta) {
   return RUTAS.find((r) => r.ruta === ruta)

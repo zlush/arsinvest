@@ -1,4 +1,22 @@
 import nodemailer from 'nodemailer'
+import { contacto, direccionCompleta } from '../src/content/contacto.js'
+
+/** Dominio del sitio, para los enlaces del acuse. */
+const SITIO = (process.env.VITE_SITIO || 'https://arsinvest.cl').replace(/\/$/, '')
+
+/**
+ * Datos de contacto de ARS que van en el pie del acuse.
+ *
+ * Se importan de src/content/contacto.js en vez de repetirse acá: es el mismo
+ * dato que muestra la página de contacto, y tenerlo en dos lugares garantiza
+ * que un día digan cosas distintas.
+ */
+const contactoArs = {
+  correo: contacto.correo,
+  telefono: contacto.telefono,
+  telefonoEnlace: contacto.telefonoEnlace,
+  direccion: direccionCompleta,
+}
 
 /**
  * Recepción de consultas del formulario. Envía dos correos: el aviso interno a
@@ -18,6 +36,7 @@ const MOTIVOS = {
   inversionista: 'Inversionista',
   propietario: 'Propietario de terreno',
   constructora: 'Constructora',
+  verity: 'Verity',
   otra: 'Otra consulta',
 }
 
@@ -218,33 +237,141 @@ export default async function handler(req, res) {
 </body>
 </html>`
 
+  // Solo el nombre de pila: "Estimado/a María Fernanda Errázuriz" se lee a
+  // plantilla. Si el campo trae una sola palabra, queda igual.
+  const nombrePila = nombre.trim().split(/\s+/)[0]
+
   const acuseTexto = [
-    `Estimado/a ${nombre},`,
+    `Estimada/o ${nombrePila},`,
     '',
-    'Recibimos su consulta y le responderemos a la brevedad.',
+    'Gracias por escribirnos. Su consulta quedó registrada y la revisará una',
+    'persona del equipo: en ARS Invest atendemos personalmente a quienes nos',
+    'contactan.',
     '',
-    'Su mensaje:',
+    'Esto fue lo que nos envió:',
+    '',
     mensaje,
     '',
+    'Si quiere agregar algo, puede responder directamente a este correo.',
+    '',
+    'Mientras tanto, puede revisar los proyectos en los que participamos:',
+    `${SITIO}/proyectos`,
+    '',
+    '---',
     'ARS Invest',
     'Estructuramos inversiones para desarrollar proyectos inmobiliarios en Chile.',
+    `${contactoArs.telefono} · ${contactoArs.correo}`,
+    contactoArs.direccion,
   ].join('\n')
 
-  const acuseHtml = `
-    <div style="font-family:Arial,Helvetica,sans-serif;color:#1B1F24;line-height:1.6">
-      <p style="font-size:15px;margin:0 0 16px">Estimado/a ${escapar(nombre)},</p>
-      <p style="font-size:15px;margin:0 0 16px">
-        Recibimos su consulta y le responderemos a la brevedad.
+  /**
+   * Acuse al visitante.
+   *
+   * Comparte el sistema visual del aviso interno pero no su estructura: aquel
+   * existe para actuar sobre el lead, este para dar confianza. Por eso acá no
+   * hay botones de acción sino qué pasa después, y el cierre lleva los datos
+   * de la firma en vez de un pie técnico.
+   *
+   * Es el primer contacto de un inversionista con ARS. Vale lo mismo que la
+   * portada del sitio.
+   */
+  const acuseHtml = `<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<title>Recibimos su consulta</title>
+</head>
+<body style="margin:0;padding:0;background:#F5F7F9;">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">
+  Su consulta quedó registrada. La revisará una persona del equipo de ARS Invest.
+</div>
+
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#F5F7F9;">
+<tr><td align="center" style="padding:24px 12px;">
+
+<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:100%;max-width:600px;background:#FFFFFF;border-radius:12px;overflow:hidden;font-family:Arial,Helvetica,sans-serif;">
+
+  <tr>
+    <td style="background:#003057;padding:22px 28px;">
+      <span style="color:#FFFFFF;font-size:15px;font-weight:bold;letter-spacing:.04em;">ARS INVEST</span>
+      <span style="color:#7FC4E0;font-size:11px;letter-spacing:.12em;text-transform:uppercase;float:right;padding-top:4px;">Inversiones inmobiliarias</span>
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding:30px 28px 0 28px;">
+      <p style="margin:0 0 18px;font-size:21px;line-height:1.35;color:#004582;font-weight:bold;">
+        Estimada/o ${escapar(nombrePila)}, recibimos su consulta.
       </p>
-      <div style="border-left:2px solid #0094C5;padding:4px 0 4px 16px;margin:0 0 24px">
-        <p style="margin:0;white-space:pre-wrap;font-size:15px;color:#545454">${escapar(mensaje)}</p>
-      </div>
-      <p style="margin:0;font-size:15px;color:#004582;font-weight:bold">ARS Invest</p>
-      <p style="margin:4px 0 0;font-size:13px;color:#6B7075">
-        Estructuramos inversiones para desarrollar proyectos inmobiliarios en Chile.
+      <p style="margin:0;font-size:15px;line-height:1.7;color:#1B1F24;">
+        Gracias por escribirnos. Su consulta quedó registrada y la revisará una
+        persona del equipo: en ARS Invest atendemos personalmente a quienes nos
+        contactan.
       </p>
-    </div>
-  `
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding:26px 28px 0 28px;">
+      <p style="margin:0 0 10px;font-size:12px;color:#6B7075;text-transform:uppercase;letter-spacing:.06em;">Esto fue lo que nos envió</p>
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#F5F7F9;border-radius:8px;">
+        <tr><td style="padding:16px 18px;border-left:3px solid #0094C5;border-radius:8px;">
+          <p style="margin:0;font-size:15px;line-height:1.65;color:#545454;white-space:pre-wrap;">${escapar(mensaje)}</p>
+        </td></tr>
+      </table>
+      <p style="margin:12px 0 0;font-size:13px;color:#6B7075;">
+        Si quiere agregar algo, puede responder directamente a este correo.
+      </p>
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding:26px 28px 0 28px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#E3F1F8;border-radius:8px;">
+        <tr><td style="padding:18px 20px;">
+          <p style="margin:0 0 6px;font-size:12px;color:#00618F;text-transform:uppercase;letter-spacing:.06em;font-weight:bold;">Mientras tanto</p>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#1B1F24;">
+            Puede revisar los proyectos en los que participamos, con su ubicación,
+            escala y el rol que cumplimos en cada uno:
+            <a href="${SITIO}/proyectos" style="color:#00618F;font-weight:bold;">Ver proyectos</a>
+          </p>
+        </td></tr>
+      </table>
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding:28px 28px 28px 28px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+        <tr><td style="padding-top:20px;border-top:2px solid #004582;">
+          <p style="margin:0;font-size:16px;font-weight:bold;color:#004582;">ARS Invest</p>
+          <p style="margin:5px 0 0;font-size:13px;line-height:1.6;color:#6B7075;">
+            Estructuramos inversiones para desarrollar proyectos inmobiliarios en Chile.
+          </p>
+          <p style="margin:12px 0 0;font-size:13px;line-height:1.7;color:#6B7075;">
+            <a href="tel:${escapar(contactoArs.telefonoEnlace)}" style="color:#00618F;text-decoration:none;">${escapar(contactoArs.telefono)}</a>
+            <span style="color:#C3CBD2;">&nbsp;·&nbsp;</span>
+            <a href="mailto:${escapar(contactoArs.correo)}" style="color:#00618F;text-decoration:none;">${escapar(contactoArs.correo)}</a>
+            <br>${escapar(contactoArs.direccion)}
+          </p>
+        </td></tr>
+      </table>
+    </td>
+  </tr>
+
+</table>
+
+<p style="margin:16px 0 0;font-size:11px;color:#98A1A8;font-family:Arial,Helvetica,sans-serif;">
+  Recibió este correo porque envió una consulta en ${SITIO.replace(/^https?:\/\//, '')}
+</p>
+
+</td></tr>
+</table>
+</body>
+</html>`
 
   try {
     await transporte.sendMail({
@@ -260,6 +387,10 @@ export default async function handler(req, res) {
       from: `ARS Invest <${SMTP_USER}>`,
       to: correo,
       subject: 'Recibimos su consulta — ARS Invest',
+      // Sin esto, responder el acuse llegaba a la casilla de la agencia que
+      // envía por SMTP, no a ARS. Un inversionista que contesta este correo
+      // tiene que llegarle al cliente.
+      replyTo: CONTACTO_DESTINO,
       text: acuseTexto,
       html: acuseHtml,
     })
