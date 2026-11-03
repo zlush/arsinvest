@@ -3,7 +3,7 @@
 ## 2026-11-02 — Alfredo Grossi en el equipo
 - Hecho: Alfredo Grossi agregado como tercer integrante en [src/content/equipo.js](../src/content/equipo.js), con foto en `public/img/equipo/alfredo.webp` (600×900, 30 KB). Aparece en la portada y en /quienes-somos. El perfil viene de cardus.cl/nosotros. [src/components/EquipoRetrato.jsx](../src/components/EquipoRetrato.jsx) ahora muestra correo y teléfono solo si existen.
 - Verificado: tests 6/6 y build de 25 rutas. En el HTML prerenderizado de / y /quienes-somos. Sin scroll horizontal a 1440 ni a 390px y sin errores de consola.
-- Pendiente (Alfredo): confirmar el cargo en ARS ("Socio · Agentización empresarial"), el correo y el teléfono, y si va también entre los socios de contacto de Verity. Commit y deploy.
+- Pendiente (Alfredo): confirmar el cargo en ARS ("Socio · Agentización empresarial"), el correo y el teléfono, y si va también entre los socios de contacto de Verity. Commit `2693b43` hecho; falta deploy y push.
 
 ## 2026-11-02 — Verity publicada en Vercel
 - Hecho: commit `5a830df` en `main` (sección Verity, arreglos de accesibilidad y acuse rediseñado del formulario) y deploy a producción de Vercel: https://ars-invest-site.vercel.app/verity
