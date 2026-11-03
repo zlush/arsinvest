@@ -3,7 +3,7 @@
 ## 2026-11-03 — Fuera los correos y celulares personales de Felipe y Arturo
 - Hecho: retirados `arturo@` / `felipe@arsinvest.cl` y sus celulares de [src/content/equipo.js](../src/content/equipo.js) (/quienes-somos) y de `socios` en [src/content/verity.js](../src/content/verity.js) (cierre de las páginas de Verity, que ahora muestra solo los nombres). El contacto queda en el formulario y el correo general de [src/content/contacto.js](../src/content/contacto.js). El test del formulario ya no usa el celular de Arturo.
 - Decisión (Alfredo): quitarlos del sitio.
-- Verificado: tests 6/6, build de 25 rutas y ninguna coincidencia de esos correos ni números en `src/`, `api/` ni `dist/`. Deploy y verificación en vivo en la entrada siguiente del commit.
+- Verificado: tests 6/6, build de 25 rutas y ninguna coincidencia de esos correos ni números en `src/`, `api/` ni `dist/`. Commit `8874f39`, publicado en Vercel y subido a GitHub; en vivo, 0 coincidencias en /, /quienes-somos, /contacto y las cuatro páginas de Verity.
 - Pendiente: los datos siguen en documentos internos de `docs/` (no publicados) y en caché de buscadores si alguna vez se indexó la versión de Vercel (el sitio tiene `noindex`).
 
 ## 2026-11-02 — Alfredo Grossi en el equipo
