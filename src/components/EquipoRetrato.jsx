@@ -64,19 +64,23 @@ export default function EquipoRetrato({ persona, alcance, invertido = false }) {
           </>
         )}
 
-        <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-[15px]">
-          <a href={`mailto:${persona.correo}`} className="enlace-flecha">
-            <Mail className="h-4 w-4 text-azul-400" aria-hidden="true" />
-            {persona.correo}
-          </a>
-          <a
-            href={`tel:${persona.telefono.replace(/\s/g, '')}`}
-            className="inline-flex items-center gap-2 text-tinta/80 transition-colors duration-300 hover:text-azul-600"
-          >
-            <Phone className="h-4 w-4 text-azul-400" aria-hidden="true" />
-            {persona.telefono}
-          </a>
-        </div>
+        {persona.correo && (
+          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 text-[15px]">
+            <a href={`mailto:${persona.correo}`} className="enlace-flecha">
+              <Mail className="h-4 w-4 text-azul-400" aria-hidden="true" />
+              {persona.correo}
+            </a>
+            {persona.telefono && (
+              <a
+                href={`tel:${persona.telefono.replace(/\s/g, '')}`}
+                className="inline-flex items-center gap-2 text-tinta/80 transition-colors duration-300 hover:text-azul-600"
+              >
+                <Phone className="h-4 w-4 text-azul-400" aria-hidden="true" />
+                {persona.telefono}
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </Revelar>
   )

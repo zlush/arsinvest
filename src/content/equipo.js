@@ -36,6 +36,17 @@ export const equipo = [
     correo: 'felipe@arsinvest.cl',
     telefono: '+56 9 9324 6580',
   },
+  /* Fuente: cardus.cl/nosotros (src/content/nosotros.js de cardus-site). Sin
+     correo ni teléfono de ARS: no hay uno confirmado para él. */
+  {
+    slug: 'alfredo-grossi',
+    nombre: 'Alfredo Grossi',
+    cargo: 'Socio · Agentización empresarial',
+    foto: '/img/equipo/alfredo.webp',
+    formacion: 'Ex LATAM Brasil · Chilexpress · Falabella · Millicom Panamá',
+    bio: 'Socio y CEO de Cardus, la firma que opera la línea de agentización empresarial de Verity. Doce años dirigiendo revenue management, pricing y analítica en aerolíneas, logística, retail y telecomunicaciones, en Chile y fuera de él. Ha implementado inteligencia artificial y automatización en más de 40 empresas de 9 países.',
+    trayectoria: [],
+  },
 ]
 
 /** Alcance y fecha de corte de toda cifra publicada. Brand kit §2. */
