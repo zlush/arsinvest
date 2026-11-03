@@ -83,15 +83,9 @@ export const publicos = {
 export const socios = [
   {
     nombre: 'Felipe Vergara Moll',
-    correo: 'felipe@arsinvest.cl',
-    telefono: '+56 9 9324 6580',
-    telefonoEnlace: '+56993246580',
   },
   {
     nombre: 'Arturo Ready Salamé',
-    correo: 'arturo@arsinvest.cl',
-    telefono: '+56 9 4253 4825',
-    telefonoEnlace: '+56942534825',
   },
 ]
 

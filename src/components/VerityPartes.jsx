@@ -85,17 +85,8 @@ export function VerityCierre({ extra }) {
           <Revelar retraso={120}>
             <ul className="divide-y divide-white/10 border-y border-white/10">
               {socios.map((s) => (
-                <li key={s.correo} className="py-5">
+                <li key={s.nombre} className="py-5">
                   <p className="font-texto font-semibold text-verity-piedra">{s.nombre}</p>
-                  <p className="mt-1 text-[15px] text-verity-piedra/80">
-                    <a href={`mailto:${s.correo}`} className="hover:text-white">
-                      {s.correo}
-                    </a>
-                    <span aria-hidden="true"> · </span>
-                    <a href={`tel:${s.telefonoEnlace}`} className="hover:text-white">
-                      {s.telefono}
-                    </a>
-                  </p>
                 </li>
               ))}
             </ul>

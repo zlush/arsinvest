@@ -29,7 +29,7 @@ describe('validar formulario de contacto', () => {
 
   it('solo valida el teléfono si trae contenido', () => {
     expect(validar({ ...VALIDO, telefono: '123' }).telefono).toBeDefined()
-    expect(validar({ ...VALIDO, telefono: '+56 9 4253 4825' }).telefono).toBeUndefined()
+    expect(validar({ ...VALIDO, telefono: '+56 9 1234 5678' }).telefono).toBeUndefined()
   })
 })
 

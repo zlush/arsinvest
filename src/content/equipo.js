@@ -6,6 +6,9 @@
  * Por eso viven dentro de su biografía y no en un contador de portada:
  * publicarlas como logro institucional es exactamente la cifra indefendible
  * que la evaluación pidió evitar. Pendiente #1.
+ *
+ * Sin correos ni celulares personales: el contacto va por el formulario y
+ * el correo general (content/contacto.js).
  */
 
 export const equipo = [
@@ -21,8 +24,6 @@ export const equipo = [
       { cifra: 'USD 280M', unidad: 'en ventas acumuladas' },
       { cifra: 'USD 25M', unidad: 'de EBITDA consolidado' },
     ],
-    correo: 'arturo@arsinvest.cl',
-    telefono: '+56 9 4253 4825',
   },
   {
     slug: 'felipe-vergara-moll',
@@ -33,11 +34,8 @@ export const equipo = [
       'Ingeniero Comercial, Universidad Diego Portales · Máster en Dirección Financiera, Universidad Adolfo Ibáñez',
     bio: 'Más de treinta años en el sector financiero, especializado en inversiones, tesorería y mesa de dinero. Ha trabajado en Tanner Servicios Financieros, Banco BCI, Banmerchant Capital y Banco Santander.',
     trayectoria: [],
-    correo: 'felipe@arsinvest.cl',
-    telefono: '+56 9 9324 6580',
   },
-  /* Fuente: cardus.cl/nosotros (src/content/nosotros.js de cardus-site). Sin
-     correo ni teléfono de ARS: no hay uno confirmado para él. */
+  /* Fuente: cardus.cl/nosotros (src/content/nosotros.js de cardus-site). */
   {
     slug: 'alfredo-grossi',
     nombre: 'Alfredo Grossi',

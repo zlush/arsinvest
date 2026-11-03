@@ -1,5 +1,11 @@
 # Bitácora — ARS Invest (arsinvest.cl)
 
+## 2026-11-03 — Fuera los correos y celulares personales de Felipe y Arturo
+- Hecho: retirados `arturo@` / `felipe@arsinvest.cl` y sus celulares de [src/content/equipo.js](../src/content/equipo.js) (/quienes-somos) y de `socios` en [src/content/verity.js](../src/content/verity.js) (cierre de las páginas de Verity, que ahora muestra solo los nombres). El contacto queda en el formulario y el correo general de [src/content/contacto.js](../src/content/contacto.js). El test del formulario ya no usa el celular de Arturo.
+- Decisión (Alfredo): quitarlos del sitio.
+- Verificado: tests 6/6, build de 25 rutas y ninguna coincidencia de esos correos ni números en `src/`, `api/` ni `dist/`. Deploy y verificación en vivo en la entrada siguiente del commit.
+- Pendiente: los datos siguen en documentos internos de `docs/` (no publicados) y en caché de buscadores si alguna vez se indexó la versión de Vercel (el sitio tiene `noindex`).
+
 ## 2026-11-02 — Alfredo Grossi en el equipo
 - Hecho: Alfredo Grossi agregado como tercer integrante en [src/content/equipo.js](../src/content/equipo.js), con foto en `public/img/equipo/alfredo.webp` (600×900, 30 KB). Aparece en la portada y en /quienes-somos. El perfil viene de cardus.cl/nosotros. [src/components/EquipoRetrato.jsx](../src/components/EquipoRetrato.jsx) ahora muestra correo y teléfono solo si existen.
 - Verificado: tests 6/6 y build de 25 rutas. En el HTML prerenderizado de / y /quienes-somos. Sin scroll horizontal a 1440 ni a 390px y sin errores de consola.
