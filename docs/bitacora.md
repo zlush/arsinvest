@@ -1,5 +1,19 @@
 # Bitácora — ARS Invest (arsinvest.cl)
 
+## 2026-11-13 — Sitio nuevo publicado en arsinvest.cl
+- Hecho: en el Zone Editor del cPanel (cuenta en int14.cpanelhost.cl, clave nueva entregada por Alfredo), `A` de `arsinvest.cl` pasó de 138.117.148.164 a `76.76.21.21` y `CNAME` de `www` de `arsinvest.cl` a `cname.vercel-dns.com`, ambos con TTL 3600. El resto de la zona no se tocó: MX de Google, DKIM, SPF, `mail`, `cpanel`, `webmail` y `ftp`. Antes del cambio se guardó un respaldo de la zona fuera del repo, en el scratchpad de la sesión.
+- Hecho: `noindex` retirado de [vercel.json](../vercel.json) y `VITE_SITIO=https://arsinvest.cl` definido en Vercel (Production). Deploy a producción con alias en arsinvest.cl.
+- Verificado: Vercel da los dos dominios como bien configurados. https://arsinvest.cl, www, /quienes-somos, /verity y /contacto responden 200 con certificado válido, y http redirige a https (308). robots.txt dice `Allow` con sitemap, el canonical apunta a arsinvest.cl y no hay `X-Robots-Tag`. El DNS de Google ya resuelve la IP nueva, los 5 MX siguen y cpanel.arsinvest.cl responde.
+- Pendiente: probar el formulario de contacto con un envío real (no se hizo para no mandar correo a Patricia sin aviso). Los puntos de [pendientes-validacion.md](pendientes-validacion.md) se publicaron abiertos, con autorización de Alfredo. Para volver atrás, `A` a 138.117.148.164 en el Zone Editor. La clave del cPanel pasó por el chat: cambiarla.
+
+## 2026-11-09 — Diagnóstico para publicar en arsinvest.cl
+- Hecho: revisión de solo lectura (whois de NIC Chile, DNS público, configuración de Vercel). No se tocó cPanel, DNS ni Vercel.
+- Hallazgo: los nameservers son `ns1/ns2.cpanelhost.cl`, así que los registros se editan en el Zone Editor del cPanel y no hace falta la clave de NIC Chile. El correo está en Google (MX) y no depende del registro A. Titular del dominio: administradora proyeccion rentas inmobiliarias spa; vence el 03-07-2027.
+- Hallazgo: para abrir el sitio hay que agregar el dominio en Vercel, cambiar `A` de la raíz y `www`, definir `VITE_SITIO` y quitar el `X-Robots-Tag: noindex` de [vercel.json](../vercel.json).
+- Hecho: Alfredo autorizó publicar con los puntos de [pendientes-validacion.md](pendientes-validacion.md) abiertos. `arsinvest.cl` y `www.arsinvest.cl` agregados al proyecto en Vercel (verificados; falta el DNS). Sin cambios en cPanel: el acceso automatizado con la clave fue bloqueado por el control de permisos antes de iniciar sesión.
+- Hallazgo (2026-11-11): la cuenta no está en `ap9.cpanelhost.cl` (no responde: 190.107.177.59) sino en `int14.cpanelhost.cl` (138.117.148.164). Funcionan `https://cpanel.arsinvest.cl` y `https://int14.cpanelhost.cl:2083`. `cpanel`, `webmail`, `mail` y `ftp` tienen registros `A` propios, así que no se caen al cambiar la raíz.
+- Pendiente (Alfredo): en Zone Editor, registro `A` de `arsinvest.cl` a `76.76.21.21` y `CNAME` de `www` a `cname.vercel-dns.com`. Después: `VITE_SITIO`, quitar `noindex`, deploy y verificación en vivo. Cambiar la clave del cPanel: circuló por WhatsApp y por el chat.
+
 ## 2026-11-03 — Fuera los correos y celulares personales de Felipe y Arturo
 - Hecho: retirados `arturo@` / `felipe@arsinvest.cl` y sus celulares de [src/content/equipo.js](../src/content/equipo.js) (/quienes-somos) y de `socios` en [src/content/verity.js](../src/content/verity.js) (cierre de las páginas de Verity, que ahora muestra solo los nombres). El contacto queda en el formulario y el correo general de [src/content/contacto.js](../src/content/contacto.js). El test del formulario ya no usa el celular de Arturo.
 - Decisión (Alfredo): quitarlos del sitio.
